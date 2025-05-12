@@ -1,5 +1,23 @@
 [
   {
+    "layer": "top",
+    "margin": "0",
+    "position": "top",
+    "gtk-layer-shell": true,
+    "modules-left": [
+      "custom/launcher",
+      "hyprland/workspaces",
+      "custom/spotify"
+    ],
+    "modules-center": [],
+    "modules-right": [
+      "tray",
+      "bluetooth",
+      "network",
+      "pulseaudio",
+      "clock",
+      "custom/power-menu"
+    ],
     "bluetooth": {
       "format": "",
       "on-click": "blueberry",
@@ -34,7 +52,7 @@
       "on-click": ""
     },
     "custom/launcher": {
-      "format": "",
+      "format": "",
       "on-click": "hyprctl dispatch exec 'rofi -show'",
       "tooltip": false
     },
@@ -44,7 +62,7 @@
       "tooltip": false
     },
     "custom/spotify": {
-      "exec": "spotifyWaybar",
+      "exec": "~/.config/waybar/scripts/spotify-waybar.sh",
       "exec-if": "pgrep spotify",
       "format": "  {}",
       "on-click": "playerctl --player=spotify play-pause",
@@ -53,13 +71,6 @@
       "on-scroll-up": "playerctl --player=spotify next",
       "tooltip": false
     },
-    "custom/wireguard": {
-      "format": "󰦝",
-      "on-click": "wireguardWaybar status",
-      "on-click-right": "wireguardWaybar toggle",
-      "tooltip": false
-    },
-    "gtk-layer-shell": true,
     "hyprland/window": {
       "max-length": 100,
       "seperate-outputs": true
@@ -70,7 +81,6 @@
       "format": "{icon}",
       "format-icons": {
         "1": "",
-        "10": "",
         "2": "",
         "3": "",
         "4": " |",
@@ -78,37 +88,20 @@
         "6": "",
         "7": "",
         "8": "",
-        "9": ""
+        "9": "",
+        "10": ""
       },
       "on-click": "activate",
       "on-scroll-down": "hyprctl dispatch workspace +1",
       "on-scroll-up": "hyprctl dispatch workspace -1",
       "sort-by-number": true
     },
-    "layer": "top",
-    "margin": "0",
     "memory": {
       "format": " {used:0.1f}GB",
       "format-alt": "  {}%",
       "interval": 5,
       "max-length": 10
     },
-    "modules-center": [],
-    "modules-left": [
-      "custom/launcher",
-      "custom/updates",
-      "hyprland/workspaces",
-      "custom/spotify"
-    ],
-    "modules-right": [
-      "tray",
-      "bluetooth",
-      "network",
-      "custom/wireguard",
-      "pulseaudio",
-      "clock",
-      "custom/power-menu"
-    ],
     "network": {
       "format-disconnected": "󰖪",
       "format-ethernet": "",
@@ -123,7 +116,6 @@
       "on-click": "hyprctl dispatch exec '[float; tag +nmtui] $TERM -e nmtui'",
       "tooltip-format": "{essid}"
     },
-    "position": "top",
     "pulseaudio": {
       "format": "{icon}",
       "format-icons": {
