@@ -1,0 +1,18 @@
+configuration {
+combi-modi: "drun,run";
+cycle: true;
+display-drun: " Apps";
+display-filebrowser: " Files";
+display-run: " Run";
+display-window: " Windows";
+drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+font: "JetBrainsMono NF 11";
+icon-theme: "Gruvbox-Plus-Dark";
+location: 0;
+modi: "drun,run,window";
+show-icons: true;
+terminal: "/usr/bin/alacritty";
+xoffset: 0;
+yoffset: 0;
+}
+@theme "custom"
