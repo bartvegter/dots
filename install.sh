@@ -76,3 +76,4 @@ fi
 echo ":: Installing packages..."
 paru -Syu --needed "${ALL_PKGS[@]}" -y
 echo ":: Package installation complete"
+echo ":: Run 'systemctl reboot' to boot into the system" && echo
