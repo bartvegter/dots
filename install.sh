@@ -45,7 +45,7 @@ ALL_PKGS=(
 echo ":: Checking for existing installation of paru..."
 if ! command -v paru &>/dev/null; then
   echo ":: Installing paru..."
-  sudo pacman -Syu --needed base-devel git rust
+  sudo pacman -Syu --needed base-devel git rust -y
   git clone https://aur.archlinux.org/paru.git "$HOME/paru"
   pushd "$HOME/paru"
   makepkg -si --noconfirm
