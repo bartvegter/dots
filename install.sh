@@ -24,6 +24,7 @@ BASE_PKGS="\
     reflector
     rofi-emoji\
     rofi-wayland\
+    uwsm\
     waybar\
     wireplumber\
     wl-clip-persist\
