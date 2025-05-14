@@ -4,8 +4,8 @@ set -euo pipefail
 BASE_PKGS=(
   alacritty blueberry cliphist gdm gnome-keyring libnotify linux-lts linux-lts-headers
   grimblast-git hyprland hyprlock hyprpaper hyprpicker hyprpolkitagent mako nmtui
-  pamixer pavucontrol playerctl pipewire qt5-wayland qt6-wayland reflector
-  rofi-emoji rofi-wayland uwsm waybar wireplumber wl-clip-persist wl-clipboard wlogout
+  openssh pamixer pavucontrol playerctl pipewire qt5-wayland qt6-wayland reflector
+  rofi-emoji rofi-wayland uwsm vim waybar wireplumber wl-clip-persist wl-clipboard wlogout
   wlsunset xdg-desktop-portal-gtk xdg-desktop-portal-hyprland
 )
 
@@ -45,7 +45,7 @@ ALL_PKGS=(
 echo ":: Checking for existing installation of paru..."
 if ! command -v paru &>/dev/null; then
   echo ":: Installing paru..."
-  sudo pacman -Syu --needed base-devel git
+  sudo pacman -Syu --needed base-devel git rust
   git clone https://aur.archlinux.org/paru.git "$HOME/paru"
   pushd "$HOME/paru"
   makepkg -si --noconfirm
