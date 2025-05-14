@@ -1,16 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# -----------------------------------------------
-# Package groups as arrays
-# -----------------------------------------------
-
 BASE_PKGS=(
   alacritty blueberry cliphist gdm gnome-keyring libnotify linux-lts linux-lts-headers
   grimblast-git hyprland hyprlock hyprpaper hyprpicker hyprpolkitagent mako nmtui
-  pamixer pavucontrol playerctl pipewire reflector rofi-emoji rofi-wayland uwsm waybar
-  wireplumber wl-clip-persist wl-clipboard wlogout wlsunset xdg-desktop-portal-gtk
-  xdg-desktop-portal-hyprland
+  pamixer pavucontrol playerctl pipewire qt5-wayland qt6-wayland reflector
+  rofi-emoji rofi-wayland uwsm waybar wireplumber wl-clip-persist wl-clipboard wlogout
+  wlsunset xdg-desktop-portal-gtk xdg-desktop-portal-hyprland
 )
 
 THEME_PKGS=(
@@ -23,10 +19,10 @@ DEV_PKGS=(
 )
 
 USER_PKGS=(
-  bat bottles brave-bin btop discord easyeffects file-roller firefox lazygit nautilus
+  bat bottles brave-bin btop discord easyeffects file-roller firefox fzf lazygit nautilus
   nautilus-image-converter neovim obsidian onlyoffice-bin proton-vpn-gtk-app ripgrep
-  seahorse spotify-launcher starship syncthing ticktick timeshift tldr udiskie zathura
-  zathura-pdf-mupdf zsh
+  seahorse spotify-launcher starship syncthing ticktick timeshift tldr udiskie vim
+  zathura zathura-pdf-poppler zsh
 )
 
 GAMING_PKGS=(
@@ -46,6 +42,7 @@ ALL_PKGS=(
 # Install paru if not already installed
 # -----------------------------------------------
 
+echo ":: Checking for existing installation of paru..."
 if ! command -v paru &>/dev/null; then
   echo ":: Installing paru..."
   sudo pacman -Syu --needed base-devel git
@@ -55,17 +52,21 @@ if ! command -v paru &>/dev/null; then
   popd
   rm -rf "$HOME/paru"
 else
-  echo ":: paru is already installed"
+  echo ":: Paru is already installed"
 fi
 
 # -----------------------------------------------
 # Use GNU stow if dotfiles are available
 # -----------------------------------------------
 
+echo ":: Installing stow for dotfile management..."
 if [[ -d "$HOME/dots" ]]; then
   echo ":: Using stow for dotfiles..."
-  paru -Syu --needed stow
-  stow -d "$HOME/dots"
+  paru -Syu --needed stow -y
+  cd "$HOME/dots"
+  rm "$HOME/.bashrc"
+  stow .
+  cd "$HOME"
 fi
 
 # -----------------------------------------------
@@ -73,5 +74,5 @@ fi
 # -----------------------------------------------
 
 echo ":: Installing packages..."
-paru -Syu --needed "${ALL_PKGS[@]}"
+paru -Syu --needed "${ALL_PKGS[@]}" -y
 echo ":: Package installation complete"
