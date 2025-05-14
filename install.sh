@@ -108,7 +108,7 @@ GAMING_PKGS="\
 
 # Installing paru as AUR helper
 printf "\n:: Installing paru...\n"
-sudo pacman -Syu --needed base-devel
+sudo pacman -S --needed base-devel -y
 cd $HOME
 git clone https://aur.archlinux.org/paru.git
 cd paru
@@ -117,12 +117,12 @@ cd $HOME
 rm -rf $HOME/paru
 
 # Installing and using GNU stow
-paru -Syu stow
+paru -S --needed stow -y
 stow -d $HOME/dots
 
 # Installing packages
 printf "\n:: Installing packages...\n"
-paru -Syu --needed "$SYSTEM_PKGS $THEME_PKGS $DEV_PKGS $USER_PKGS $GAMING_PKGS"
+paru -Syu --needed "$BASE_PKGS $THEME_PKGS $DEV_PKGS $USER_PKGS $GAMING_PKGS"
 printf "\n:: Package install complete\n"
 
 # Applying themes
