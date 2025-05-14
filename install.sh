@@ -1,137 +1,77 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
-BASE_PKGS="\
-    alacritty\
-    blueberry\
-    cliphist\
-    gdm\
-    gnome-keyring\
-    libnotify\
-    linux-lts\
-    linux-lts-headers\
-    grimblast-git\
-    hyprland\
-    hyprlock\
-    hyprpaper\
-    hyprpicker\
-    hyprpolkitagent\
-    mako\
-    nmtui\
-    pamixer\
-    pavucontrol\
-    playerctl\
-    pipewire\
-    reflector
-    rofi-emoji\
-    rofi-wayland\
-    uwsm\
-    waybar\
-    wireplumber\
-    wl-clip-persist\
-    wl-clipboard\
-    wlogout\
-    wlsunset\
-    xdg-desktop-portal-gtk\
-    xdg-desktop-portal-hyprland\
-    "
+# -----------------------------------------------
+# Package groups as arrays
+# -----------------------------------------------
 
-THEME_PKGS="\
-    gruvbox-gtk-theme-git\
-    gruvbox-icon-theme-git\
-    noto-fonts\
-    noto-fonts-cjk\
-    noto-fonts-emoji
-    noto-fonts-extra\
-    ttf-jetbrains-mono-nerd\
-    ttf-ms-win11-auto\
-    "
+BASE_PKGS=(
+  alacritty blueberry cliphist gdm gnome-keyring libnotify linux-lts linux-lts-headers
+  grimblast-git hyprland hyprlock hyprpaper hyprpicker hyprpolkitagent mako nmtui
+  pamixer pavucontrol playerctl pipewire reflector rofi-emoji rofi-wayland uwsm waybar
+  wireplumber wl-clip-persist wl-clipboard wlogout wlsunset xdg-desktop-portal-gtk
+  xdg-desktop-portal-hyprland
+)
 
-DEV_PKGS="\
-    clang\
-    intellij-idea-ultimate-edition\
-    jdk21-openjdk\
-    nodejs-lts-jod\
-    npm\
-    postgresql\
-    python\
-    webstorm\
-    "
+THEME_PKGS=(
+  gruvbox-gtk-theme-git gruvbox-icon-theme-git noto-fonts noto-fonts-cjk noto-fonts-emoji
+  noto-fonts-extra ttf-jetbrains-mono-nerd ttf-ms-win11-auto
+)
 
-USER_PKGS="\
-    bat\
-    bottles\
-    brave-bin\
-    btop\
-    discord\
-    easyeffects\
-    file-roller\
-    firefox\
-    lazygit\
-    nautilus\
-    nautilus-image-converter\
-    neovim\
-    obsidian\
-    onlyoffice-bin\
-    proton-vpn-gtk-app\
-    ripgrep\
-    seahorse\
-    spotify-launcher\
-    starship\
-    syncthing\
-    ticktick\
-    timeshift\
-    tldr\
-    udiskie\
-    zathura\
-    zsh\
-    zathura-pdf-mupdf\
-    "
+DEV_PKGS=(
+  clang intellij-idea-ultimate-edition jdk21-openjdk nodejs-lts-jod npm postgresql python webstorm
+)
 
-GAMING_PKGS="\
-    gamescope\
-    gamemode\
-    lib32-mesa\
-    lib32-vulkan-radeon\
-    lutris\
-    mangohud\
-    mesa\
-    minecraft-launcher\
-    protontricks\
-    protonup-qt\
-    steam\
-    vulkan-radeon\
-    wine\
-    wine-gecko\
-    wine-mono\
-    winetricks\
-    "
+USER_PKGS=(
+  bat bottles brave-bin btop discord easyeffects file-roller firefox lazygit nautilus
+  nautilus-image-converter neovim obsidian onlyoffice-bin proton-vpn-gtk-app ripgrep
+  seahorse spotify-launcher starship syncthing ticktick timeshift tldr udiskie zathura
+  zathura-pdf-mupdf zsh
+)
 
-# Installing paru as AUR helper
-printf "\n:: Installing paru...\n"
-sudo pacman -S --needed base-devel -y
-cd $HOME
-git clone https://aur.archlinux.org/paru.git
-cd paru
-makepkg -si
-cd $HOME
-rm -rf $HOME/paru
+GAMING_PKGS=(
+  gamescope gamemode lib32-mesa lib32-vulkan-radeon lutris mangohud mesa minecraft-launcher
+  protontricks protonup-qt steam vulkan-radeon wine wine-gecko wine-mono winetricks
+)
 
-# Installing and using GNU stow
-paru -S --needed stow -y
-stow -d $HOME/dots
+ALL_PKGS=(
+  "${BASE_PKGS[@]}"
+  "${THEME_PKGS[@]}"
+  "${DEV_PKGS[@]}"
+  "${USER_PKGS[@]}"
+  "${GAMING_PKGS[@]}"
+)
 
-# Installing packages
-printf "\n:: Installing packages...\n"
-paru -Syu --needed "$BASE_PKGS $THEME_PKGS $DEV_PKGS $USER_PKGS $GAMING_PKGS"
-printf "\n:: Package install complete\n"
+# -----------------------------------------------
+# Install paru if not already installed
+# -----------------------------------------------
 
-# Applying themes
-# - TODO -
+if ! command -v paru &>/dev/null; then
+  echo ":: Installing paru..."
+  sudo pacman -Syu --needed base-devel git
+  git clone https://aur.archlinux.org/paru.git "$HOME/paru"
+  pushd "$HOME/paru"
+  makepkg -si --noconfirm
+  popd
+  rm -rf "$HOME/paru"
+else
+  echo ":: paru is already installed"
+fi
 
-# Audio setup
-# - TODO -
+# -----------------------------------------------
+# Use GNU stow if dotfiles are available
+# -----------------------------------------------
 
-# Adding LTS kernel to bootloader
-# - TODO -
+if [[ -d "$HOME/dots" ]]; then
+  echo ":: Using stow for dotfiles..."
+  paru -Syu --needed stow
+  stow -d "$HOME/dots"
+fi
 
-printf "\n:: Installation done"
+# -----------------------------------------------
+# Install packages
+# -----------------------------------------------
+
+echo ":: Installing packages..."
+paru -Syu --needed "${ALL_PKGS[@]}"
+echo ":: Package installation complete"
