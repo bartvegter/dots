@@ -53,7 +53,7 @@
     },
     "custom/launcher": {
       "format": "",
-      "on-click": "hyprctl dispatch exec 'rofi -show'",
+      "on-click": "hyprctl dispatch exec 'rofi -show combi -run-command "uwsm app -- {cmd}"'",
       "tooltip": false
     },
     "custom/power-menu": {
