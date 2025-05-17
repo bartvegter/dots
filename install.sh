@@ -3,7 +3,7 @@ set -euo pipefail
 
 BASE_PKGS=(
   alacritty blueberry cliphist gnome-keyring less libnotify linux-lts linux-lts-headers
-  grimblast-git hyprland hyprlock hyprpaper hyprpicker hyprpolkitagent mako openssh
+  grimblast-git hyprland hyprlock hyprpaper hyprpicker hyprpolkitagent man-db mako openssh
   pamixer pavucontrol playerctl pipewire qt5-wayland qt6-wayland reflector rofi-emoji
   rofi-wayland sddm uwsm vim waybar wireplumber wl-clip-persist wl-clipboard wlogout
   wlsunset xdg-desktop-portal-gtk xdg-desktop-portal-hyprland
