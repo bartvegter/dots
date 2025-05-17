@@ -2,11 +2,11 @@
 set -euo pipefail
 
 BASE_PKGS=(
-  alacritty blueberry cliphist gnome-keyring less libnotify linux-lts linux-lts-headers
-  grimblast-git hyprland hyprlock hyprpaper hyprpicker hyprpolkitagent man-db mako openssh
-  pamixer pavucontrol playerctl pipewire qt5-wayland qt6-wayland reflector rofi-emoji
-  rofi-wayland sddm tree uwsm vim waybar wireplumber wl-clip-persist wl-clipboard wlogout
-  wlsunset xdg-desktop-portal-gtk xdg-desktop-portal-hyprland
+  ags-hyprpanel-git alacritty brightnessctl cliphist gnome-keyring less libnotify
+  grimblast-git hyprland hyprlock hyprpicker hyprpolkitagent man-db mutagen-bin openssh
+  pacman-contrib pamixer pavucontrol playerctl pipewire python python-pywal qt5-wayland qt6-wayland 
+  reflector rofi-emoji rofi-wayland sddm swww tree uwsm vim wireplumber wf-recorder wl-clip-persist 
+  wl-clipboard wlogout wlsunset xdg-desktop-portal-gtk xdg-desktop-portal-hyprland
 )
 
 THEME_PKGS=(
@@ -92,8 +92,11 @@ sudo cp "$HOME/dots/sddm.conf" "/etc/sddm.conf.d/sddm.conf"
 # Finishing touches
 # -----------------------------------------------
 
-echo ":: Enabling ssh agent as systemd user unit..."
+echo && echo ":: Enabling ssh agent as systemd user unit..."
 systemctl --user enable ssh-agent
+
+echo && echo ":: Enabling bluetooth through systemd..."
+systemctl enable bluetooth
 
 echo && echo ":: Installation complete"
 echo ":: Run 'systemctl reboot' to boot into the system" && echo
