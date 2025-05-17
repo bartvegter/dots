@@ -23,7 +23,7 @@ USER_PKGS=(
   bat bottles brave-bin btop discord easyeffects fd file-roller firefox fzf lazygit nautilus
   nautilus-image-converter neovim obsidian oh-my-posh-bin onlyoffice-bin proton-vpn-gtk-app
   ripgrep seahorse spotify-launcher syncthing ticktick timeshift tldr udiskie viewnior vim
-  zathura zathura-pdf-poppler zsh zsh-autosuggestions zsh-syntax-highlighting
+  webp-pixbuf-loader zathura zathura-pdf-poppler zsh zsh-autosuggestions zsh-syntax-highlighting
 )
 
 GAMING_PKGS=(
