@@ -7,6 +7,7 @@ export QT_QPA_PLATFORM=wayland;xcb
 export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 export RADV_PERFTEST=aco
 export SDL_VIDEODRIVER=wayland
+export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
 export TERM=alacritty
 export XDG_CURRENT_DESKTOP=Hyprland
 export XDG_SCREENSHOTS_DIR=$HOME/Pictures/Screenshots

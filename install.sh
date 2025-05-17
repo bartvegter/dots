@@ -88,5 +88,12 @@ if [ ! -d "/etc/sddm.conf.d" ]; then
 fi
 sudo cp "$HOME/dots/sddm.conf" "/etc/sddm.conf.d/sddm.conf"
 
+# -----------------------------------------------
+# Finishing touches
+# -----------------------------------------------
+
+echo ":: Enabling ssh agent as systemd user unit..."
+systemctl --user enable ssh-agent
+
 echo && echo ":: Installation complete"
 echo ":: Run 'systemctl reboot' to boot into the system" && echo
