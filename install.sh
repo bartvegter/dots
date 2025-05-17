@@ -5,7 +5,7 @@ BASE_PKGS=(
   alacritty blueberry cliphist gnome-keyring less libnotify linux-lts linux-lts-headers
   grimblast-git hyprland hyprlock hyprpaper hyprpicker hyprpolkitagent man-db mako openssh
   pamixer pavucontrol playerctl pipewire qt5-wayland qt6-wayland reflector rofi-emoji
-  rofi-wayland sddm uwsm vim waybar wireplumber wl-clip-persist wl-clipboard wlogout
+  rofi-wayland sddm tree uwsm vim waybar wireplumber wl-clip-persist wl-clipboard wlogout
   wlsunset xdg-desktop-portal-gtk xdg-desktop-portal-hyprland
 )
 
@@ -22,7 +22,7 @@ DEV_PKGS=(
 USER_PKGS=(
   bat bottles brave-bin btop discord easyeffects fd file-roller firefox fzf lazygit nautilus
   nautilus-image-converter neovim obsidian oh-my-posh-bin onlyoffice-bin proton-vpn-gtk-app
-  ripgrep seahorse spotify-launcher syncthing ticktick timeshift tldr udiskie vim
+  ripgrep seahorse spotify-launcher syncthing ticktick timeshift tldr udiskie viewnior vim
   zathura zathura-pdf-poppler zsh zsh-autosuggestions zsh-syntax-highlighting
 )
 
