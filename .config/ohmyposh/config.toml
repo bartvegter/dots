@@ -1,0 +1,47 @@
+console_title_template = '{{ .Shell }} in {{ .Folder }}'
+version = 3
+final_space = true
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'plain'
+    foreground = 'p:blue'
+    background = 'transparent'
+    template = '{{ .Path }}'
+
+    [blocks.segments.properties]
+    style = 'full'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    foreground = 'p:green'
+    background = 'transparent'
+    template = '❯'
+
+[transient_prompt]
+  foreground = 'p:green'
+  background = 'transparent'
+  template = '❯ '
+
+[palette]
+background = '#282828'
+foreground = '#ebdbb2'
+
+red = "#fb4934"
+green = "#b8bb26"
+yellow = "#fabd2f"
+blue = "#83a598"
+purple = "#d3869b"
+aqua = "#8ec07c"
+gray = '#928374'
