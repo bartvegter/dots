@@ -1,17 +1,13 @@
-HISTSIZE="10000"
-SAVEHIST="10000"
-HISTFILE="$HOME/.zsh_history"
-mkdir -p "$(dirname "$HISTFILE")"
+HISTFILE=~/.histfile
+HISTSIZE=10000
+SAVEHIST=10000
 
-setopt HIST_FCNTL_LOCK
-unsetopt APPEND_HISTORY
-setopt HIST_IGNORE_DUPS
-unsetopt HIST_IGNORE_ALL_DUPS
-setopt HIST_IGNORE_SPACE
-unsetopt HIST_EXPIRE_DUPS_FIRST
-setopt SHARE_HISTORY
-unsetopt EXTENDED_HISTORY
-setopt autocd
+setopt append_history inc_append_history share_history # better history
+setopt auto_menu menu_complete # autocmp first menu match
+setopt autocd # type a dir to cd
+setopt auto_param_slash # adds a slash instead of a trailing space on dir completion
+setopt extendedglob # match ~ # ^
+unsetopt beep
 
 # Aliases
 alias -- grep='grep --color=auto'
@@ -19,3 +15,16 @@ alias -- ll='ls -alh --color=auto'
 alias -- ls='ls --color=auto'
 alias -- sv='sudo nvim'
 alias -- v='nvim'
+
+zstyle :compinstall filename '/home/bart/.zshrc'
+
+zmodload zsh/complist
+autoload -Uz compinit promptinit
+
+compinit
+promptinit
+prompt redhat
+
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
