@@ -20,8 +20,8 @@ DEV_PKGS=(
 )
 
 USER_PKGS=(
-  bat bottles brave-bin btop discord easyeffects fd file-roller firefox fzf lazygit nautilus
-  nautilus-image-converter neovim obsidian oh-my-posh-bin onlyoffice-bin proton-vpn-gtk-app
+  bat bottles brave-bin btop discord easyeffects fd file-roller firefox fzf lazygit lua-language-server
+  nautilus nautilus-image-converter neovim obsidian oh-my-posh-bin onlyoffice-bin proton-vpn-gtk-app
   ripgrep seahorse spotify-launcher syncthing ticktick timeshift tldr udiskie viewnior vim
   webp-pixbuf-loader zathura zathura-pdf-poppler zsh zsh-autosuggestions zsh-syntax-highlighting
 )
