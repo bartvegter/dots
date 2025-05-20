@@ -98,5 +98,8 @@ systemctl --user enable ssh-agent
 echo && echo ":: Enabling bluetooth through systemd..."
 systemctl enable bluetooth
 
+echo && echo ":: Enabling reflector.timer for automatic mirrorlist updates..."
+systemctl enable reflector.timer
+
 echo && echo ":: Installation complete"
 echo ":: Run 'systemctl reboot' to boot into the system" && echo
