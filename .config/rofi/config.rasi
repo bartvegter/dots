@@ -1,18 +1,182 @@
 configuration {
-combi-modi: "drun,run";
-cycle: true;
-display-drun: " Apps";
-display-filebrowser: " Files";
-display-run: " Run";
-display-window: " Windows";
-drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
-font: "JetBrainsMono NF 11";
-icon-theme: "Gruvbox-Plus-Dark";
-location: 0;
-modi: "drun,run,window";
-show-icons: true;
-terminal: "/usr/bin/alacritty";
-xoffset: 0;
-yoffset: 0;
+    combi-modi: "drun,run";
+    cycle: true;
+    display-drun: " Apps";
+    display-filebrowser: " Files";
+    display-run: " Run";
+    display-window: " Windows";
+    drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+    font: "JetBrainsMono NF 11";
+    icon-theme: "Gruvbox-Plus-Dark";
+    location: 0;
+    modi: "drun,run,window";
+    show-icons: true;
+    terminal: "/usr/bin/alacritty";
+    xoffset: 0;
+    yoffset: 0;
 }
-@theme "custom"
+
+@theme "gruvbox-dark"
+
+window {
+    enabled: true;
+    margin: 0px;
+    padding: 0px;
+    width: 30%;
+    border: 0px solid;
+    border-radius: 20px;
+    background-image: url("~/wallpapers/cats_fishing.png");
+    cursor: default;
+}
+
+mainbox {
+    enabled: true;
+    spacing: 10px;
+    margin: 0px;
+    padding: 40px;
+    border: 0px solid;
+    border-radius: 0px;
+    children: [
+        inputbar,
+        message,
+        listview,
+        mode-switcher
+    ];
+}
+
+inputbar {
+    enable: true;
+    spacing: 10px;
+    margin: 0px;
+    padding: 0px;
+    border: 0px solid;
+    border-radius: 0px;
+    children: [
+        prompt,
+        textbox-prompt-colon,
+        entry
+    ];
+}
+
+prompt {
+    enabled: true;
+}
+
+textbox-prompt-colon {
+    enabled: true;
+    expand: false;
+    str: "::";
+}
+
+entry {
+    enabled: true;
+    cursor: "text";
+    placeholder: "Search...";
+}
+
+num-filtered-rows {
+    enabled: true;
+    expand: false;
+}
+
+textbox-num-sep {
+    enabled: true;
+    expand: false;
+    str: "/";
+}
+
+num-rows {
+    enabled: true;
+    expand: false;
+}
+
+case-indicator {
+    enabled: true;
+}
+
+message {
+    enabled: true;
+    margin: 0px;
+    padding: 0px;
+    border: 0px solid;
+    border-radius: 0px;
+}
+
+textbox {
+    padding: 5px 10px;
+    border: 0px solid;
+    border-radius: 20px;
+    vertical-align: 0.5;
+    horizontal-align: 0.0;
+    highlight: none;
+    blink: true;
+    markup: true;
+}
+
+error-message {
+    padding: 10px;
+    border: 2px solid;
+    border-radius: 20px;
+}
+
+listview {
+    enabled: true;
+    columns: 2;
+    lines: 10;
+    cycle: true;
+    dynamic: true;
+    scrollbar: true;
+    layout: "vertical";
+    reverse: false;
+    fixed-height: true;
+    fixed-columns: true;
+    spacing: 5px;
+    margin: 0px;
+    padding: 0px;
+    border: 0px solid;
+    border-radius: 0px;
+    cursor: default;
+}
+
+scrollbar {
+    handle-width: 10px;
+    border-radius: 10px;
+}
+
+element {
+    enabled: true;
+    spacing: 10px;
+    margin: 0px;
+    padding: 5px 10px;
+    border: 0px solid;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+element-icon {
+    size: 24px;
+    cursor: inherit;
+}
+
+element-text {
+    highlight: inherit;
+    cursor: inherit;
+    vertical-align: 0.5;
+    horizontal-align: 0.0;
+}
+
+mode-switcher {
+    enabled: true;
+    spacing: 10px;
+    margin: 0px;
+    padding: 0px;
+    border: 0px solid;
+    border-radius: 0px;
+}
+
+button {
+    padding: 5px 10px;
+    border: 0px solid;
+    border-radius: 20px;
+    cursor: pointer;
+}
