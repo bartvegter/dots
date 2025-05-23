@@ -18,6 +18,19 @@ configuration {
 
 @theme "gruvbox-dark"
 
+* {
+    bg0:     #2B3339;
+    bg1:     #323D43;
+    fg0:     #D3C6AA;
+    accent-color:     #A7C080;
+    urgent-color:     #DBBC7F;
+    background-color:   transparent;
+    text-color:         @fg0;
+    margin:     0;
+    padding:    0;
+    spacing:    0;
+}
+
 window {
     enabled: true;
     margin: 0px;
@@ -25,6 +38,7 @@ window {
     width: 30%;
     border: 0px solid;
     border-radius: 20px;
+    background-color: @bg0;
     background-image: url("~/wallpapers/cats_fishing.png");
     cursor: default;
 }
@@ -42,6 +56,7 @@ mainbox {
         listview,
         mode-switcher
     ];
+    background-color: @bg1;
 }
 
 inputbar {
@@ -60,6 +75,7 @@ inputbar {
 
 prompt {
     enabled: true;
+    text-color: @accent-color;
 }
 
 textbox-prompt-colon {
@@ -111,6 +127,7 @@ textbox {
     highlight: none;
     blink: true;
     markup: true;
+    background-color: @bg1;
 }
 
 error-message {
@@ -153,8 +170,36 @@ element {
     cursor: pointer;
 }
 
+element normal normal {
+    text-color: @fg0;
+}
+
+element normal urgent {
+    text-color: @urgent-color;
+}
+
+element normal active {
+    text-color: @accent-color;
+}
+
+element alternate active {
+    text-color: @accent-color;
+}
+
+element selected {
+    text-color: @bg0;
+}
+
+element selected urgent {
+    background-color: @urgent-color;
+}
+
+element selected normal, element selected active {
+    background-color: @accent-color;
+}
+
 element-icon {
-    size: 24px;
+    size: 1em;
     cursor: inherit;
 }
 
@@ -163,6 +208,7 @@ element-text {
     cursor: inherit;
     vertical-align: 0.5;
     horizontal-align: 0.0;
+    text-color: inherit;
 }
 
 mode-switcher {
