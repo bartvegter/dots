@@ -457,7 +457,7 @@
   "theme.bar.buttons.modules.worldclock.enableBorder": false,
   "bar.customModules.worldclock.icon": "",
   "theme.osd.margins": "7px 10px 7px 7px",
-  "bar.customModules.updates.leftClick": "$TERMINAL -e /usr/share/hyprpanel/scripts/runUpdates.sh -arch",
+  "bar.customModules.updates.leftClick": "alacritty -e /usr/share/hyprpanel/scripts/runUpdates.sh -arch",
   "bar.customModules.updates.pollingInterval": 1440000,
   "bar.customModules.updates.extendedTooltip": true,
   "theme.bar.menus.enableShadow": false,
@@ -487,5 +487,9 @@
   "theme.bar.buttons.modules.cpuTemp.icon": "#fab387",
   "theme.bar.buttons.modules.cpuTemp.text": "#fab387",
   "theme.bar.buttons.modules.cpuTemp.border": "#fab387",
-  "theme.osd.border.color": "#8ff0a4"
+  "theme.osd.border.color": "#8ff0a4",
+  "bar.customModules.storage.paths": [
+    "/"
+  ],
+  "bar.customModules.updates.padZero": false
 }
