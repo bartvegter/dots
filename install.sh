@@ -87,7 +87,18 @@ sudo systemctl enable sddm.service
 if [ ! -d "/etc/sddm.conf.d" ]; then
     sudo mkdir /etc/sddm.conf.d
 fi
-sudo cp "$HOME/dots/sddm.conf" "/etc/sddm.conf.d/sddm.conf"
+sudo cp "$HOME/dots/etc/sddm.conf" "/etc/sddm.conf.d/sddm.conf"
+
+# -----------------------------------------------
+# Lofree Flow keyboard patches
+# -----------------------------------------------
+
+echo ":: Applying Lofree Flow keyboard patches..."
+if [ ! -d "/etc/modprobe.d" ]; then
+    sudo mkdir /etc/modprobe.d
+fi
+sudo cp "$HOME/dots/etc/hid_apple.conf" "/etc/modprobe.d/hid_apple.conf"
+sudo mkinitcpio -P
 
 # -----------------------------------------------
 # Finishing touches

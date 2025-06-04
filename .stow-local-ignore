@@ -1,4 +1,4 @@
+etc
 \.git
 ^/install.sh
 ^/README.*
-^/sddm.conf
