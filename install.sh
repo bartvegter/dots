@@ -20,11 +20,12 @@ DEV_PKGS=(
 )
 
 USER_PKGS=(
-  bat bottles brave-bin btop discord easyeffects fd file-roller firefox fzf lazygit lua-language-server
-  nautilus nautilus-image-converter neovim obsidian oh-my-posh-bin onlyoffice-bin proton-vpn-gtk-app
-  ripgrep seahorse spotify-launcher syncthing ticktick timeshift tldr udiskie viewnior vim
-  webp-pixbuf-loader zathura zathura-pdf-poppler zen-browser-bin zsh zsh-autosuggestions
-  zsh-syntax-highlighting
+  bat bottles brave-bin btop catfish discord easyeffects fd ffmpegthumbnailer file-roller firefox
+  fzf gvfs lazygit libgepub libopenraw lua-language-server neovim obsidian oh-my-posh-bin
+  onlyoffice-bin poppler-glib proton-vpn-gtk-app ripgrep seahorse spotify-launcher syncthing
+  thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ticktick timeshift tldr
+  tumbler udiskie viewnior vim webp-pixbuf-loader zathura zathura-pdf-poppler zen-browser-bin
+  zsh zsh-autosuggestions zsh-syntax-highlighting
 )
 
 GAMING_PKGS=(
