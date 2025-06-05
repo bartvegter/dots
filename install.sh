@@ -4,9 +4,9 @@ set -euo pipefail
 BASE_PKGS=(
   ags-hyprpanel-git alacritty brightnessctl cliphist gnome-keyring less libnotify
   grimblast-git hyprland hyprlock hyprpicker hyprpolkitagent man-db mutagen-bin openssh
-  pacman-contrib pamixer pavucontrol playerctl pipewire python python-pywal qt5-wayland qt6-wayland 
-  reflector rofi-emoji rofi-wayland sddm swww tree uwsm vim wireplumber wf-recorder wl-clip-persist 
-  wl-clipboard wlsunset xdg-desktop-portal-gtk xdg-desktop-portal-hyprland
+  pacman-contrib pamixer pavucontrol playerctl pipewire python python-pywal qt5-wayland
+  qt6-wayland reflector rofi-emoji rofi-wayland sddm swww tree uwsm vim wireplumber wf-recorder
+  wl-clip-persist wl-clipboard wlsunset xdg-desktop-portal-gtk xdg-desktop-portal-hyprland
 )
 
 THEME_PKGS=(
@@ -20,12 +20,12 @@ DEV_PKGS=(
 )
 
 USER_PKGS=(
-  bat bottles brave-bin btop catfish discord easyeffects fd ffmpegthumbnailer file-roller firefox
+  bat bottles brave-bin btop catfish discord easyeffects fd ffmpegthumbnailer file-roller
   fzf gvfs lazygit libgepub libopenraw lua-language-server neovim obsidian oh-my-posh-bin
   onlyoffice-bin poppler-glib proton-vpn-gtk-app ripgrep seahorse spotify-launcher syncthing
   thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ticktick timeshift tldr
-  tumbler udiskie viewnior vim webp-pixbuf-loader zathura zathura-pdf-poppler zen-browser-bin
-  zsh zsh-autosuggestions zsh-syntax-highlighting
+  tumbler udiskie viewnior vim webp-pixbuf-loader xorg-xhost zathura zathura-pdf-poppler
+  zen-browser-bin zsh zsh-autosuggestions zsh-syntax-highlighting
 )
 
 GAMING_PKGS=(
