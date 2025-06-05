@@ -375,7 +375,7 @@
   "theme.bar.buttons.modules.worldclock.icon_background": "#d699b6",
   "theme.bar.buttons.modules.worldclock.icon": "#dbbc7f",
   "theme.bar.buttons.modules.worldclock.border": "#dbbc7f",
-  "wallpaper.image": "/home/bart/wallpapers/fog_forest.png",
+  "wallpaper.image": "",
   "menus.clock.time.military": true,
   "menus.clock.weather.location": "Deventer",
   "menus.clock.weather.unit": "metric",
