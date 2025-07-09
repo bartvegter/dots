@@ -40,7 +40,7 @@
         "exec-if": "pgrep spotify",
         "format": "{}",
         "on-click": "playerctl --player=spotify play-pause",
-        "on-click-right": "hyprctl dispatch workspace 6",
+        "on-click-right": "hyprctl dispatch workspace 5",
         "on-scroll-up": "playerctl --player=spotify next",
         "on-scroll-down": "playerctl --player=spotify previous",
         "tooltip": false,
