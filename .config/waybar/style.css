@@ -35,7 +35,7 @@ window#waybar {
   padding: 0px 12px;
   color: @foreground;
   background-color: @background;
-  border-radius: 18px;
+  border-radius: 14px;
 }
 
 /* Hover effects for clickable modules */
@@ -90,7 +90,7 @@ window#waybar {
   margin: 4px 2px;
   padding: 0 8px;
   background-color: transparent;
-  border-radius: 13px;
+  border-radius: 10px;
 }
 
 #workspaces button:hover {
