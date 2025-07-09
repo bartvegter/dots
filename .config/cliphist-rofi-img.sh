@@ -1,1 +1,0 @@
-rofi/cliphist-rofi-img.sh

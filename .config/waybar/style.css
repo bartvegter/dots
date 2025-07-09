@@ -1,178 +1,158 @@
-@import '/home/bart/.config/color-scheme/gruvbox-dark/colors-waybar.css';
+/* Using pywal colors */
+@import '../../.cache/wal/colors-waybar.css';
 
+/* Font settings */
 * {
-  font-family: JetBrainsMono NF;
-  font-size: 13px;
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 14px;
   font-weight: bold;
 }
 
-/* For a solid bar, use: */
-/* window#waybar { */
-/*   background-color: @background; */
-/* } */
-
-/* For floating module, use: */
+/* Styling for the entire bar */
 window#waybar {
-  background-color: transparent;
-  color: transparent;
+  background-color: @transparent;
+  color: @foreground;
+  transition-property: background-color;
+  transition-duration: .5s;
+  border: 0px;
+  border-radius: 10px;
 }
 
-#custom-launcher,
-#custom-updates,
-#workspaces,
-#cpu,
-#memory,
+/* Global module styling */
+#custom-rofi,
+#clock,
 #custom-spotify,
-#window,
+#custom-notification,
+#workspaces,
+#power-profiles-daemon,
 #tray,
+#pulseaudio,
 #bluetooth,
 #network,
-#custom-wireguard,
-#pulseaudio,
-#clock,
-#custom-power-menu {
-  background-color: @background;
+#battery,
+#custom-power {
+  margin: 0;
+  padding: 0px 12px;
   color: @foreground;
-  margin: 10px 3px 0;
-  padding: 0 12px;
-  border-radius: 10px;
-  /* border: 1px solid @foreground; */
+  background-color: @background;
+  border-radius: 18px;
 }
 
-#custom-launcher {
-  color: @color4;
-  margin-left: 10px;
-  margin-right: 0;
-  padding-left: 10px;
-  padding-right: 14px;
+/* Hover effects for clickable modules */
+#custom-rofi:hover,
+#custom-spotify:hover,
+#custom-notification:hover,
+#power-profiles-daemon:hover,
+#pulseaudio:hover,
+#bluetooth:hover,
+#network:hover,
+#battery:hover,
+#custom-power:hover {
+  background-color: @color8;
+}
+
+/* Setting margins for spacing between modules */
+/* Left modules */
+#custom-rofi,
+#clock,
+#custom-spotify {
+  margin-right: 6px;
+}
+
+/* Center modules */
+#custom-notification,
+#workspaces,
+#power-profiles-daemon {
+  margin: 0 3px;
+}
+
+/* Right modules */
+#tray,
+#pulseaudio,
+#bluetooth,
+#network,
+#battery,
+#custom-power {
+  margin-left: 6px;
+}
+
+/* Bigger logo for rofi shortcut */
+#custom-rofi {
+  font-size: 1.2rem;
+}
+
+/* Workspace styling */
+#workspaces {
+  padding: 0 2px;
+}
+
+#workspaces button {
+  margin: 4px 2px;
+  padding: 0 8px;
+  background-color: transparent;
+  border-radius: 13px;
+}
+
+#workspaces button:hover {
+  background-color: @color8;
+}
+
+#workspaces button.active {
+  color: @background;
+  background-color: @color6;
+  padding: 0 16px;
+}
+
+#workspaces button.urgent {
+  background-color: @color1;
+}
+
+/* Power profile colors */
+#power-profiles-daemon.performance {
+  color: @color3;
+}
+
+#power-profiles-daemon.power-saver {
+  color: @color6;
+}
+
+/* Application tray styling */
+#tray {
+  font-size: 10;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: @color1;
+}
+
+/* Merging audio, bluetooth and network modules */
+#bluetooth, #network {
+  margin-left: 0;
+}
+
+#pulseaudio {
+  padding-right: 8px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-#workspaces {
-  margin-left: 0;
-  padding-left: 0;
-  padding-right: 4px;
+#bluetooth {
+  padding: 0 8px;
+  border-radius: 0;
+}
+
+#network {
+  padding-left: 8px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-#workspaces button {
-  color: @color4;
-  padding-left: 3px;
-  padding-right: 8px;
-}
-
-#workspaces button.active {
-  color: @color2a;
-  transition: color 0.25s ease;
-}
-
-#custom-spotify {
-  color: @color2a;
-}
-
-#window {
-  color: @color2a;
-}
-
-window#waybar.empty #window,
-window#waybar.floating #window {
-  color: transparent;
-  background-color: transparent;
-}
-
-#tray {
-}
-
-#tray > .passive {
-  -gtk-icon-effect: dim;
-}
-
-#tray > .needs-attention {
-  -gtk-icon-effect: highlight;
-  background-color: @color1;
-}
-
-#bluetooth,
-#network,
-#custom-wireguard,
-#pulseaudio {
-  color: @color4;
-  background-color: @background;
-  padding: 0 12px;
-}
-
-#bluetooth {
-  margin-left: 3px;
-  margin-right: 0;
-  border-radius: 10px 0 0 10px;
-  border-right: none;
-}
-
-#bluetooth.connected {
-  color: @color2a;
-}
-
-#network,
-#custom-wireguard {
-  border-radius: 0;
-  border-right: none;
-  border-left: none;
-  margin-left: 0;
-  margin-right: 0;
-}
-
-#network,
-#custom-wireguard {
-  padding-right: 13px;
-  padding-left: 10px;
-}
-
-#network.disconnected {
-  color: @color1;
-}
-
-#pulseaudio {
-  border-radius: 0 10px 10px 0;
-  border-left: none;
-  margin-left: 0;
-  margin-right: 3px;
-  padding: 0 13px 0 11px;
-}
-
-#pulseaudio.muted {
-  color: @color1;
-}
-
-#clock {
-  color: @color2a;
-}
-
-#custom-power-menu {
-  color: @color4;
-  margin-right: 10px;
-  padding: 0 12px 0 10px;
-}
-
-@keyframes blink {
-  to {
-    background-color: rgba(40, 40, 40, 0.5);
-    color: #abb2bf;
-  }
-}
-
-tooltip {
-  color: @foreground;
-  background-color: @background;
-  padding: 10px;
-  border-radius: 10px;
-}
-
-tooltip label {
-  padding: 5px;
-}
-
-label:focus {
-  background-color: @background;
+/* Extra padding for rounder power button */
+#custom-power {
+  padding: 0 13px;
 }

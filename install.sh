@@ -2,11 +2,11 @@
 set -euo pipefail
 
 BASE_PKGS=(
-  ags-hyprpanel-git alacritty brightnessctl cliphist gnome-keyring less libnotify
-  grimblast-git hyprland hyprlock hyprpicker hyprpolkitagent man-db mutagen-bin openssh
-  pacman-contrib pamixer pavucontrol playerctl pipewire python python-pywal qt5-wayland
-  qt6-wayland reflector rofi-emoji rofi-wayland sddm swww tree uwsm vim wireplumber wf-recorder
-  wl-clip-persist wl-clipboard wlsunset xdg-desktop-portal-gtk xdg-desktop-portal-hyprland
+  alacritty brightnessctl cliphist gnome-keyring less libnotify grimblast-git hyprland
+  hyprlock hyprpicker hyprpolkitagent man-db openssh pamixer pavucontrol playerctl
+  pipewire python python-pywal qt5-wayland qt6-wayland reflector rofi-emoji rofi-wayland
+  sddm swaync swww tree uwsm vim waybar wireplumber wf-recorder wl-clip-persist wl-clipboard
+  wlsunset xdg-desktop-portal-gtk xdg-desktop-portal-hyprland
 )
 
 THEME_PKGS=(
@@ -42,12 +42,12 @@ ALL_PKGS=(
 )
 
 # -----------------------------------------------
-# Install paru if not already installed
+# Install paru if not installed already
 # -----------------------------------------------
 
-echo ":: Checking for existing installation of paru..."
+echo ":: Checking if paru is installed..."
 if ! command -v paru &>/dev/null; then
-  echo ":: Installing paru..."
+  echo ":: Paru is not yet installed. Installing now..."
   sudo pacman -Syu --needed base-devel git rust
   git clone https://aur.archlinux.org/paru.git "$HOME/paru"
   pushd "$HOME/paru"
@@ -55,19 +55,20 @@ if ! command -v paru &>/dev/null; then
   popd
   rm -rf "$HOME/paru"
 else
-  echo ":: Paru is already installed"
+  echo ":: Found existing installation of paru. Continuing..."
 fi
 
 # -----------------------------------------------
 # Use GNU stow if dotfiles are available
 # -----------------------------------------------
 
-echo ":: Installing stow for dotfile management..."
+echo ":: Installing and setting up GNU stow for dotfile management"
 if [[ -d "$HOME/dots" ]]; then
-  echo ":: Using stow for dotfiles..."
   paru -Syu --needed stow
   cd "$HOME/dots"
-  rm "$HOME/.bashrc"
+  if [[ -e "$HOME/.bashrc" ]]; then
+    mv "$HOME/.bashrc" "$HOME/.bashrc.bak"
+  fi
   stow .
   cd "$HOME"
 fi
@@ -76,16 +77,17 @@ fi
 # Install packages
 # -----------------------------------------------
 
-echo ":: Installing packages..."
+echo ":: Installing all packages..."
 paru -Syu --needed "${ALL_PKGS[@]}" -y
+echo ":: Package install completed"
 
 # -----------------------------------------------
 # SDDM setup
 # -----------------------------------------------
 
-echo ":: Enabling SDDM login manager..."
+echo ":: Enabling SDDM as display manager"
 sudo systemctl enable sddm.service
-if [ ! -d "/etc/sddm.conf.d" ]; then
+if [[ ! -d "/etc/sddm.conf.d" ]]; then
     sudo mkdir /etc/sddm.conf.d
 fi
 sudo cp "$HOME/dots/etc/sddm.conf" "/etc/sddm.conf.d/sddm.conf"
@@ -94,25 +96,79 @@ sudo cp "$HOME/dots/etc/sddm.conf" "/etc/sddm.conf.d/sddm.conf"
 # Lofree Flow keyboard patches
 # -----------------------------------------------
 
-echo ":: Applying Lofree Flow keyboard patches..."
-if [ ! -d "/etc/modprobe.d" ]; then
-    sudo mkdir /etc/modprobe.d
-fi
-sudo cp "$HOME/dots/etc/hid_apple.conf" "/etc/modprobe.d/hid_apple.conf"
-sudo mkinitcpio -P
+while true; do
+  read -p ">> Would you like to apply patches for Lofree Flow keyboard? [y/N]: " ynLofree
+  case $ynLofree in
+    "Y" | "y")
+      echo ":: Applying Lofree Flow keyboard patches..."
+      if [[ ! -d "/etc/modprobe.d" ]]; then
+        sudo mkdir /etc/modprobe.d
+      fi
+      sudo cp "$HOME/dots/etc/hid_apple.conf" "/etc/modprobe.d/hid_apple.conf"
+      sudo mkinitcpio -P
+      break
+      ;;
+    "" | "N" | "n")
+      echo && echo ":: Continuing..."
+      break
+      ;;
+    *)
+      echo ":: Invalid input, please try again..." && echo
+      echo ":: Valid values are [y]es or [N]o (case insensitive), or press [return] for default (No)"
+      break
+      ;;
+  esac
+done
 
 # -----------------------------------------------
 # Finishing touches
 # -----------------------------------------------
 
+while true; do
+  read -p ">> Would you like to use bluetooth on your system? [y/N]: " ynBluetooth
+  case $ynBluetooth in
+    "Y" | "y")
+      echo && echo ":: Enabling bluetooth through systemd..."
+      systemctl enable bluetooth
+      break
+      ;;
+    "" | "N" | "n")
+      echo && echo ":: Continuing..."
+      break
+      ;;
+    *)
+      echo ":: Invalid input, please try again..." && echo
+      echo ":: Valid values are [y]es or [N]o (case insensitive), or press [return] for default (No)"
+      break
+      ;;
+  esac
+done
+
 echo && echo ":: Enabling ssh agent as systemd user unit..."
 systemctl --user enable ssh-agent
-
-echo && echo ":: Enabling bluetooth through systemd..."
-systemctl enable bluetooth
 
 echo && echo ":: Enabling reflector.timer for automatic mirrorlist updates..."
 systemctl enable reflector.timer
 
 echo && echo ":: Installation complete"
-echo ":: Run 'systemctl reboot' to boot into the system" && echo
+while true; do
+  read -p ">> Would you like to reboot into Hyprland? [Y/n]: " ynReboot
+  case $ynReboot in
+    "" | "Y" | "y")
+      echo && echo ":: Rebooting system..."
+      systemctl reboot
+      break
+      ;;
+
+    "N" | "n")
+      echo && echo ":: When ready, run 'systemctl reboot' to reboot into Hyprland"
+      break
+      ;;
+
+    *)
+      echo ":: Invalid input, please try again..." && echo
+      echo ":: Valid values are [Y]es or [n]o (case insensitive), or press [return] for default (Yes)"
+      break
+      ;;
+  esac
+done
