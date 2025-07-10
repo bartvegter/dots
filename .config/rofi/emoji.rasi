@@ -4,10 +4,11 @@ configuration {
     display-filebrowser: " Files";
     display-run: " Run";
     display-window: " Windows";
+    display-emoji: "Emoji";
     drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
     font: "JetBrainsMono Nerd Font Propo 11";
     location: 2;
-    modi: "drun";
+    modi: "emoji";
     show-icons: true;
     terminal: "/usr/bin/alacritty";
     xoffset: 0;
@@ -22,7 +23,7 @@ window {
     enabled: true;
     margin: 0px;
     padding: 0px;
-    width: 18.5em;
+    width: 19.1em;
     border: 1px;
     border-color: @active-background;
     border-radius: 10px;
@@ -120,7 +121,7 @@ error-message {
 
 listview {
     columns: 1;
-    lines: 6;
+    lines: 10;
     cycle: true;
     dynamic: true;
     scrollbar: false;
@@ -149,7 +150,7 @@ element {
     border: 0px;
     border-radius: 10px;
     cursor: pointer;
-    children: [ element-icon ];
+    children: [ element-text ];
 }
 
 element selected normal {
