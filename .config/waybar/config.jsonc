@@ -17,7 +17,6 @@
     ],
     "modules-right": [
         "tray",
-	// "custom/updates",
         "pulseaudio",
 	"bluetooth",
         "network",
@@ -108,8 +107,8 @@
         "scroll-step": 5,
         "format": "{volume}% {icon}",
         "format-muted": "{icon}",
-        "format-bluetooth": "{volume}% {icon}",
-        "format-bluetooth-muted": "{icon}",
+        "format-bluetooth": "{volume}% {icon}󰂰",
+        "format-bluetooth-muted": "{icon}󰂰",
         "format-icons": {
             "headphone": "󰋋",
 	    "headphone-muted": "󰟎",
@@ -120,23 +119,32 @@
 	"on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
     },
     "bluetooth": {
-	"format": "",
-	"format-connected": " {device_alias}",
-	"format-connected-battery": " {device_alias} {device_battery_percentage}%",
-	"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+	"format": "󰂯",
+	"format-off": "󰂲",
+	"format-disabled": "󰂲",
+	"format-connected": "󰂱",
+	"format-connected-battery": "{device_battery_percentage}% 󰂱",
+	"tooltip-format": "{controller_alias}\t{controller_address}\t{num_connections} connected",
+	"tooltip-format-off": "{controller_alias}\t{controller_address}\n\nBluetooth turned off",
+	"tooltip-format-disabled": "{controller_alias}\t{controller_address}\n\nBluetooth controller disabled",
 	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
 	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
 	"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
-	"on-click": "blueberry"
+	"on-click": "blueberry",
+	"on-click-right": "bluetoothctl disconnect"
     },
     "network": {
-	"format-wifi": "",
 	"format-ethernet": "",
+	"format-wifi": "{icon}",
 	"format-linked": "{ifname} (No IP) ",
 	"format-disconnected": "",
+	"format-disabled": "",
+	"format-icons": [ "󰤟", "󰤢", "󰤥", "󰤨" ],
 	"tooltip-format-ethernet": "Wired ({ifname} - {ipaddr}) via {gwaddr}",
-	"tooltip-format-wifi": "{essid} ({ifname} - {ipaddr}) via {gwaddr}",
+	"tooltip-format-wifi": "{essid} ({signalStrength}%) - {ipaddr} via {gwaddr}",
 	"tooltip-format-disconnected": "Disconnected",
+	"tooltip-format-disabled": "Network disabled",
+	"interval": 10,
 	"on-click": "alacritty -e nmtui"
     },
     "battery": {
