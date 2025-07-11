@@ -122,12 +122,12 @@ window#waybar {
 }
 
 #tray > .passive {
-    -gtk-icon-effect: dim;
+  -gtk-icon-effect: dim;
 }
 
 #tray > .needs-attention {
-    -gtk-icon-effect: highlight;
-    background-color: @color1;
+  background-color: @color1;
+  -gtk-icon-effect: highlight;
 }
 
 /* Merging audio, bluetooth and network modules */
