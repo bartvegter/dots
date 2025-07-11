@@ -153,6 +153,15 @@ window#waybar {
   border-bottom-left-radius: 0;
 }
 
+/* Battery module styling */
+#battery.warning {
+  color: @color3;
+}
+
+#battery.critical {
+  color: @color1;
+}
+
 /* Extra padding for rounder power button */
 #custom-power {
   padding: 0 13px;

@@ -148,20 +148,21 @@
 	"on-click": "alacritty -e nmtui"
     },
     "battery": {
+	"bat": "BAT0",
 	"states": {
-	    // "good": 95,
-	    "warning": 30,
-	    "critical": 15
+	    "warning": 20,
+	    "critical": 10
 	},
 	"format": "{capacity}% {icon}",
-	"format-full": "{capacity}% {icon}",
-	"format-charging": "{capacity}% ",
-	"format-plugged": "{capacity}% ",
-	"format-alt": "{time} {icon}",
-	"format-icons": ["", "", "", "", ""]
-    },
-    "battery#bat2": {
-        "bat": "BAT2"
+	"format-icons": {
+	    "default": [ "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹" ],
+	    "charging": [ "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅" ],
+	    "plugged": "",
+	    "critical": "󰂃"
+	},
+	"tooltip-format": "{timeTo}",
+	// "tooltip-format-plugged": "Fully charged - current battery health: {health}%",
+	"interval": 10
     },
     "custom/power": {
 	"format" : "⏻",
