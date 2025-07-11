@@ -130,12 +130,13 @@
 	"on-click": "blueberry"
     },
     "network": {
-	"format-wifi": "{essid} ({signalStrength}%) ",
+	"format-wifi": "",
 	"format-ethernet": "",
 	"format-linked": "{ifname} (No IP) ",
-	"format-disconnected": "Disconnected ",
+	"format-disconnected": "",
 	"tooltip-format-ethernet": "Wired ({ifname} - {ipaddr}) via {gwaddr}",
 	"tooltip-format-wifi": "{essid} ({ifname} - {ipaddr}) via {gwaddr}",
+	"tooltip-format-disconnected": "Disconnected",
 	"on-click": "alacritty -e nmtui"
     },
     "battery": {
