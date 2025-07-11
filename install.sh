@@ -144,21 +144,38 @@ while true; do
   esac
 done
 
+while true; do
+  read -p ">> Would you like to setup your git credentials? [y/N]: " ynGit
+  case $ynGit in
+    "Y" | "y")
+      echo ":: Setting up git credentials..."
+      read -p ">> What is your git name (e.g. 'John Smith')? " gitName
+      git config --global user.name "$gitName"
+
+      read -p ">> What is your email address tied to your remotes account? " gitEmail
+      git config --global user.email "$gitEmail"
+      break
+      ;;
+    "" | "N" | "n")
+      echo && echo ":: Continuing..."
+      break
+      ;;
+    *)
+      echo ":: Invalid input, please try again..." && echo
+      echo ":: Valid values are [y]es or [N]o (case insensitive), or press [return] for default (No)"
+      break
+      ;;
+  esac
+done
+
 echo && echo ":: Enabling ssh agent as systemd user unit..."
 systemctl --user enable ssh-agent
 
 echo && echo ":: Enabling reflector.timer for automatic mirrorlist updates..."
-systemctl enable reflector.timer
+sudo systemctl enable reflector.timer
 
 echo && echo ":: Setting zsh as default user shell..."
 chsh -s $(which zsh)
-
-echo && echo ":: Setting up git credentials..."
-read -p ">> What is your git name (e.g. 'John Smith')? " gitName
-git config --global user.name "$gitName"
-
-read -p ">> What is your email address tied to your remotes account? " gitEmail
-git config --global user.email "$gitEmail"
 
 echo && echo ":: Installation complete"
 while true; do
