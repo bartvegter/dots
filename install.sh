@@ -2,11 +2,11 @@
 set -euo pipefail
 
 BASE_PKGS=(
-  alacritty brightnessctl blueberry cliphist cups gnome-keyring less libnotify grimblast-git hyprland
-  hyprlock hyprpicker hyprpolkitagent libgnome-keyring man-db openssh pamixer pavucontrol playerctl
-  pipewire python python-pywal qt5-wayland qt6-wayland reflector rofi-emoji rofi-wayland
-  sddm swaync swww tree uwsm vim waybar wireplumber wf-recorder wl-clip-persist wl-clipboard
-  wlsunset xdg-desktop-portal-gtk xdg-desktop-portal-hyprland
+  alacritty brightnessctl blueberry bluez-utils cliphist cups gnome-keyring less libnotify
+  grimblast-git hyprland hyprlock hyprpicker hyprpolkitagent libgnome-keyring man-db openssh
+  pamixer pavucontrol playerctl pipewire python python-pywal qt5-wayland qt6-wayland reflector
+  rofi-emoji rofi-wayland sddm swaync swww tree uwsm vim waybar wireplumber wf-recorder
+  wl-clip-persist wl-clipboard wlsunset xdg-desktop-portal-gtk xdg-desktop-portal-hyprland
 )
 
 THEME_PKGS=(
