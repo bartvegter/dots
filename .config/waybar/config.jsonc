@@ -11,7 +11,6 @@
         "custom/spotify",
     ],
     "modules-center": [
-	"custom/notification",
         "hyprland/workspaces",
         "power-profiles-daemon",
     ],
@@ -22,6 +21,7 @@
         "network",
         "battery",
         "battery#bat2",
+	"custom/notification",
         "custom/power",
     ],
     "custom/rofi": {
@@ -163,6 +163,9 @@
 	"tooltip-format": "{timeTo}",
 	// "tooltip-format-plugged": "Fully charged - current battery health: {health}%",
 	"interval": 10
+    },
+    "battery#bat2": {
+	"bat": "BAT2"
     },
     "custom/power": {
 	"format" : "⏻",

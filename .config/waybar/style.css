@@ -22,7 +22,6 @@ window#waybar {
 #custom-rofi,
 #clock,
 #custom-spotify,
-#custom-notification,
 #workspaces,
 #power-profiles-daemon,
 #tray,
@@ -30,6 +29,7 @@ window#waybar {
 #bluetooth,
 #network,
 #battery,
+#custom-notification,
 #custom-power {
   margin: 0;
   padding: 0px 12px;
@@ -41,12 +41,11 @@ window#waybar {
 /* Hover effects for clickable modules */
 #custom-rofi:hover,
 #custom-spotify:hover,
-#custom-notification:hover,
 #power-profiles-daemon:hover,
 #pulseaudio:hover,
 #bluetooth:hover,
 #network:hover,
-#battery:hover,
+#custom-notification:hover,
 #custom-power:hover {
   background-color: @color8;
 }
@@ -60,7 +59,6 @@ window#waybar {
 }
 
 /* Center modules */
-#custom-notification,
 #workspaces,
 #power-profiles-daemon {
   margin: 0 3px;
@@ -72,6 +70,7 @@ window#waybar {
 #bluetooth,
 #network,
 #battery,
+#custom-notification,
 #custom-power {
   margin-left: 6px;
 }
