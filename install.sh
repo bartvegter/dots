@@ -2,8 +2,8 @@
 set -euo pipefail
 
 BASE_PKGS=(
-  alacritty brightnessctl cliphist gnome-keyring less libnotify grimblast-git hyprland
-  hyprlock hyprpicker hyprpolkitagent man-db openssh pamixer pavucontrol playerctl
+  alacritty brightnessctl cliphist cups gnome-keyring less libnotify grimblast-git hyprland
+  hyprlock hyprpicker hyprpolkitagent libgnome-keyring man-db openssh pamixer pavucontrol playerctl
   pipewire python python-pywal qt5-wayland qt6-wayland reflector rofi-emoji rofi-wayland
   sddm swaync swww tree uwsm vim waybar wireplumber wf-recorder wl-clip-persist wl-clipboard
   wlsunset xdg-desktop-portal-gtk xdg-desktop-portal-hyprland
@@ -16,7 +16,7 @@ THEME_PKGS=(
 )
 
 DEV_PKGS=(
-  clang intellij-idea-ultimate-edition jdk21-openjdk nodejs-lts-jod npm postgresql python webstorm
+  cmake intellij-idea-ultimate-edition jdk21-openjdk nodejs-lts-jod npm postgresql python webstorm
 )
 
 USER_PKGS=(
@@ -149,6 +149,9 @@ systemctl --user enable ssh-agent
 
 echo && echo ":: Enabling reflector.timer for automatic mirrorlist updates..."
 systemctl enable reflector.timer
+
+echo && echo ":: Setting zsh as default user shell..."
+chsh -s $(which zsh)
 
 echo && echo ":: Installation complete"
 while true; do
