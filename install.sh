@@ -153,6 +153,13 @@ systemctl enable reflector.timer
 echo && echo ":: Setting zsh as default user shell..."
 chsh -s $(which zsh)
 
+echo && echo ":: Setting up git credentials..."
+read -p ">> What is your git name (e.g. 'John Smith')? " gitName
+git config --global user.name "$gitName"
+
+read -p ">> What is your email address tied to your remotes account? " gitEmail
+git config --global user.email "$gitEmail"
+
 echo && echo ":: Installation complete"
 while true; do
   read -p ">> Would you like to reboot into Hyprland? [Y/n]: " ynReboot
