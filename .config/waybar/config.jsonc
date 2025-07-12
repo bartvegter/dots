@@ -12,7 +12,6 @@
     ],
     "modules-center": [
         "hyprland/workspaces",
-        "power-profiles-daemon",
     ],
     "modules-right": [
         "tray",
@@ -21,8 +20,7 @@
         "network",
         "battery",
         "battery#bat2",
-	"custom/notification",
-        "custom/power",
+	"custom/notification"
     ],
     "custom/rofi": {
 	"on-click": "rofi -show drun -run-command 'uwsm app -- {cmd}'",
@@ -46,7 +44,7 @@
     },
     "custom/notification": {
 	"tooltip": false,
-	"format": "{} {icon}",
+	"format": "{} {icon} 󰐥",
 	"format-icons": {
 	    "notification": "",
 	    "none": "",

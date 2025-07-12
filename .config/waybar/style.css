@@ -31,7 +31,7 @@ window#waybar {
 #battery,
 #custom-notification,
 #custom-power {
-  margin: 0;
+  margin: 0px;
   padding: 0px 12px;
   color: @foreground;
   background-color: @background;
@@ -61,7 +61,7 @@ window#waybar {
 /* Center modules */
 #workspaces,
 #power-profiles-daemon {
-  margin: 0 3px;
+  margin: 0px 3px;
 }
 
 /* Right modules */
@@ -82,12 +82,12 @@ window#waybar {
 
 /* Workspace styling */
 #workspaces {
-  padding: 0 2px;
+  padding: 0px 2px;
 }
 
 #workspaces button {
   margin: 4px 2px;
-  padding: 0 8px;
+  padding: 0px 8px;
   background-color: transparent;
   border-radius: 10px;
 }
@@ -99,7 +99,7 @@ window#waybar {
 #workspaces button.active {
   color: @background;
   background-color: @color6;
-  padding: 0 16px;
+  padding: 0px 16px;
 }
 
 #workspaces button.urgent {
@@ -118,7 +118,7 @@ window#waybar {
 
 /* Application tray styling */
 #tray {
-  font-size: 10;
+  font-size: 10px;
 }
 
 #tray > .passive {
@@ -132,24 +132,24 @@ window#waybar {
 
 /* Merging audio, bluetooth and network modules */
 #bluetooth, #network {
-  margin-left: 0;
+  margin-left: 0px;
 }
 
 #pulseaudio {
   padding-right: 8px;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 
 #bluetooth {
-  padding: 0 8px;
+  padding: 0px 8px;
   border-radius: 0;
 }
 
 #network {
   padding-left: 8px;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 
 /* Battery module styling */
@@ -163,5 +163,5 @@ window#waybar {
 
 /* Extra padding for rounder power button */
 #custom-power {
-  padding: 0 13px;
+  padding: 0px 13px;
 }
