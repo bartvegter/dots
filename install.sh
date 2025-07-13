@@ -16,7 +16,8 @@ THEME_PKGS=(
 )
 
 DEV_PKGS=(
-  cmake intellij-idea-ultimate-edition jdk21-openjdk nodejs-lts-jod npm postgresql python webstorm
+  cmake intellij-idea-ultimate-edition jdk21-jetbrains-bin nodejs-lts-jod npm postgresql python
+  webstorm webstorm-jre
 )
 
 USER_PKGS=(
