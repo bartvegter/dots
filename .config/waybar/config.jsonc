@@ -42,26 +42,6 @@
         "on-scroll-down": "playerctl --player=spotify previous",
         "tooltip": false,
     },
-    "custom/notification": {
-	"tooltip": false,
-	"format": "{} {icon} 󰐥",
-	"format-icons": {
-	    "notification": "",
-	    "none": "",
-	    "dnd-notification": "",
-	    "dnd-none": "",
-	    "inhibited-notification": "",
-	    "inhibited-none": "",
-	    "dnd-inhibited-notification": "",
-	    "dnd-inhibited-none": ""
-	},
-	"return-type": "json",
-	"exec-if": "which swaync-client",
-	"exec": "swaync-client -swb",
-	"on-click": "swaync-client -t -sw",
-	"on-click-right": "swaync-client -d -sw",
-	"escape": true
-    },
     "hyprland/workspaces": {
 	"disable-scroll": true,
         "all-outputs": true,
@@ -86,19 +66,8 @@
 	    "5": [],
 	}
     },
-    "power-profiles-daemon": {
-	"format": "{icon}",
-        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-	"tooltip": true,
-	"format-icons": {
-	    "default": "",
-	    "performance": "",
-	    "balanced": "󰈐",
-	    "power-saver": ""
-	}
-    },
     "tray": {
-        "icon-size": 17,
+        "icon-size": 16,
         "spacing": 8,
     },
     "pulseaudio": {
@@ -133,7 +102,7 @@
     },
     "network": {
 	"format-ethernet": "",
-	"format-wifi": "{icon}",
+	"format-wifi": "{essid} {icon}",
 	"format-linked": "{ifname} (No IP) ",
 	"format-disconnected": "",
 	"format-disabled": "",
@@ -159,22 +128,30 @@
 	    "critical": "󰂃"
 	},
 	"tooltip-format": "{timeTo}",
-	// "tooltip-format-plugged": "Fully charged - current battery health: {health}%",
+	"tooltip-format-full": "Fully charged - current battery health: {health}%",
 	"interval": 10
     },
     "battery#bat2": {
 	"bat": "BAT2"
     },
-    "custom/power": {
-	"format" : "⏻",
+    "custom/notification": {
 	"tooltip": false,
-	"menu": "on-click",
-	"menu-file": "$HOME/.config/waybar/modules/power_menu.xml", // Menu file in resources folder
-	"menu-actions": {
-	    "shutdown": "systemctl poweroff",
-	    "reboot": "systemctl reboot",
-	    "suspend": "systemctl suspend",
-	    "hibernate": "systemctl hibernate"
-	}
+	"format": "{} {icon}  󰐥",
+	"format-icons": {
+	    "notification": "",
+	    "none": "",
+	    "dnd-notification": "",
+	    "dnd-none": "",
+	    "inhibited-notification": "",
+	    "inhibited-none": "",
+	    "dnd-inhibited-notification": "",
+	    "dnd-inhibited-none": ""
+	},
+	"return-type": "json",
+	"exec-if": "which swaync-client",
+	"exec": "swaync-client -swb",
+	"on-click": "swaync-client -t -sw",
+	"on-click-right": "swaync-client -d -sw",
+	"escape": true
     }
 }

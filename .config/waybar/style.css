@@ -1,5 +1,6 @@
 /* Using pywal colors */
 @import '../../.cache/wal/colors-waybar.css';
+@define-color hover alpha(@color8, 0.2);
 
 /* Font settings */
 * {
@@ -15,7 +16,13 @@ window#waybar {
   transition-property: background-color;
   transition-duration: .5s;
   border: 0px;
-  border-radius: 10px;
+  border-radius: 14px;
+}
+
+.modules-left, .modules-center, .modules-right {
+  background-color: @background;
+  border: 4px solid @background;
+  border-radius: 14px;
 }
 
 /* Global module styling */
@@ -23,56 +30,52 @@ window#waybar {
 #clock,
 #custom-spotify,
 #workspaces,
-#power-profiles-daemon,
 #tray,
 #pulseaudio,
 #bluetooth,
 #network,
 #battery,
-#custom-notification,
-#custom-power {
+#custom-notification {
   margin: 0px;
-  padding: 0px 12px;
+  padding: 0px 8px;
   color: @foreground;
   background-color: @background;
-  border-radius: 14px;
+  border-radius: 12px;
 }
 
-/* Hover effects for clickable modules */
+/* Hover effect for modules */
 #custom-rofi:hover,
+#clock:hover,
 #custom-spotify:hover,
-#power-profiles-daemon:hover,
+#tray:hover,
 #pulseaudio:hover,
 #bluetooth:hover,
 #network:hover,
-#custom-notification:hover,
-#custom-power:hover {
-  background-color: @color8;
+#battery:hover,
+#custom-notification:hover {
+  background-color: @hover;
 }
 
 /* Setting margins for spacing between modules */
 /* Left modules */
 #custom-rofi,
-#clock,
-#custom-spotify {
-  margin-right: 6px;
+#clock {
+  margin-right: 2px;
 }
 
-/* Center modules */
-#workspaces,
-#power-profiles-daemon {
-  margin: 0px 3px;
-}
+/* Center modules - enable/edit when there is more than one center module*/
+/* #workspaces { */
+/*   margin: 0px 1px; */
+/* } */
 
 /* Right modules */
-#tray,
 #pulseaudio,
 #bluetooth,
 #network,
 #battery,
 #custom-notification,
 #custom-power {
-  margin-left: 6px;
+  margin-left: 2px;
 }
 
 /* Bigger logo for rofi shortcut */
@@ -82,24 +85,24 @@ window#waybar {
 
 /* Workspace styling */
 #workspaces {
-  padding: 0px 2px;
+  padding: 0px;
 }
 
 #workspaces button {
-  margin: 4px 2px;
-  padding: 0px 8px;
+  margin: 0px 2px;
+  padding: 0px 10px;
   background-color: transparent;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
 #workspaces button:hover {
-  background-color: @color8;
+  background-color: @background;
 }
 
 #workspaces button.active {
   color: @background;
   background-color: @color6;
-  padding: 0px 16px;
+  padding: 0px 18px;
 }
 
 #workspaces button.urgent {
@@ -107,13 +110,12 @@ window#waybar {
   background-color: @color1;
 }
 
-/* Power profile colors */
-#power-profiles-daemon.performance {
-  color: @color3;
+#workspaces button:first-child {
+  margin-left: 0px;
 }
 
-#power-profiles-daemon.power-saver {
-  color: @color6;
+#workspaces button:last-child {
+  margin-right: 0px;
 }
 
 /* Application tray styling */
@@ -130,28 +132,6 @@ window#waybar {
   -gtk-icon-effect: highlight;
 }
 
-/* Merging audio, bluetooth and network modules */
-#bluetooth, #network {
-  margin-left: 0px;
-}
-
-#pulseaudio {
-  padding-right: 8px;
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
-}
-
-#bluetooth {
-  padding: 0px 8px;
-  border-radius: 0;
-}
-
-#network {
-  padding-left: 8px;
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
-}
-
 /* Battery module styling */
 #battery.warning {
   color: @color3;
@@ -159,9 +139,4 @@ window#waybar {
 
 #battery.critical {
   color: @color1;
-}
-
-/* Extra padding for rounder power button */
-#custom-power {
-  padding: 0px 13px;
 }
