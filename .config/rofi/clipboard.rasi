@@ -4,11 +4,11 @@ configuration {
     display-filebrowser: " Files";
     display-run: " Run";
     display-window: " Windows";
-    display-emoji: "Emoji";
+    display-clipboard: " Clipboard";
     drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
     font: "JetBrainsMono Nerd Font Propo 11";
     location: 2;
-    modi: "emoji";
+    modi: "clipboard:~/.config/rofi/cliphist-rofi-img.sh";
     show-icons: true;
     terminal: "/usr/bin/alacritty";
     xoffset: 0;
@@ -23,7 +23,7 @@ window {
     enabled: true;
     margin: 0px;
     padding: 0px;
-    width: 19.1em;
+    width: 30em;
     border: 1px;
     border-color: @active-background;
     border-radius: 14px;
@@ -121,11 +121,11 @@ error-message {
 
 listview {
     columns: 1;
-    lines: 10;
+    lines: 3;
     cycle: true;
     dynamic: true;
     scrollbar: false;
-    layout: horizontal;
+    layout: vertical;
     reverse: false;
     fixed-height: false;
     fixed-columns: false;
@@ -150,7 +150,7 @@ element {
     border: 0px;
     border-radius: 14px;
     cursor: pointer;
-    children: [ element-text ];
+    children: [ element-icon, element-text  ];
 }
 
 element selected normal {
