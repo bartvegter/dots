@@ -40,7 +40,7 @@ window#waybar {
   padding: 0px 8px;
   color: @foreground;
   background-color: @background;
-  border-radius: 12px;
+  border-radius: 10px;
 }
 
 /* Hover effect for modules */
@@ -92,7 +92,7 @@ window#waybar {
   margin: 0px 2px;
   padding: 0px 10px;
   background-color: transparent;
-  border-radius: 12px;
+  border-radius: 10px;
 }
 
 #workspaces button:hover {
