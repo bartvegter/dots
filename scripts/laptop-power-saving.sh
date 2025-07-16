@@ -1,17 +1,23 @@
 #!/usr/bin/env bash
 
 function enablePowerSaving() {
-  echo && echo ":: Installing power management packages..."
-  paru -S --needed tlpui tlp ethtool smartmontools
+  echo && echo ":: Installing necessary packages..."
+  paru -S --needed tlpui tlp ethtool smartmontools hypridle
 
   echo && echo ":: Enabling and starting tlp for power management..."
   sudo systemctl enable tlp.service --now
 
   echo && echo ":: Masking conflicting systemd units..."
   sudo systemctl mask systemd-rfkill.socket && sudo systemctl mask systemd-rfkill.service
+
+  echo && echo ":: Enabling hypridle..."
+  systemctl --user enable --now hypridle
 }
 
 function disablePowerSaving() {
+  echo && echo ":: Disabling hypridle..."
+  systemctl --user disable --now hypridle
+
   echo && echo ":: Disabling and stopping tlp..."
   sudo systemctl disable tlp.service --now
 
@@ -19,7 +25,7 @@ function disablePowerSaving() {
   sudo systemctl unmask systemd-rfkill.socket && sudo systemctl unmask systemd-rfkill.service
 
   echo && echo ":: Uninstalling power management packages..."
-  paru -Rns tlpui tlp ethtool smartmontools
+  paru -Rns tlpui tlp ethtool smartmontools hypridle
 }
 
 echo && echo ":: What would you like to do?"
