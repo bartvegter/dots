@@ -30,7 +30,7 @@
     "clock": {
 	"format": "{:%H:%M}",
 	"timezone": "Europe/Amsterdam",
-	"tooltip": false,
+	"tooltip-format": "{:%A, %B %d}"
     },
     "custom/spotify": {
         "exec": "~/.config/waybar/modules/spotify.sh",
