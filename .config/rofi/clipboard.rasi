@@ -10,7 +10,7 @@ configuration {
     location: 2;
     modi: "clipboard:~/.config/rofi/cliphist-rofi-img.sh";
     show-icons: true;
-    terminal: "/usr/bin/alacritty";
+    terminal: "/usr/bin/ghostty";
     xoffset: 0;
     yoffset: 0;
     sort: false;

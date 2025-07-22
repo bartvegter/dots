@@ -114,7 +114,7 @@
 	"tooltip-format-disconnected": "Disconnected",
 	"tooltip-format-disabled": "Network disabled",
 	"interval": 10,
-	"on-click": "alacritty -e nmtui"
+	"on-click": "ghostty -e nmtui"
     },
     "battery": {
 	"bat": "BAT0",
