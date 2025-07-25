@@ -170,7 +170,7 @@ while true; do
 done
 
 echo && echo ":: Enabling ssh agent as systemd user unit..."
-systemctl --user enable ssh-agent
+systemctl --user enable --now gcr-ssh-agent.socket
 
 echo && echo ":: Enabling reflector.timer for automatic mirrorlist updates..."
 sudo systemctl enable reflector.timer
