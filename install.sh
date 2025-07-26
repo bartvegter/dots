@@ -12,7 +12,7 @@ BASE_PKGS=(
 THEME_PKGS=(
   gruvbox-gtk-theme-git gruvbox-icon-theme-git noto-fonts noto-fonts-cjk noto-fonts-emoji
   noto-fonts-extra qt6-declarative qt5-quickcontrols2 qt5-svg qt6-svg sddm-sugar-dark
-  ttf-jetbrains-mono-nerd ttf-ms-win11-auto
+  ttf-aptos ttf-jetbrains-mono-nerd ttf-ms-win11-auto
 )
 
 DEV_PKGS=(
@@ -21,12 +21,12 @@ DEV_PKGS=(
 )
 
 USER_PKGS=(
-  bat bottles brave-bin btop catfish discord easyeffects fd ffmpegthumbnailer file-roller
-  fzf gvfs lazygit libgepub libopenraw lua-language-server neovim obsidian oh-my-posh-bin
-  onlyoffice-bin poppler-glib proton-vpn-gtk-app ripgrep seahorse spotify-launcher syncthing
+  bat bottles brave-bin btop catfish discord easyeffects file-roller fzf gvfs gvfs-mtp lazygit
+  libopenraw lua-language-server nautilus nautilus-image-converter neovim obsidian oh-my-posh-bin
+  onlyoffice-bin poppler-glib proton-vpn-gtk-app ripgrep seahorse spotify-launcher sushi syncthing
   thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ticktick timeshift tldr
-  tumbler udiskie viewnior vim webp-pixbuf-loader xorg-xhost zathura zathura-pdf-poppler
-  zen-browser-bin zsh zsh-autosuggestions zsh-syntax-highlighting
+  tumbler udiskie unrar unzip viewnior vim webp-pixbuf-loader xorg-xhost zathura zathura-pdf-poppler
+  zen-browser-bin zip zsh zsh-autosuggestions zsh-syntax-highlighting
 )
 
 GAMING_PKGS=(
