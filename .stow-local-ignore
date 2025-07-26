@@ -1,4 +1,5 @@
 etc
+scripts
 \.git
 ^/install.sh
 ^/README.*
