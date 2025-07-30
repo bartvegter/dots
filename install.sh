@@ -22,11 +22,10 @@ DEV_PKGS=(
 
 USER_PKGS=(
   bat bottles brave-bin btop catfish discord easyeffects file-roller fzf gvfs gvfs-mtp lazygit
-  libopenraw lua-language-server nautilus nautilus-image-converter neovim obsidian oh-my-posh-bin
-  onlyoffice-bin poppler-glib proton-vpn-gtk-app ripgrep seahorse spotify-launcher sushi syncthing
-  thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman ticktick timeshift tldr
-  tumbler udiskie unrar unzip viewnior vim webp-pixbuf-loader xorg-xhost zathura zathura-pdf-poppler
-  zen-browser-bin zip zsh zsh-autosuggestions zsh-syntax-highlighting
+  libopenraw lua-language-server nautilus nautilus-image-converter neovim obsidian onlyoffice-bin
+  poppler-glib proton-vpn-gtk-app ripgrep seahorse spotify-launcher sushi syncthing ticktick
+  timeshift tldr tumbler udiskie unrar unzip viewnior vim webp-pixbuf-loader xorg-xhost
+  zathura zathura-pdf-poppler zen-browser-bin zip zsh zsh-autosuggestions zsh-syntax-highlighting
 )
 
 GAMING_PKGS=(
@@ -126,7 +125,7 @@ done
 # -----------------------------------------------
 
 while true; do
-  read -p ">> Would you like to use bluetooth on your system? [y/N]: " ynBluetooth
+  read -p ">> Would you like to enable bluetooth on your system? [y/N]: " ynBluetooth
   case $ynBluetooth in
     "Y" | "y")
       echo && echo ":: Enabling bluetooth through systemd..."
@@ -169,8 +168,45 @@ while true; do
   esac
 done
 
-echo && echo ":: Enabling ssh agent as systemd user unit..."
-systemctl --user enable --now gcr-ssh-agent.socket
+while true; do
+  read -p ">> Would you like to enable the ssh agent? [y/N]: " ynSshService
+  case $ynSshService in
+    "Y" | "y")
+      echo && echo ":: Enabling ssh agent as systemd user unit..."
+      systemctl --user enable --now gcr-ssh-agent.socket
+	while true; do
+	  read -p ">> Would you like to add an ssh key to the agent? [y/N]: " ynSshKey
+	  case $ynSshKey in
+	    "Y" | "y")
+	      read -p ">> Enter the location of your private key (e.g. ~/.ssh/key or /home/user/.ssh/key)? " keyLocation
+	      /usr/lib/seahorse/ssh-askpass $keyLocation
+	      break
+	      ;;
+	    "" | "N" | "n")
+	      echo && echo ":: Continuing..."
+	      break
+	      ;;
+	    *)
+	      echo ":: Invalid input, please try again..." && echo
+	      echo ":: Valid values are [y]es or [N]o (case insensitive), or press [return] for default (No)"
+	      break
+	      ;;
+	  esac
+	done
+      break
+      ;;
+    "" | "N" | "n")
+      echo && echo ":: Continuing..."
+      break
+      ;;
+    *)
+      echo ":: Invalid input, please try again..." && echo
+      echo ":: Valid values are [y]es or [N]o (case insensitive), or press [return] for default (No)"
+      break
+      ;;
+  esac
+done
+
 
 echo && echo ":: Enabling reflector.timer for automatic mirrorlist updates..."
 sudo systemctl enable reflector.timer
