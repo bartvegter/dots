@@ -4,7 +4,7 @@ sort=-time
 layer=overlay
 anchor=top-right
 
-font=Noto Sans 11
+font=JetBrainsMono Nerd Font Propo
 background-color=#282828FF
 text-color=#d5c4a1
 width=350
@@ -13,7 +13,7 @@ margin=20
 padding=8
 border-size=1
 border-color=#83a598
-border-radius=10
+border-radius=14
 progress-color=over #504945
 icons=true
 max-icon-size=64
@@ -23,15 +23,3 @@ actions=true
 format=<b>%s</b>\n%b
 default-timeout=5000
 ignore-timeout=false
-
-
-[urgency=low]
-background-color=#282828FF
-border-color=#83a598
-text-color=#fabd2f
-
-[urgency=high]
-background-color=#282828FF
-border-color=#83a598
-text-color=#fb4934
-

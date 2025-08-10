@@ -3,9 +3,9 @@ set -euo pipefail
 
 BASE_PKGS=(
   brightnessctl blueberry bluez-utils cliphist cups gnome-keyring less libnotify ghostty
-  grimblast-git hyprland hyprlock hyprpicker hyprpolkitagent libgnome-keyring man-db openssh
-  pamixer pavucontrol playerctl pipewire python python-pywal qt5-wayland qt6-wayland reflector
-  rofi-emoji rofi-wayland sddm swaync swayosd swww tree uwsm vim waybar wireplumber wf-recorder
+  grimblast-git hyprland hyprlock hyprpicker hyprpolkitagent libgnome-keyring mako man-db nwg-bar
+  openssh pamixer pavucontrol playerctl pipewire python python-pywal qt5-wayland qt6-wayland
+  reflector rofi-emoji rofi-wayland sddm swayosd swww tree uwsm vim waybar wireplumber wf-recorder
   wl-clip-persist wl-clipboard wlsunset xdg-desktop-portal-gtk xdg-desktop-portal-hyprland
 )
 

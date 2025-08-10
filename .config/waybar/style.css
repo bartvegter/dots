@@ -35,7 +35,7 @@ window#waybar {
 #bluetooth,
 #network,
 #battery,
-#custom-notification {
+#custom-power {
   margin: 0px;
   padding: 0px 8px;
   color: @foreground;
@@ -52,7 +52,7 @@ window#waybar {
 #bluetooth:hover,
 #network:hover,
 #battery:hover,
-#custom-notification:hover {
+#custom-power:hover {
   background-color: @hover;
 }
 
@@ -73,7 +73,6 @@ window#waybar {
 #bluetooth,
 #network,
 #battery,
-#custom-notification,
 #custom-power {
   margin-left: 2px;
 }
