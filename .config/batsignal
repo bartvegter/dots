@@ -1,0 +1,21 @@
+# Run as background daemon
+-b
+
+# Set warning level to 20%
+-w
+20
+
+# Set critical level to 10%
+-c
+10
+
+# Set danger level to 5%
+-d
+5
+
+# Set full level too 100%
+-f
+100
+
+# Show notification when battery begins (dis)charging
+-p
