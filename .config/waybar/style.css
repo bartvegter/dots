@@ -101,7 +101,7 @@ window#waybar {
 #workspaces button.active {
   color: @background;
   background-color: @color6;
-  padding: 0px 18px;
+  padding: 0px 20px;
 }
 
 #workspaces button.urgent {
