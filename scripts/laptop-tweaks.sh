@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-function enablePowerSaving() {
+function enableLaptopTweaks() {
   echo && echo ":: Installing necessary packages..."
-  paru -S --needed tlpui tlp ethtool smartmontools hypridle
+  paru -S --needed tlpui tlp ethtool smartmontools hypridle kanshi
 
   echo && echo ":: Enabling and starting tlp for power management..."
   sudo systemctl enable tlp.service --now
@@ -14,7 +14,7 @@ function enablePowerSaving() {
   systemctl --user enable --now hypridle
 }
 
-function disablePowerSaving() {
+function disableLaptopTweaks() {
   echo && echo ":: Disabling hypridle..."
   systemctl --user disable --now hypridle
 
@@ -25,26 +25,26 @@ function disablePowerSaving() {
   sudo systemctl unmask systemd-rfkill.socket && sudo systemctl unmask systemd-rfkill.service
 
   echo && echo ":: Uninstalling power management packages..."
-  paru -Rns tlpui tlp ethtool smartmontools hypridle
+  paru -Rns tlpui tlp ethtool smartmontools hypridle kanshi
 }
 
 echo && echo ":: What would you like to do?"
-echo "   1. Enable power saving settings"
-echo "   2. Disable power saving settings"
+echo "   1. Enable laptop tweaks"
+echo "   2. Disable laptop tweaks"
 echo "   3. Nothing (exit)"
 while true; do
   read -p ">> Please make your choice (1-3): " menuChoice
   case $menuChoice in
     "1")
-      echo && echo ":: Enabling power saving settings..."
-      enablePowerSaving
-      echo && echo ":: Done enabling power saving"
+      echo && echo ":: Enabling tweaks..."
+      enableLaptopTweaks
+      echo && echo ":: Done enabling tweaks"
       break
       ;;
     "2")
-      echo && echo ":: Disabling power saving settings..."
-      disablePowerSaving
-      echo && echo ":: Done disabling power saving"
+      echo && echo ":: Disabling tweaks..."
+      disableLaptopTweaks
+      echo && echo ":: Done disabling tweaks"
       break
       ;;
     "3")

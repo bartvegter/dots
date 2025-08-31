@@ -1,0 +1,19 @@
+profile "AU Optronics 0x7AA7" {
+    mode 2560x1600@90.00
+    position 0,0
+    scale 1.33
+    alias $INTERNAL
+}
+
+profile "Microstep MSI MAG274QRF CA8A201200443" {
+    mode 2560x1440@164.84
+    position 1920,0
+    scale 1
+    alias $HOME_1
+}
+
+profile docked {
+    output $INTERNAL disable
+    output $HOME_1 enable
+    exec uwsm app -- $HOME/.config/hypr/scripts/move-workspaces-docked.sh "DP-2"
+}
