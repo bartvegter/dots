@@ -17,7 +17,7 @@ THEME_PKGS=(
 
 DEV_PKGS=(
   android-tools cmake intellij-idea-ultimate-edition jdk21-jetbrains-bin mtpfs nodejs-lts-jod npm
-  postgresql python webstorm webstorm-jre
+  postgresql python vscodium-bin vscodium-bin-marketplace webstorm webstorm-jre
 )
 
 USER_PKGS=(
