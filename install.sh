@@ -6,7 +6,7 @@ BASE_PKGS=(
   grimblast-git hyprland hyprlock hyprpicker hyprpolkitagent libgnome-keyring mako man-db nwg-bar
   openssh pamixer pavucontrol playerctl pipewire python python-pywal qt5-wayland qt6-wayland
   reflector rofi-emoji rofi-wayland sddm swayosd swww tree uwsm vim waybar wireplumber wf-recorder
-  wl-clip-persist wl-clipboard wlsunset xdg-desktop-portal-gtk xdg-desktop-portal-hyprland
+  wl-clip-persist wl-clipboard wlsunset wtype xdg-desktop-portal-gtk xdg-desktop-portal-hyprland
 )
 
 THEME_PKGS=(
