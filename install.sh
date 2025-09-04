@@ -2,7 +2,7 @@
 set -euo pipefail
 
 BASE_PKGS=(
-  batsignal brightnessctl blueberry bluez-utils cliphist cups gnome-keyring less libnotify ghostty
+  brightnessctl blueberry bluez-utils cliphist cups gnome-keyring less libnotify ghostty
   grimblast-git hyprland hyprlock hyprpicker hyprpolkitagent libgnome-keyring mako man-db nwg-bar
   openssh pamixer pavucontrol playerctl pipewire python python-pywal qt5-wayland qt6-wayland
   reflector rofi-emoji rofi-wayland sddm swayosd swww tree uwsm vim waybar wireplumber wf-recorder

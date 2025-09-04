@@ -2,7 +2,7 @@
 
 function enableLaptopTweaks() {
   echo && echo ":: Installing necessary packages..."
-  paru -S --needed tlpui tlp ethtool smartmontools hypridle kanshi
+  paru -S --needed batsignal tlpui tlp ethtool smartmontools hypridle kanshi
 
   echo && echo ":: Enabling and starting tlp for power management..."
   sudo systemctl enable tlp.service --now
@@ -25,7 +25,7 @@ function disableLaptopTweaks() {
   sudo systemctl unmask systemd-rfkill.socket && sudo systemctl unmask systemd-rfkill.service
 
   echo && echo ":: Uninstalling power management packages..."
-  paru -Rns tlpui tlp ethtool smartmontools hypridle kanshi
+  paru -Rns batsignal tlpui tlp ethtool smartmontools hypridle kanshi
 }
 
 echo && echo ":: What would you like to do?"
