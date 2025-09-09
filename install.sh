@@ -11,7 +11,7 @@ BASE_PKGS=(
 
 THEME_PKGS=(
   gruvbox-gtk-theme-git gruvbox-icon-theme-git noto-fonts noto-fonts-cjk noto-fonts-emoji
-  noto-fonts-extra qt6-declarative qt5-quickcontrols2 qt5-svg qt6-svg sddm-sugar-dark
+  noto-fonts-extra qt6-declarative qt5-quickcontrols2 qt5-svg qt6-svg sddm-silent-theme
   ttf-aptos ttf-jetbrains-mono-nerd ttf-ms-win11-auto
 )
 
