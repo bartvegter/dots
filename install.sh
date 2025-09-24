@@ -7,6 +7,7 @@ BASE_PKGS=(
   openssh pamixer pavucontrol playerctl pipewire python python-pywal qt5-wayland qt6-wayland
   reflector rofi rofi-emoji sddm swayosd swww tree uwsm vim waybar wireplumber wf-recorder
   wl-clip-persist wl-clipboard wlsunset wtype xdg-desktop-portal-gtk xdg-desktop-portal-hyprland
+  zoxide
 )
 
 THEME_PKGS=(

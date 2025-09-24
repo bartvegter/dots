@@ -15,6 +15,7 @@ alias -- ll='ls -alh --color=auto'
 alias -- ls='ls --color=auto'
 alias -- sv='sudo nvim'
 alias -- v='nvim'
+alias -- cd='z'
 
 zstyle :compinstall filename '/home/bart/.zshrc'
 
@@ -32,3 +33,4 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.cache/wal/colors-tty.sh
 
 eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
