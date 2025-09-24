@@ -17,12 +17,12 @@ THEME_PKGS=(
 )
 
 DEV_PKGS=(
-  android-tools cmake intellij-idea-ultimate-edition jdk21-jetbrains-bin mtpfs nodejs-lts-jod npm
-  postgresql python vscodium-bin vscodium-bin-marketplace webstorm webstorm-jre
+  android-tools cmake code code-features code-marketplace intellij-idea-ultimate-edition
+  jdk21-jetbrains-bin jdk-openjdk mtpfs nodejs-lts-jod npm postgresql python
 )
 
 USER_PKGS=(
-  bat bottles brave-bin btop catfish discord easyeffects file-roller fzf gvfs gvfs-mtp lazygit
+  bat bottles btop catfish chromium discord easyeffects file-roller fzf gvfs gvfs-mtp lazygit
   libopenraw lua-language-server nautilus nautilus-image-converter neovim obsidian onlyoffice-bin
   poppler-glib proton-vpn-gtk-app ripgrep rocm-smi-lib seahorse spotify-launcher sushi syncthing
   ticktick timeshift tldr tumbler udiskie unrar unzip viewnior vim webp-pixbuf-loader xorg-xhost
