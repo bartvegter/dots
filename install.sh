@@ -18,7 +18,7 @@ THEME_PKGS=(
 
 DEV_PKGS=(
   android-tools cmake code code-features code-marketplace intellij-idea-ultimate-edition
-  jdk21-jetbrains-bin jdk-openjdk mtpfs nodejs-lts-jod npm postgresql python
+  jdk21-jetbrains-bin jdk-openjdk maven mtpfs nodejs-lts-jod npm postgresql python
 )
 
 USER_PKGS=(
