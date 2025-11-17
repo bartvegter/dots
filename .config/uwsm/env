@@ -2,6 +2,7 @@ export CLUTTER_BACKEND=wayland
 export EDITOR=nvim
 export GDK_BACKEND=wayland,x11,*
 export GTK_THEME=Gruvbox-Dark
+export GTK_ICON_THEME=Adwaita
 export HYPRCURSOR_SIZE=24
 export HYPRCURSOR_THEME=Adwaita
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
