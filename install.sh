@@ -17,8 +17,9 @@ THEME_PKGS=(
 )
 
 DEV_PKGS=(
-  android-tools cmake code code-features code-marketplace intellij-idea-ultimate-edition
-  jdk21-jetbrains-bin jdk-openjdk maven mtpfs nodejs-lts-jod npm postgresql python
+  android-tools cmake code code-features code-marketplace docker docker-buildx
+  intellij-idea-ultimate-edition jdk21-jetbrains-bin jdk-openjdk maven mtpfs
+  nodejs-lts-jod npm pigz postgresql python
 )
 
 USER_PKGS=(
@@ -208,6 +209,26 @@ while true; do
   esac
 done
 
+while true; do
+  read -p ">> Would you like to enable the docker engine on startup and be able to run docker as user? [y/N]: " ynDocker
+  case $ynDocker in
+    "Y" | "y")
+      echo && echo ":: Enabling docker socket..."
+      sudo systemctl enable --now docker.socket
+      sudo gpasswd -a $USER docker
+      break
+      ;;
+    "" | "N" | "n")
+      echo && echo ":: Continuing..."
+      break
+      ;;
+    *)
+      echo ":: Invalid input, please try again..." && echo
+      echo ":: Valid values are [y]es or [N]o (case insensitive), or press [return] for default (No)"
+      break
+      ;;
+  esac
+done
 
 echo && echo ":: Enabling reflector.timer for automatic mirrorlist updates..."
 sudo systemctl enable reflector.timer
