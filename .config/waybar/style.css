@@ -28,7 +28,7 @@ window#waybar {
 /* Global module styling */
 #custom-rofi,
 #clock,
-#custom-spotify,
+#custom-tidal-hifi,
 #workspaces,
 #tray,
 #pulseaudio,
@@ -46,7 +46,7 @@ window#waybar {
 /* Hover effect for modules */
 #custom-rofi:hover,
 #clock:hover,
-#custom-spotify:hover,
+#custom-tidal-hifi:hover,
 #tray:hover,
 #pulseaudio:hover,
 #bluetooth:hover,

@@ -25,8 +25,8 @@ DEV_PKGS=(
 USER_PKGS=(
   bat bottles btop catfish chromium discord easyeffects file-roller fzf gvfs gvfs-mtp lazygit
   libopenraw lua-language-server nautilus nautilus-image-converter neovim obsidian onlyoffice-bin
-  poppler-glib proton-vpn-gtk-app ripgrep rocm-smi-lib seahorse spotify-launcher sushi syncthing
-  ticktick timeshift tldr tumbler udiskie unrar unzip viewnior vim webp-pixbuf-loader xorg-xhost
+  poppler-glib proton-vpn-gtk-app ripgrep rocm-smi-lib seahorse  sushi syncthing ticktick
+  tidal-hifi-bin timeshift tldr tumbler udiskie unrar unzip viewnior vim webp-pixbuf-loader xorg-xhost
   zathura zathura-pdf-poppler zen-browser-bin zip zsh zsh-autosuggestions zsh-syntax-highlighting
 )
 

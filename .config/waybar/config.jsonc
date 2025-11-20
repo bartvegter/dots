@@ -8,7 +8,7 @@
     "modules-left": [
 	"custom/rofi",
         "clock",
-        "custom/spotify",
+        "custom/tidal-hifi",
     ],
     "modules-center": [
         "hyprland/workspaces",
@@ -32,14 +32,14 @@
 	"timezone": "Europe/Amsterdam",
 	"tooltip-format": "{:%A, %B %d}"
     },
-    "custom/spotify": {
-        "exec": "~/.config/waybar/modules/spotify.sh",
-        "exec-if": "pgrep spotify",
+    "custom/tidal-hifi": {
+        "exec": "~/.config/waybar/modules/tidal-hifi.sh",
+        "exec-if": "pgrep tidal-hifi",
         "format": "{}",
-        "on-click": "playerctl --player=spotify play-pause",
+        "on-click": "playerctl --player=tidal-hifi play-pause",
         "on-click-right": "hyprctl dispatch workspace 5",
-        "on-scroll-up": "playerctl --player=spotify next",
-        "on-scroll-down": "playerctl --player=spotify previous",
+        "on-scroll-up": "playerctl --player=tidal-hifi next",
+        "on-scroll-down": "playerctl --player=tidal-hifi previous",
         "tooltip": false,
     },
     "hyprland/workspaces": {
