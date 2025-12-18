@@ -126,6 +126,13 @@ done
 # Finishing touches
 # -----------------------------------------------
 
+echo && echo ":: Setting iwd as default wifi backend for NetworkManager..."
+sudo cp "$HOME/dots/etc/iwd.conf" "/etc/NetworkManager/conf.d/iwd.conf"
+sudo systemctl stop NetworkManager
+sudo systemctl disable --now wpa_supplicant
+sudo systemctl restart NetworkManager
+break
+
 while true; do
   read -p ">> Would you like to enable bluetooth on your system? [y/N]: " ynBluetooth
   case $ynBluetooth in
