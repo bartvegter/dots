@@ -2,12 +2,12 @@
 set -euo pipefail
 
 BASE_PKGS=(
-  brightnessctl blueberry bluez-utils cliphist cups gnome-keyring less libnotify ghostty
-  grimblast-git hyprland hyprlock hyprpicker hyprpolkitagent libgnome-keyring mako man-db nwg-bar
-  openssh pamixer pavucontrol playerctl pipewire python python-pywal qt5-wayland qt6-wayland
-  reflector rofi rofi-emoji sddm swayosd swww tree uwsm vim waybar wireplumber wf-recorder
-  wl-clip-persist wl-clipboard wlsunset wtype xdg-desktop-portal-gtk xdg-desktop-portal-hyprland
-  zoxide
+  brightnessctl bluetui bluez-utils cliphist cups gnome-keyring less libnotify ghostty
+  grimblast-git hyprland hyprlock hyprpicker hyprpolkitagent impala libgnome-keyring mako
+	man-db nwg-bar openssh pamixer pavucontrol playerctl pipewire python python-pywal
+	qt5-wayland qt6-wayland reflector rofi rofi-emoji sddm swayosd swww tree uwsm vim
+	waybar wireplumber wf-recorder wl-clip-persist wl-clipboard wlsunset wtype
+	xdg-desktop-portal-gtk xdg-desktop-portal-hyprland zoxide
 )
 
 THEME_PKGS=(
@@ -18,12 +18,12 @@ THEME_PKGS=(
 
 DEV_PKGS=(
   android-tools cmake code code-features code-marketplace docker docker-buildx fzf
-  intellij-idea-ultimate-edition jdk21-jetbrains-bin jdk-openjdk maven mtpfs neovim
-  nodejs-lts-jod npm pigz postgresql python ripgrep
+  intellij-idea-ultimate-edition jdk21-jetbrains-bin jdk-openjdk lazydocker lazygit
+	maven mtpfs neovim nodejs-lts-jod npm pigz postgresql python ripgrep
 )
 
 USER_PKGS=(
-  bat bottles btop catfish chromium discord easyeffects file-roller gvfs gvfs-mtp lazygit
+  bat bottles btop catfish chromium discord easyeffects file-roller gvfs gvfs-mtp
   libopenraw nautilus nautilus-image-converter obsidian onlyoffice-bin poppler-glib
 	proton-vpn-gtk-app rocm-smi-lib seahorse sushi syncthing ticktick tidal-hifi-bin
 	timeshift tldr tumbler udiskie unrar unzip viewnior vim webp-pixbuf-loader xorg-xhost
