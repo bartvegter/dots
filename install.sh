@@ -17,16 +17,16 @@ THEME_PKGS=(
 )
 
 DEV_PKGS=(
-  android-tools cmake code code-features code-marketplace docker docker-buildx
-  intellij-idea-ultimate-edition jdk21-jetbrains-bin jdk-openjdk maven mtpfs
-  nodejs-lts-jod npm pigz postgresql python
+  android-tools cmake code code-features code-marketplace docker docker-buildx fzf
+  intellij-idea-ultimate-edition jdk21-jetbrains-bin jdk-openjdk maven mtpfs neovim
+  nodejs-lts-jod npm pigz postgresql python ripgrep
 )
 
 USER_PKGS=(
-  bat bottles btop catfish chromium discord easyeffects file-roller fzf gvfs gvfs-mtp lazygit
-  libopenraw lua-language-server nautilus nautilus-image-converter neovim obsidian onlyoffice-bin
-  poppler-glib proton-vpn-gtk-app ripgrep rocm-smi-lib seahorse  sushi syncthing ticktick
-  tidal-hifi-bin timeshift tldr tumbler udiskie unrar unzip viewnior vim webp-pixbuf-loader xorg-xhost
+  bat bottles btop catfish chromium discord easyeffects file-roller gvfs gvfs-mtp lazygit
+  libopenraw nautilus nautilus-image-converter obsidian onlyoffice-bin poppler-glib
+	proton-vpn-gtk-app rocm-smi-lib seahorse sushi syncthing ticktick tidal-hifi-bin
+	timeshift tldr tumbler udiskie unrar unzip viewnior vim webp-pixbuf-loader xorg-xhost
   zathura zathura-pdf-poppler zen-browser-bin zip zsh zsh-autosuggestions zsh-syntax-highlighting
 )
 
