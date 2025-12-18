@@ -131,6 +131,7 @@ sudo cp "$HOME/dots/etc/iwd.conf" "/etc/NetworkManager/conf.d/iwd.conf"
 sudo systemctl stop NetworkManager
 sudo systemctl disable --now wpa_supplicant
 sudo systemctl restart NetworkManager
+sudo systemctl enable --now iwd
 break
 
 while true; do
