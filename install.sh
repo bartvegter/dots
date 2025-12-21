@@ -17,7 +17,7 @@ THEME_PKGS=(
 )
 
 DEV_PKGS=(
-  android-tools cmake code code-features code-marketplace docker docker-buildx fzf
+  android-tools bruno-bin cmake code code-features code-marketplace docker docker-buildx fzf
   intellij-idea-ultimate-edition jdk21-jetbrains-bin jdk-openjdk lazydocker lazygit
 	maven mtpfs neovim nodejs-lts-jod npm pigz postgresql python ripgrep
 )
