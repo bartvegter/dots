@@ -1,143 +1,137 @@
 {
-    "layer": "top",
-    "position": "top",
-    "margin": "10px 10px 0 10px",
-    "height": 40, // Waybar height (to be removed for auto height)
-    "spacing": 0, // Gaps between modules
-    "reload_style_on_change": true,
-    "modules-left": [
-	"custom/rofi",
-        "clock",
-        "custom/tidal-hifi",
-    ],
-    "modules-center": [
-        "hyprland/workspaces",
-    ],
-    "modules-right": [
-        "tray",
-        "pulseaudio",
-	"bluetooth",
-        "network",
-        "battery",
-        "battery#bat2",
-	"custom/power"
-    ],
-    "custom/rofi": {
-	"on-click": "rofi -show drun -run-command 'uwsm app -- {cmd}'",
-	"format": "󰣇",
-	"tooltip": false,
+  "layer": "top",
+  "position": "top",
+  "margin": "10px 10px 0 10px",
+  "height": 40, // Waybar height (to be removed for auto height)
+  "spacing": 0, // Gaps between modules
+  "reload_style_on_change": true,
+  "modules-left": ["custom/rofi", "clock", "custom/tidal-hifi"],
+  "modules-center": ["hyprland/workspaces"],
+  "modules-right": [
+    "tray",
+    "pulseaudio",
+    "bluetooth",
+    "network",
+    "battery",
+    "battery#bat2",
+    "custom/power",
+  ],
+  "custom/rofi": {
+    "on-click": "rofi -show drun -run-command 'uwsm app -- {cmd}'",
+    "format": "󰣇",
+    "tooltip": false,
+  },
+  "clock": {
+    "format": "{:%H:%M}",
+    "timezone": "Europe/Amsterdam",
+    "tooltip-format": "{:%A, %B %d}",
+  },
+  "custom/tidal-hifi": {
+    "exec": "~/.config/waybar/modules/tidal-hifi.sh",
+    "exec-if": "pgrep tidal-hifi",
+    "format": "{}",
+    "on-click": "playerctl --player=tidal-hifi play-pause",
+    "on-click-right": "hyprctl dispatch workspace 5",
+    "on-scroll-up": "playerctl --player=tidal-hifi next",
+    "on-scroll-down": "playerctl --player=tidal-hifi previous",
+    "tooltip": false,
+  },
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "warp-on-scroll": false,
+    "format": "{name} {icon}",
+    "format-icons": {
+      "1": "󰈹",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "9": "",
+      "urgent": "",
+      "focused": "",
+      "default": "",
     },
-    "clock": {
-	"format": "{:%H:%M}",
-	"timezone": "Europe/Amsterdam",
-	"tooltip-format": "{:%A, %B %d}"
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
     },
-    "custom/tidal-hifi": {
-        "exec": "~/.config/waybar/modules/tidal-hifi.sh",
-        "exec-if": "pgrep tidal-hifi",
-        "format": "{}",
-        "on-click": "playerctl --player=tidal-hifi play-pause",
-        "on-click-right": "hyprctl dispatch workspace 5",
-        "on-scroll-up": "playerctl --player=tidal-hifi next",
-        "on-scroll-down": "playerctl --player=tidal-hifi previous",
-        "tooltip": false,
+  },
+  "tray": {
+    "icon-size": 16,
+    "spacing": 8,
+  },
+  "pulseaudio": {
+    "scroll-step": 5,
+    "format": "{volume}% {icon} {format_source}",
+    "format-muted": "{icon} {format_source}",
+    "format-source": "",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "󰋋",
+      "headphone-muted": "󰟎",
+      "default": ["", "", ""],
+      "default-muted": "",
     },
-    "hyprland/workspaces": {
-	"disable-scroll": true,
-        "all-outputs": true,
-        "warp-on-scroll": false,
-        "format": "{name} {icon}",
-        "format-icons": {
-            "1": "󰈹",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": "",
-            "9": "",
-            "urgent": "",
-            "focused": "",
-            "default": ""
-        },
-	"persistent-workspaces": {
-	    "1": [],
-	    "2": [],
-	    "3": [],
-	    "4": [],
-	    "5": [],
-	}
+    "on-click": "pavucontrol",
+    "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+  },
+  "bluetooth": {
+    "format": "󰂯",
+    "format-off": "󰂲",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂱",
+    "format-connected-battery": "{device_battery_percentage}% 󰂱",
+    "tooltip-format": "{controller_alias}\t{controller_address}\t{num_connections} connected",
+    "tooltip-format-off": "{controller_alias}\t{controller_address}\n\nBluetooth turned off",
+    "tooltip-format-disabled": "{controller_alias}\t{controller_address}\n\nBluetooth controller disabled",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+    "on-click": "ghostty -e bluetui",
+    "on-click-right": "bluetoothctl disconnect",
+  },
+  "network": {
+    "format-ethernet": "",
+    "format-wifi": "{essid} {icon}",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "",
+    "format-disabled": "",
+    "format-icons": ["󰤟", "󰤢", "󰤥", "󰤨"],
+    "tooltip-format-ethernet": "Wired ({ifname} - {ipaddr}) via {gwaddr}",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) - {ipaddr} via {gwaddr}",
+    "tooltip-format-disconnected": "Disconnected",
+    "tooltip-format-disabled": "Network disabled",
+    "interval": 10,
+    "on-click": "ghostty -e impala",
+  },
+  "battery": {
+    "bat": "BAT0",
+    "states": {
+      "warning": 20,
+      "critical": 10,
     },
-    "tray": {
-        "icon-size": 16,
-        "spacing": 8,
+    "format": "{capacity}% {icon}",
+    "format-icons": {
+      "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+      "charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
+      "plugged": "",
+      "critical": "󰂃",
     },
-    "pulseaudio": {
-        "scroll-step": 5,
-        "format": "{volume}% {icon} {format_source}",
-        "format-muted": "{icon} {format_source}",
-	"format-source": "",
-	"format-source-muted": "",
-        "format-icons": {
-            "headphone": "󰋋",
-	    "headphone-muted": "󰟎",
-            "default": ["", "", ""],
-	    "default-muted": ""
-        },
-        "on-click": "pavucontrol",
-	"on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
-    },
-    "bluetooth": {
-	"format": "󰂯",
-	"format-off": "󰂲",
-	"format-disabled": "󰂲",
-	"format-connected": "󰂱",
-	"format-connected-battery": "{device_battery_percentage}% 󰂱",
-	"tooltip-format": "{controller_alias}\t{controller_address}\t{num_connections} connected",
-	"tooltip-format-off": "{controller_alias}\t{controller_address}\n\nBluetooth turned off",
-	"tooltip-format-disabled": "{controller_alias}\t{controller_address}\n\nBluetooth controller disabled",
-	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-	"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
-	"on-click": "ghostty -e bluetui",
-	"on-click-right": "bluetoothctl disconnect"
-    },
-    "network": {
-	"format-ethernet": "",
-	"format-wifi": "{essid} {icon}",
-	"format-linked": "{ifname} (No IP) ",
-	"format-disconnected": "",
-	"format-disabled": "",
-	"format-icons": [ "󰤟", "󰤢", "󰤥", "󰤨" ],
-	"tooltip-format-ethernet": "Wired ({ifname} - {ipaddr}) via {gwaddr}",
-	"tooltip-format-wifi": "{essid} ({signalStrength}%) - {ipaddr} via {gwaddr}",
-	"tooltip-format-disconnected": "Disconnected",
-	"tooltip-format-disabled": "Network disabled",
-	"interval": 10,
-	"on-click": "ghostty -e impala"
-    },
-    "battery": {
-	"bat": "BAT0",
-	"states": {
-	    "warning": 20,
-	    "critical": 10
-	},
-	"format": "{capacity}% {icon}",
-	"format-icons": {
-	    "default": [ "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹" ],
-	    "charging": [ "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅" ],
-	    "plugged": "",
-	    "critical": "󰂃"
-	},
-	"tooltip-format": "{timeTo}",
-	"tooltip-format-full": "Fully charged - current battery health: {health}%",
-	"interval": 10
-    },
-    "battery#bat2": {
-	"bat": "BAT2"
-    },
-    "custom/power": {
-	"tooltip": false,
-	"format": "⏻",
-	"on-click": "nwg-bar -p top -a end -f -mr 8 -mt 57",
-	"escape": true
-    }
+    "tooltip-format": "{timeTo}",
+    "tooltip-format-full": "Fully charged - current battery health: {health}%",
+    "interval": 10,
+  },
+  "battery#bat2": {
+    "bat": "BAT2",
+  },
+  "custom/power": {
+    "tooltip": false,
+    "format": "⏻",
+    "on-click": "nwg-bar -p top -a end -f -mr 8 -mt 57",
+    "escape": true,
+  },
 }
