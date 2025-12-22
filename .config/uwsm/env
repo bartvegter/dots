@@ -1,5 +1,6 @@
 export CLUTTER_BACKEND=wayland
 export EDITOR=nvim
+export ELECTRON_OZONE_PLATFORM_HINT=auto
 export GDK_BACKEND=wayland,x11,*
 export GTK_THEME=Gruvbox-Dark
 export GTK_ICON_THEME=Adwaita
@@ -15,7 +16,4 @@ export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/gcr/ssh
 export TERM=ghostty
 export XCURSOR_SIZE=24
 export XCURSOR_THEME=Adwaita
-export XDG_CURRENT_DESKTOP=Hyprland
 export XDG_SCREENSHOTS_DIR=$HOME/Pictures/Screenshots
-export XDG_SESSION_DESKTOP=Hyprland
-export XDG_SESSION_TYPE=wayland
