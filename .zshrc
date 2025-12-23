@@ -11,11 +11,10 @@ unsetopt beep
 
 # Aliases
 alias -- grep='grep --color=auto'
-alias -- ll='ls -alh --color=auto'
-alias -- ls='ls --color=auto'
+alias -- ll='eza -alh --smart-group'
+alias -- ls='eza -a'
 alias -- sv='sudo nvim'
 alias -- v='nvim'
-alias -- cd='z'
 
 zstyle :compinstall filename '/home/bart/.zshrc'
 
