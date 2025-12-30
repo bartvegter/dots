@@ -32,12 +32,15 @@ window#waybar {
 #clock,
 #custom-tidal-hifi,
 #workspaces,
-#tray,
+#custom-expand-icon,
 #pulseaudio,
 #bluetooth,
 #network,
 #battery,
-#custom-power {
+#custom-power,
+#custom-reboot,
+#custom-lock,
+#custom-exit {
   margin: 0px;
   padding: 0px 8px;
   color: @foreground;
@@ -49,12 +52,15 @@ window#waybar {
 #custom-rofi:hover,
 #clock:hover,
 #custom-tidal-hifi:hover,
-#tray:hover,
+#custom-expand-icon:hover,
 #pulseaudio:hover,
 #bluetooth:hover,
 #network:hover,
 #battery:hover,
-#custom-power:hover {
+#custom-power:hover,
+#custom-reboot:hover,
+#custom-lock:hover,
+#custom-exit:hover {
   background-color: @hover;
 }
 
@@ -71,11 +77,15 @@ window#waybar {
 /* } */
 
 /* Right modules */
+#custom-expand-icon,
 #pulseaudio,
 #bluetooth,
 #network,
 #battery,
-#custom-power {
+#custom-power,
+#custom-reboot,
+#custom-lock,
+#custom-exit {
   margin-left: 2px;
 }
 
@@ -103,7 +113,7 @@ window#waybar {
 
 #workspaces button.active {
   color: @background;
-  background-color: @color6;
+  background-color: @color2;
   padding: 0px 20px;
 }
 

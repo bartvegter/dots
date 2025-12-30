@@ -8,13 +8,13 @@
   "modules-left": ["custom/rofi", "clock", "custom/tidal-hifi"],
   "modules-center": ["hyprland/workspaces"],
   "modules-right": [
-    "tray",
+    "group/tray-expander",
     "pulseaudio",
     "bluetooth",
     "network",
     "battery",
     "battery#bat2",
-    "custom/power",
+    "group/group-power",
   ],
   "custom/rofi": {
     "on-click": "rofi -show drun -run-command 'uwsm app -- {cmd}'",
@@ -59,6 +59,20 @@
       "4": [],
       "5": [],
     },
+  },
+  "group/tray-expander": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 600,
+      "children-class": "tray-group-item",
+      "transition-left-to-right": false,
+      "click-to-reveal": false,
+    },
+    "modules": ["custom/expand-icon", "tray"],
+  },
+  "custom/expand-icon": {
+    "format": "",
+    "tooltip": false,
   },
   "tray": {
     "icon-size": 16,
@@ -128,10 +142,34 @@
   "battery#bat2": {
     "bat": "BAT2",
   },
+  "group/group-power": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "power-group-item",
+      "transition-left-to-right": false,
+      "click-to-reveal": false,
+    },
+    "modules": ["custom/power", "custom/exit", "custom/lock", "custom/reboot"],
+  },
   "custom/power": {
+    "format": "󰐥",
     "tooltip": false,
-    "format": "⏻",
-    "on-click": "nwg-bar -p top -a end -f -mr 8 -mt 57",
-    "escape": true,
+    "on-click": "systemctl poweroff",
+  },
+  "custom/reboot": {
+    "format": "󰜉",
+    "tooltip": false,
+    "on-click": "systemctl reboot",
+  },
+  "custom/lock": {
+    "format": "󰌾",
+    "tooltip": false,
+    "on-click": "hyprlock",
+  },
+  "custom/exit": {
+    "format": "󰈆",
+    "tooltip": false,
+    "on-click": "hyprctl dispatch exit",
   },
 }
