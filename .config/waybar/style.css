@@ -33,6 +33,7 @@ window#waybar {
 #custom-tidal-hifi,
 #workspaces,
 #custom-expand-icon,
+#tray,
 #pulseaudio,
 #bluetooth,
 #network,
@@ -52,7 +53,6 @@ window#waybar {
 #custom-rofi:hover,
 #clock:hover,
 #custom-tidal-hifi:hover,
-#custom-expand-icon:hover,
 #pulseaudio:hover,
 #bluetooth:hover,
 #network:hover,
@@ -78,6 +78,7 @@ window#waybar {
 
 /* Right modules */
 #custom-expand-icon,
+#tray,
 #pulseaudio,
 #bluetooth,
 #network,
