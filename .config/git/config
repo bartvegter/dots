@@ -1,3 +1,8 @@
+[user]
+	name = Bart Vegter
+	email = 517242@student.saxion.nl
+[core]
+	autocrlf = input
 [init]
 	defaultBranch = main
 [pull]
