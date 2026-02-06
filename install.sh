@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+TODO
+
 BASE_PKGS=(
   brightnessctl bluetui bluez-utils cliphist cups gnome-keyring less libnotify ghostty
   grimblast-git hyprland hyprlock hyprpicker hyprpolkitagent impala libgnome-keyring mako
@@ -19,7 +21,7 @@ THEME_PKGS=(
 DEV_PKGS=(
   android-tools bruno-bin cmake code code-features code-marketplace docker docker-buildx fzf
   intellij-idea-ultimate-edition jdk-openjdk jdk21-openjdk lazydocker lazygit
-	maven mtpfs neovim nodejs-lts-jod npm pigz postgresql python ripgrep
+	maven mtpfs neovim nodejs-lts-jod npm pigz postgresql python ripgrep shellcheck shfmt
 )
 
 USER_PKGS=(
