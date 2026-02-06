@@ -31,5 +31,7 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 (cat ~/.cache/wal/sequences &)
 source ~/.cache/wal/colors-tty.sh
 
+export PATH="$PATH:$HOME/.local/bin"
+
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
