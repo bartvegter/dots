@@ -18,3 +18,5 @@
 [rerere]
 	enabled = true
 	autoupdate = true
+[alias]
+  ll = log --oneline --graph --all --decorate
