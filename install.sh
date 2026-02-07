@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-TODO
-
 BASE_PKGS=(
   brightnessctl bluetui bluez-utils cliphist cups gnome-keyring less libnotify ghostty
   grimblast-git hyprland hyprlock hyprpicker hyprpolkitagent impala libgnome-keyring mako
-	man-db openssh pamixer pavucontrol playerctl pipewire python python-pywal
-	qt5-wayland qt6-wayland reflector rofi rofi-emoji sddm swayosd swww tree uwsm vim
-	waybar wireplumber wf-recorder wl-clip-persist wl-clipboard wlsunset wtype
-	xdg-desktop-portal-gtk xdg-desktop-portal-hyprland zoxide
+  man-db openssh pamixer pavucontrol playerctl pipewire python python-pywal
+  qt5-wayland qt6-wayland reflector rofi rofi-emoji sddm swayosd swww tree uwsm vim
+  waybar wireplumber wf-recorder wl-clip-persist wl-clipboard wlsunset wtype
+  xdg-desktop-portal-gtk xdg-desktop-portal-hyprland zoxide
 )
 
 THEME_PKGS=(
@@ -21,14 +19,14 @@ THEME_PKGS=(
 DEV_PKGS=(
   android-tools bruno-bin cmake code code-features code-marketplace docker docker-buildx fzf
   intellij-idea-ultimate-edition jdk-openjdk jdk21-openjdk lazydocker lazygit
-	maven mtpfs neovim nodejs-lts-jod npm pigz postgresql python ripgrep shellcheck shfmt
+  maven mtpfs neovim nodejs-lts-jod npm pigz postgresql python ripgrep shellcheck shfmt
 )
 
 USER_PKGS=(
   bat bottles btop catfish chromium discord easyeffects eza file-roller gvfs gvfs-mtp
   libopenraw nautilus nautilus-image-converter obsidian onlyoffice-bin poppler-glib
-	proton-vpn-gtk-app rocm-smi-lib seahorse sushi syncthing ticktick tidal-hifi-bin
-	timeshift tldr tumbler udiskie unrar unzip viewnior vim webp-pixbuf-loader xorg-xhost
+  proton-vpn-gtk-app rocm-smi-lib seahorse sushi syncthing ticktick tidal-hifi-bin
+  timeshift tldr tumbler udiskie unrar unzip viewnior vim webp-pixbuf-loader xorg-xhost
   zathura zathura-pdf-poppler zen-browser-bin zip zsh zsh-autosuggestions zsh-syntax-highlighting
 )
 
@@ -92,7 +90,7 @@ echo ":: Package install completed"
 echo ":: Enabling SDDM as display manager"
 sudo systemctl enable sddm.service
 if [[ ! -d "/etc/sddm.conf.d" ]]; then
-    sudo mkdir /etc/sddm.conf.d
+  sudo mkdir /etc/sddm.conf.d
 fi
 sudo cp "$HOME/dots/etc/sddm.conf" "/etc/sddm.conf.d/sddm.conf"
 
@@ -101,26 +99,26 @@ sudo cp "$HOME/dots/etc/sddm.conf" "/etc/sddm.conf.d/sddm.conf"
 # -----------------------------------------------
 
 while true; do
-  read -p ">> Would you like to apply patches for Lofree Flow keyboard? [y/N]: " ynLofree
+  read -rp ">> Would you like to apply patches for Lofree Flow keyboard? [y/N]: " ynLofree
   case $ynLofree in
-    "Y" | "y")
-      echo ":: Applying Lofree Flow keyboard patches..."
-      if [[ ! -d "/etc/modprobe.d" ]]; then
-        sudo mkdir /etc/modprobe.d
-      fi
-      sudo cp "$HOME/dots/etc/hid_apple.conf" "/etc/modprobe.d/hid_apple.conf"
-      sudo mkinitcpio -P
-      break
-      ;;
-    "" | "N" | "n")
-      echo && echo ":: Continuing..."
-      break
-      ;;
-    *)
-      echo ":: Invalid input, please try again..." && echo
-      echo ":: Valid values are [y]es or [N]o (case insensitive), or press [return] for default (No)"
-      break
-      ;;
+  "Y" | "y")
+    echo ":: Applying Lofree Flow keyboard patches..."
+    if [[ ! -d "/etc/modprobe.d" ]]; then
+      sudo mkdir /etc/modprobe.d
+    fi
+    sudo cp "$HOME/dots/etc/hid_apple.conf" "/etc/modprobe.d/hid_apple.conf"
+    sudo mkinitcpio -P
+    break
+    ;;
+  "" | "N" | "n")
+    echo && echo ":: Continuing..."
+    break
+    ;;
+  *)
+    echo ":: Invalid input, please try again..." && echo
+    echo ":: Valid values are [y]es or [N]o (case insensitive), or press [return] for default (No)"
+    break
+    ;;
   esac
 done
 
@@ -134,109 +132,109 @@ sudo systemctl stop NetworkManager
 sudo systemctl disable --now wpa_supplicant
 sudo systemctl restart NetworkManager
 sudo systemctl enable --now iwd
-break
 
 while true; do
-  read -p ">> Would you like to enable bluetooth on your system? [y/N]: " ynBluetooth
+  read -rp ">> Would you like to enable bluetooth on your system? [y/N]: " ynBluetooth
   case $ynBluetooth in
-    "Y" | "y")
-      echo && echo ":: Enabling bluetooth through systemd..."
-      systemctl enable bluetooth
-      break
-      ;;
-    "" | "N" | "n")
-      echo && echo ":: Continuing..."
-      break
-      ;;
-    *)
-      echo ":: Invalid input, please try again..." && echo
-      echo ":: Valid values are [y]es or [N]o (case insensitive), or press [return] for default (No)"
-      break
-      ;;
+  "Y" | "y")
+    echo && echo ":: Enabling bluetooth through systemd..."
+    systemctl enable bluetooth
+    break
+    ;;
+  "" | "N" | "n")
+    echo && echo ":: Continuing..."
+    break
+    ;;
+  *)
+    echo ":: Invalid input, please try again..." && echo
+    echo ":: Valid values are [y]es or [N]o (case insensitive), or press [return] for default (No)"
+    break
+    ;;
   esac
 done
 
 while true; do
-  read -p ">> Would you like to setup your git credentials? [y/N]: " ynGit
+  read -rp ">> Would you like to setup your git credentials? [y/N]: " ynGit
   case $ynGit in
-    "Y" | "y")
-      echo ":: Setting up git credentials..."
-      read -p ">> What is your git name (e.g. 'John Smith')? " gitName
-      git config --global user.name "$gitName"
+  "Y" | "y")
+    echo ":: Setting up git credentials..."
+    read -rp ">> What is your git name (e.g. 'John Smith')? " gitName
+    git config --global user.name "$gitName"
 
-      read -p ">> What is your email address tied to your remotes account? " gitEmail
-      git config --global user.email "$gitEmail"
-      break
-      ;;
-    "" | "N" | "n")
-      echo && echo ":: Continuing..."
-      break
-      ;;
-    *)
-      echo ":: Invalid input, please try again..." && echo
-      echo ":: Valid values are [y]es or [N]o (case insensitive), or press [return] for default (No)"
-      break
-      ;;
+    read -rp ">> What is your email address tied to your remotes account? " gitEmail
+    git config --global user.email "$gitEmail"
+    break
+    ;;
+  "" | "N" | "n")
+    echo && echo ":: Continuing..."
+    break
+    ;;
+  *)
+    echo ":: Invalid input, please try again..." && echo
+    echo ":: Valid values are [y]es or [N]o (case insensitive), or press [return] for default (No)"
+    break
+    ;;
   esac
 done
 
 while true; do
-  read -p ">> Would you like to enable the ssh agent? [y/N]: " ynSshService
+  read -rp ">> Would you like to enable the ssh agent? [y/N]: " ynSshService
   case $ynSshService in
-    "Y" | "y")
-      echo && echo ":: Enabling ssh agent as systemd user unit..."
-      systemctl --user enable --now gcr-ssh-agent.socket
-	while true; do
-	  read -p ">> Would you like to add an ssh key to the agent? [y/N]: " ynSshKey
-	  case $ynSshKey in
-	    "Y" | "y")
-	      read -p ">> Enter the location of your private key (e.g. ~/.ssh/key or /home/user/.ssh/key)? " keyLocation
-	      /usr/lib/seahorse/ssh-askpass $keyLocation
-	      break
-	      ;;
-	    "" | "N" | "n")
-	      echo && echo ":: Continuing..."
-	      break
-	      ;;
-	    *)
-	      echo ":: Invalid input, please try again..." && echo
-	      echo ":: Valid values are [y]es or [N]o (case insensitive), or press [return] for default (No)"
-	      break
-	      ;;
-	  esac
-	done
-      break
-      ;;
-    "" | "N" | "n")
-      echo && echo ":: Continuing..."
-      break
-      ;;
-    *)
-      echo ":: Invalid input, please try again..." && echo
-      echo ":: Valid values are [y]es or [N]o (case insensitive), or press [return] for default (No)"
-      break
-      ;;
+  "Y" | "y")
+    echo && echo ":: Enabling ssh agent as systemd user unit..."
+    systemctl --user enable --now gcr-ssh-agent.socket
+
+    while true; do
+      read -rp ">> Would you like to add an ssh key to the agent? [y/N]: " ynSshKey
+      case $ynSshKey in
+      "Y" | "y")
+        read -rp ">> Enter the location of your private key (e.g. ~/.ssh/key or /home/user/.ssh/key)? " keyLocation
+        /usr/lib/seahorse/ssh-askpass "${keyLocation}"
+        break
+        ;;
+      "" | "N" | "n")
+        echo && echo ":: Continuing..."
+        break
+        ;;
+      *)
+        echo ":: Invalid input, please try again..." && echo
+        echo ":: Valid values are [y]es or [N]o (case insensitive), or press [return] for default (No)"
+        break
+        ;;
+      esac
+    done
+    break
+    ;;
+  "" | "N" | "n")
+    echo && echo ":: Continuing..."
+    break
+    ;;
+  *)
+    echo ":: Invalid input, please try again..." && echo
+    echo ":: Valid values are [y]es or [N]o (case insensitive), or press [return] for default (No)"
+    break
+    ;;
   esac
 done
 
 while true; do
-  read -p ">> Would you like to enable the docker engine on startup and be able to run docker as user? [y/N]: " ynDocker
+  read -rp ">> Would you like to enable the docker engine on startup and be able to run docker as user? [y/N]: " ynDocker
   case $ynDocker in
-    "Y" | "y")
-      echo && echo ":: Enabling docker socket..."
-      sudo systemctl enable --now docker.socket
-      sudo gpasswd -a $USER docker
-      break
-      ;;
-    "" | "N" | "n")
-      echo && echo ":: Continuing..."
-      break
-      ;;
-    *)
-      echo ":: Invalid input, please try again..." && echo
-      echo ":: Valid values are [y]es or [N]o (case insensitive), or press [return] for default (No)"
-      break
-      ;;
+  "Y" | "y")
+    echo && echo ":: Enabling docker socket..."
+    sudo systemctl enable --now docker.socket
+    sudo gpasswd -a "$USER" docker
+    break
+    ;;
+  "" | "N" | "n")
+    echo && echo ":: Continuing..."
+    break
+    ;;
+  *)
+    echo ":: Invalid input, please try again..." && echo
+    echo ":: Valid values are [y]es or [N]o (case insensitive), or press [return] for default (No)"
+    break
+    ;;
   esac
 done
 
@@ -244,27 +242,30 @@ echo && echo ":: Enabling reflector.timer for automatic mirrorlist updates..."
 sudo systemctl enable reflector.timer
 
 echo && echo ":: Setting zsh as default user shell..."
-chsh -s $(which zsh)
+chsh -s "$(which zsh)"
+
+echo && echo ":: Linking scripts to /usr/local/bin/"
+./add-scripts-to-path.sh
 
 echo && echo ":: Installation complete"
 while true; do
-  read -p ">> Would you like to reboot into Hyprland? [Y/n]: " ynReboot
+  read -rp ">> Would you like to reboot into Hyprland? [Y/n]: " ynReboot
   case $ynReboot in
-    "" | "Y" | "y")
-      echo && echo ":: Rebooting system..."
-      systemctl reboot
-      break
-      ;;
+  "" | "Y" | "y")
+    echo && echo ":: Rebooting system..."
+    systemctl reboot
+    break
+    ;;
 
-    "N" | "n")
-      echo && echo ":: When ready, run 'systemctl reboot' to reboot into Hyprland"
-      break
-      ;;
+  "N" | "n")
+    echo && echo ":: When ready, run 'systemctl reboot' to reboot into Hyprland"
+    break
+    ;;
 
-    *)
-      echo ":: Invalid input, please try again..." && echo
-      echo ":: Valid values are [Y]es or [n]o (case insensitive), or press [return] for default (Yes)"
-      break
-      ;;
+  *)
+    echo ":: Invalid input, please try again..." && echo
+    echo ":: Valid values are [Y]es or [n]o (case insensitive), or press [return] for default (Yes)"
+    break
+    ;;
   esac
 done
