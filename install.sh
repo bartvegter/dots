@@ -2,10 +2,10 @@
 set -euo pipefail
 
 BASE_PKGS=(
-  brightnessctl bluetui bluez-utils cliphist cups gnome-keyring less libnotify ghostty
+  brightnessctl bluetui bluez-utils cliphist cups eza gnome-keyring less libnotify ghostty
   grimblast-git hyprland hyprlock hyprpicker hyprpolkitagent impala libgnome-keyring mako
   man-db openssh pamixer pavucontrol playerctl pipewire python python-pywal
-  qt5-wayland qt6-wayland reflector rofi rofi-emoji sddm swayosd swww tree uwsm vim
+  qt5-wayland qt6-wayland reflector rofi rofi-emoji sddm swayosd swww uwsm vim
   waybar wireplumber wf-recorder wl-clip-persist wl-clipboard wlsunset wtype
   xdg-desktop-portal-gtk xdg-desktop-portal-hyprland zoxide
 )
@@ -23,7 +23,7 @@ DEV_PKGS=(
 )
 
 USER_PKGS=(
-  bat bottles btop catfish chromium discord easyeffects eza file-roller gvfs gvfs-mtp
+  bat bottles btop catfish chromium discord easyeffects file-roller gvfs gvfs-mtp
   libopenraw nautilus nautilus-image-converter obsidian onlyoffice-bin poppler-glib
   proton-vpn-gtk-app rocm-smi-lib seahorse sushi syncthing ticktick tidal-hifi-bin
   timeshift tldr tumbler udiskie unrar unzip viewnior vim webp-pixbuf-loader xorg-xhost
