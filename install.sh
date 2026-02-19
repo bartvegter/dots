@@ -19,7 +19,7 @@ THEME_PKGS=(
 DEV_PKGS=(
   android-tools bruno-bin cmake docker docker-buildx fzf intellij-idea-ultimate-edition
   jdk-openjdk jdk21-openjdk lazydocker lazygit maven mtpfs neovim nodejs-lts-jod npm
-  pigz postgresql python ripgrep shellcheck shfmt zed
+  pigz postgresql python ripgrep shellcheck shfmt zed zellij
 )
 
 USER_PKGS=(
