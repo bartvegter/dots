@@ -1,0 +1,74 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "edit_predictions": {
+    "provider": "copilot",
+    "mode": "subtle",
+  },
+  "base_keymap": "VSCode",
+
+  // Layout && styling
+  "theme": "Monokai Pro (CE)",
+  "colorize_brackets": true,
+  "buffer_font_family": "JetBrainsMono Nerd Font Mono",
+  "buffer_font_size": 14.0,
+  "buffer_font_features": {
+    "calt": false,
+    "liga": false,
+  },
+  "ui_font_size": 16.0,
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": false,
+  },
+  "tabs": {
+    "file_icons": true,
+  },
+
+  // Vim mode
+  "vim_mode": true,
+  "relative_line_numbers": "enabled",
+  "vertical_scroll_margin": 15.0,
+
+  // AI features
+  "agent": {
+    "always_allow_tool_actions": true,
+    "default_profile": "write",
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "claude-sonnet-4.5",
+    },
+    "model_parameters": [],
+    "enable_feedback": false,
+  },
+
+  // Language specific features
+  "languages": {
+    "Shell Script": {
+      "format_on_save": "on",
+      "formatter": {
+        "external": {
+          "command": "shfmt",
+          "arguments": ["--filename", "{buffer_path}", "--indent", "2"],
+        },
+      },
+    },
+  },
+
+  // Misc behaviour
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 1000,
+    },
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+  },
+}

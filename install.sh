@@ -17,9 +17,9 @@ THEME_PKGS=(
 )
 
 DEV_PKGS=(
-  android-tools bruno-bin cmake code code-features code-marketplace docker docker-buildx fzf
-  intellij-idea-ultimate-edition jdk-openjdk jdk21-openjdk lazydocker lazygit
-  maven mtpfs neovim nodejs-lts-jod npm pigz postgresql python ripgrep shellcheck shfmt
+  android-tools bruno-bin cmake docker docker-buildx fzf intellij-idea-ultimate-edition
+  jdk-openjdk jdk21-openjdk lazydocker lazygit maven mtpfs neovim nodejs-lts-jod npm
+  pigz postgresql python ripgrep shellcheck shfmt zed
 )
 
 USER_PKGS=(
