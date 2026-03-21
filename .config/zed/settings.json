@@ -38,11 +38,14 @@
 
   // AI features
   "agent": {
-    "always_allow_tool_actions": true,
+    "tool_permissions": {
+      "default": "allow"
+    },
     "default_profile": "write",
     "default_model": {
+      "effort": "high",
       "provider": "copilot_chat",
-      "model": "claude-sonnet-4.5",
+      "model": "gpt-5.3-codex",
     },
     "model_parameters": [],
     "enable_feedback": false,
