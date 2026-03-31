@@ -16,6 +16,7 @@ alias -- ls='eza -a'
 alias -- tree='eza --tree'
 alias -- sv='sudo nvim'
 alias -- v='nvim'
+alias -- paru='paru --color always'
 
 zstyle :compinstall filename '/home/bart/.zshrc'
 
