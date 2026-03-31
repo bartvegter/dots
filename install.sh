@@ -23,7 +23,7 @@ DEV_PKGS=(
 )
 
 USER_PKGS=(
-  bat btop catfish chromium discord easyeffects file-roller gvfs gvfs-mtp gvfs-nfs gvfs-smb
+  bat-extras btop catfish chromium discord easyeffects file-roller gvfs gvfs-mtp gvfs-nfs gvfs-smb
   libopenraw nautilus nautilus-image-converter nautilus-share nfs-utils obsidian onlyoffice-bin
   poppler-glib proton-vpn-gtk-app rocm-smi-lib seahorse sushi syncthing ticktick tidal-hifi-bin
   timeshift tldr tumbler udiskie unrar unzip viewnior vim webp-pixbuf-loader xorg-xhost

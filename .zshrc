@@ -34,5 +34,6 @@ source ~/.cache/wal/colors-tty.sh
 
 export PATH="$PATH:$HOME/.local/bin"
 
+eval "$(batman --export-env)"
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
