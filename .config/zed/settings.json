@@ -43,9 +43,10 @@
     },
     "default_profile": "write",
     "default_model": {
-      "effort": "high",
+      "enable_thinking": true,
+      "effort": "medium",
       "provider": "copilot_chat",
-      "model": "gpt-5.3-codex",
+      "model": "gemini-3.1-pro-preview",
     },
     "model_parameters": [],
     "enable_feedback": false,
