@@ -53,10 +53,11 @@
     "auto_signature_help": true,
     "show_signature_help_after_edits": true,
     "snippet_sort_order": "inline",
+    "relative_line_numbers": "enabled",
     "scrollbar": {
         "show": "auto",
         "cursors": false,
-        "git_diff": false,
+        "git_diff": true,
     },
     "minimap": {
         "show": "never",
@@ -142,6 +143,7 @@
     // AI features
     "agent": {
         "enable_feedback": false,
+        "show_turn_stats": true,
         "tool_permissions": {
             "default": "allow",
         },

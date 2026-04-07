@@ -6,16 +6,55 @@
 // To see the default key bindings run `zed: open default keymap`
 // from the command palette.
 [
-  {
-    "context": "Editor && (vim_mode == normal || vim_mode == visual)",
-    "bindings": {
-      "space": null,
-      "space f f": "file_finder::Toggle",
-      "space f g": "workspace::NewSearch",
-      "space f e": "project_panel::ToggleFocus",
-      "space g g": "git_panel::ToggleFocus",
-      "space d d": "diagnostics::Deploy",
-      "space c a": "editor::ToggleCodeActions",
+    {
+        // Main vim bindings
+        "context": "VimControl",
+        "bindings": {
+            "space": null,
+            "space e": "project_panel::ToggleFocus",
+            "space f f": "file_finder::Toggle",
+            "space f g": "workspace::NewSearch",
+            // "space d d": "diagnostics::Deploy",
+            // "space c a": "editor::ToggleCodeActions",
+
+            "space g g": "git_panel::ToggleFocus",
+            "space g d": "editor::ToggleSelectedDiffHunks",
+            "space g t": "git::ToggleStaged",
+            "space g r": "git::Restore",
+            "space g s": "git::StageAndNext",
+            "space g u": "git::UnstageAndNext",
+            "space g b": "git::Blame",
+            "space g c": "git::Commit",
+            "space g p": "git::PullRebase",
+            "space g P": "git::Push",
+        },
     },
-  },
+    {
+        // Seemless navigation between editor and dock panels
+        "context": "VimControl || Dock",
+        "bindings": {
+            "ctrl-h": "workspace::ActivatePaneLeft",
+            "ctrl-l": "workspace::ActivatePaneRight",
+            "ctrl-k": "workspace::ActivatePaneUp",
+            "ctrl-j": "workspace::ActivatePaneDown",
+        },
+    },
+    {
+        // Close any panel that is not the editor
+        "context": "Dock",
+        "bindings": {
+            "ctrl-w": "workspace::CloseActiveDock",
+        },
+    },
+    {
+        // Navigating files in project panel
+        "context": "ProjectPanel && not_editing",
+        "bindings": {
+            "j": "menu::SelectNext",
+            "k": "menu::SelectPrevious",
+            "h": "project_panel::CollapseSelectedEntry",
+            "l": "project_panel::ExpandSelectedEntry",
+            "o": "project_panel::Open",
+        },
+    },
 ]
