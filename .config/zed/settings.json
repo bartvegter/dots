@@ -7,72 +7,155 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "edit_predictions": {
-    "provider": "copilot",
-    "mode": "subtle",
-  },
-  "base_keymap": "VSCode",
-
-  // Layout && styling
-  "theme": "Monokai Pro (CE)",
-  "colorize_brackets": true,
-  "buffer_font_family": "JetBrainsMono Nerd Font Mono",
-  "buffer_font_size": 14.0,
-  "buffer_font_features": {
-    "calt": false,
-    "liga": false,
-  },
-  "ui_font_size": 16.0,
-  "toolbar": {
-    "breadcrumbs": false,
-    "quick_actions": false,
-  },
-  "tabs": {
-    "file_icons": true,
-  },
-
-  // Vim mode
-  "vim_mode": true,
-  "relative_line_numbers": "enabled",
-  "vertical_scroll_margin": 15.0,
-
-  // AI features
-  "agent": {
-    "tool_permissions": {
-      "default": "allow"
+    // General
+    "session": {
+        "trust_all_worktrees": true,
     },
-    "default_profile": "write",
-    "default_model": {
-      "enable_thinking": true,
-      "effort": "medium",
-      "provider": "copilot_chat",
-      "model": "gemini-3.1-pro-preview",
+    "restore_on_startup": "launchpad",
+    "telemetry": {
+        "diagnostics": false,
+        "metrics": false,
     },
-    "model_parameters": [],
-    "enable_feedback": false,
-  },
 
-  // Language specific features
-  "languages": {
-    "Shell Script": {
-      "format_on_save": "on",
-      "formatter": {
-        "external": {
-          "command": "shfmt",
-          "arguments": ["--filename", "{buffer_path}", "--indent", "2"],
+    // Appearance
+    "theme": "Monokai Pro (CE)",
+    "icon_theme": "Material Icon Theme",
+    "buffer_font_family": "JetBrainsMonoNL Nerd Font Mono",
+    "buffer_font_size": 14.0,
+    // "buffer_font_features": {
+    //   "calt": false,
+    //   "liga": false,
+    // },
+    "ui_font_family": "JetBrainsMono Nerd Font Mono",
+    "ui_font_size": 15.0,
+    "cursor_blink": true,
+    "cursor_shape": "bar",
+    "hide_mouse": "on_typing_and_movement",
+    "current_line_highlight": "all",
+    "show_wrap_guides": true,
+
+    // Keymap
+    "base_keymap": "VSCode",
+    "vim_mode": true,
+
+    // Editor
+    "autosave": {
+        "after_delay": {
+            "milliseconds": 1000,
         },
-      },
     },
-  },
+    "which_key": {
+        "enabled": true,
+        "delay_ms": 500,
+    },
+    "vertical_scroll_margin": 15.0,
+    "scroll_beyond_last_line": "vertical_scroll_margin",
+    "auto_signature_help": true,
+    "show_signature_help_after_edits": true,
+    "snippet_sort_order": "inline",
+    "scrollbar": {
+        "show": "auto",
+        "cursors": false,
+        "git_diff": false,
+    },
+    "minimap": {
+        "show": "never",
+    },
+    "toolbar": {
+        "breadcrumbs": false,
+        "quick_actions": false,
+        "selections_menu": false,
+        "agent_review": false,
+    },
+    "vim": {
+        "toggle_relative_line_numbers": true,
+        "use_system_clipboard": "always",
+        "use_smartcase_find": true,
+    },
+    "tab_size": 4,
+    "hard_tabs": false,
+    "auto_indent": "syntax_aware",
+    "auto_indent_on_paste": true,
+    "indent_guides": {
+        "enabled": true,
+        "coloring": "fixed",
+    },
+    "format_on_save": "on",
+    "remove_trailing_whitespace_on_save": true,
+    "ensure_final_newline_on_save": true,
+    "show_whitespaces": "trailing",
+    "word_diff_enabled": true,
+    "middle_click_paste": false,
+    "colorize_brackets": true,
 
-  // Misc behaviour
-  "autosave": {
-    "after_delay": {
-      "milliseconds": 1000,
+    // Language & Tools
+    "prettier": {
+        "allowed": true,
     },
-  },
-  "telemetry": {
-    "diagnostics": false,
-    "metrics": false,
-  },
+    "languages": {
+        "HTML": {
+            "tab_size": 2,
+        },
+    },
+
+    // Window & Layout
+    "tabs": {
+        "close_position": "right",
+        "git_status": true,
+        "file_icons": true,
+    },
+
+    // Panels
+    "project_panel": {
+        "dock": "left",
+        "starts_open": false,
+        "auto_fold_dirs": true,
+        "bold_folder_labels": true,
+        "show_diagnostics": "all",
+        "diagnostic_badges": true,
+        "hide_root": false,
+    },
+    "git_panel": {
+        "fallback_branch_name": "main",
+        "show_count_badge": false,
+    },
+    "notification_panel": {
+        "button": false,
+    },
+    "collaboration_panel": {
+        "button": false,
+    },
+
+    // Terminal
+    "terminal": {
+        "font_size": 14.0,
+        "copy_on_select": true,
+    },
+
+    // Version Control
+    "git": {
+        "inline_blame": {
+            "show_commit_summary": false,
+        },
+    },
+
+    // AI features
+    "agent": {
+        "enable_feedback": false,
+        "tool_permissions": {
+            "default": "allow",
+        },
+        "default_profile": "write",
+        "default_model": {
+            "enable_thinking": true,
+            "effort": "high",
+            "provider": "copilot_chat",
+            "model": "gemini-3.1-pro-preview",
+        },
+        "model_parameters": [],
+    },
+    "edit_predictions": {
+        "provider": "zed",
+        "mode": "subtle",
+    },
 }
