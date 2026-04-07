@@ -11,11 +11,13 @@
         "context": "VimControl",
         "bindings": {
             "space": null,
+           "space p": "projects::OpenRecent",
             "space e": "project_panel::ToggleFocus",
             "space f f": "file_finder::Toggle",
             "space f g": "workspace::NewSearch",
-            // "space d d": "diagnostics::Deploy",
-            // "space c a": "editor::ToggleCodeActions",
+
+            "space d": "diagnostics::Deploy",
+            "space a": "editor::ToggleCodeActions",
 
             "space g g": "git_panel::ToggleFocus",
             "space g d": "editor::ToggleSelectedDiffHunks",
