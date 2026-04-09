@@ -17,9 +17,9 @@ THEME_PKGS=(
 )
 
 DEV_PKGS=(
-  android-tools bruno-bin cmake docker docker-buildx fzf intellij-idea-ultimate-edition
-  jdk-openjdk jdk21-openjdk lazydocker lazygit maven mtpfs neovim nodejs-lts-jod npm
-  pigz postgresql python ripgrep shellcheck shfmt tmux zed
+  android-tools bruno-bin clangd cmake docker docker-buildx fzf gitlab-ci-ls
+  intellij-idea-ultimate-edition jdk-openjdk jdk21-openjdk lazydocker lazygit maven mtpfs
+  neovim nodejs-lts-jod npm pigz postgresql python ripgrep shellcheck shfmt tmux zed
 )
 
 USER_PKGS=(
@@ -50,7 +50,7 @@ ALL_PKGS=(
 echo ":: Checking if paru is installed..."
 if ! command -v paru &>/dev/null; then
   echo ":: Paru is not yet installed. Installing now..."
-  sudo pacman -Syu --needed base-devel git rust
+  sudo pacman -Syu --needed --noconfirm base-devel git rust
   git clone https://aur.archlinux.org/paru.git "$HOME/paru"
   pushd "$HOME/paru"
   makepkg -si --noconfirm
@@ -66,7 +66,7 @@ fi
 
 echo ":: Installing and setting up GNU stow for dotfile management"
 if [[ -d "$HOME/dots" ]]; then
-  paru -Syu --needed stow
+  paru -Syu --needed --noconfirm stow
   cd "$HOME/dots"
   if [[ -e "$HOME/.bashrc" ]]; then
     mv "$HOME/.bashrc" "$HOME/.bashrc.bak"
@@ -80,7 +80,7 @@ fi
 # -----------------------------------------------
 
 echo ":: Installing all packages..."
-paru -Syu --needed "${ALL_PKGS[@]}" -y
+paru -Syu --needed --noconfirm "${ALL_PKGS[@]}" -y
 echo ":: Package install completed"
 
 # -----------------------------------------------
