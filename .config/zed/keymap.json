@@ -19,7 +19,6 @@
       "space p o": "workspace::Open",
       "space p r": "projects::OpenRecent",
 
-
       "space e": "project_panel::ToggleFocus",
       "space f f": "file_finder::Toggle",
       "space f g": "workspace::NewSearch",
@@ -31,7 +30,7 @@
       "space c c": "agent::ToggleFocus",
 
       "space g g": "git_panel::ToggleFocus",
-      "space g d": "editor::ToggleSelectedDiffHunks",
+      "space g d": "git::Diff",
       "space g t": "git::ToggleStaged",
       "space g r": "git::Restore",
       "space g s": "git::StageAndNext",
@@ -56,7 +55,7 @@
   },
   {
     // Close any panel that is not the editor
-    "context": "Dock",
+    "context": "Dock || MessageEditor",
     "bindings": {
       "ctrl-w": "workspace::CloseActiveDock",
     },

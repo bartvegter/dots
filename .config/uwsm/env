@@ -1,5 +1,6 @@
 export CLUTTER_BACKEND=wayland
-export EDITOR=nvim
+export EDITOR=zeditor --wait
+export GIT_EDITOR=zeditor --wait
 export ELECTRON_OZONE_PLATFORM_HINT=auto
 export GDK_BACKEND=wayland,x11,*
 export GTK_THEME=Gruvbox-Dark
