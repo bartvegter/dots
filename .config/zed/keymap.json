@@ -46,6 +46,28 @@
     },
   },
   {
+    // Added vim bindings to git graph
+    "context": "GitGraph",
+    "bindings": {
+      "space": null, // Disables next character behaviour for space key
+
+      "space g g": "git_panel::ToggleFocus",
+      "space g d": "git::Diff",
+      "space g t": "git::ToggleStaged",
+      "space g r": "git::Restore",
+      "space g s": "git::StageAndNext",
+      "space g S": "git::StageAll",
+      "space g u": "git::UnstageAndNext",
+      "space g U": "git::UnstageAll",
+      "space g b": "git::Blame",
+      "space g c": "git::Commit",
+      "space g p": "git::PullRebase",
+      "space g P": "git::Push",
+      "space g B": "git::Branch",
+      "space g x": "git_graph::Open",
+    },
+  },
+  {
     // Seemless navigation between editor and dock panels
     "context": "VimControl || Dock",
     "bindings": {
