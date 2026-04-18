@@ -25,16 +25,18 @@
 
       "space d": "diagnostics::Deploy",
 
+      "space c c": "agent::ToggleFocus",
       "space c a": "editor::ToggleCodeActions",
       "space c i": "assistant::InlineAssist",
-      "space c c": "agent::ToggleFocus",
 
       "space g g": "git_panel::ToggleFocus",
       "space g d": "git::Diff",
       "space g t": "git::ToggleStaged",
       "space g r": "git::Restore",
       "space g s": "git::StageAndNext",
+      "space g S": "git::StageAll",
       "space g u": "git::UnstageAndNext",
+      "space g U": "git::UnstageAll",
       "space g b": "git::Blame",
       "space g c": "git::Commit",
       "space g p": "git::PullRebase",
