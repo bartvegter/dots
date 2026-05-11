@@ -55,11 +55,11 @@
   //   "calt": false,
   //   "liga": false,
   // },
-  "ui_font_family": "JetBrainsMono Nerd Font Mono",
-  "ui_font_size": 15.0,
+  "ui_font_family": ".ZedSans",
+  "ui_font_size": 16.0,
   "cursor_blink": true,
   "cursor_shape": "bar",
-  "hide_mouse": "on_typing_and_movement",
+  "hide_mouse": "on_typing_and_action",
   "current_line_highlight": "all",
   "show_wrap_guides": true,
 
@@ -117,11 +117,15 @@
   "word_diff_enabled": true,
   "middle_click_paste": false,
   "colorize_brackets": true,
+  "inlay_hints": {
+    "enabled": true,
+  },
 
   // Language & Tools
   "prettier": {
     "allowed": true,
   },
+  "formatter": "auto",
   "languages": {
     "CSS": {
       "language_servers": [
@@ -135,8 +139,9 @@
         "source.fixAll.eslint": true,
       },
     },
+    "TypeScript": {},
+    "Svelte": {},
     "Shell Script": {
-      "format_on_save": "on",
       "formatter": {
         "external": {
           "command": "shfmt",
@@ -184,8 +189,8 @@
   // Window & Layout
   "title_bar": {
     "show_user_menu": true,
-    "show_project_items": false,
-    "show_branch_name": false,
+    "show_project_items": true,
+    "show_branch_name": true,
   },
   "tabs": {
     "close_position": "right",
@@ -212,7 +217,7 @@
     "show_count_badge": false,
   },
   "collaboration_panel": {
-    "dock": "right"
+    "dock": "right",
   },
   "diff_view_style": "split",
 
@@ -231,6 +236,8 @@
 
   // AI features
   "agent": {
+    "sidebar_side": "right",
+    "dock": "right",
     "enable_feedback": false,
     "show_turn_stats": true,
     "tool_permissions": {
