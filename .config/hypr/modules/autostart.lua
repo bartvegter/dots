@@ -1,0 +1,26 @@
+hl.on("hyprland.start", function()
+	LAUNCHAPP("batsignal")
+	LAUNCHAPP("discord")
+	LAUNCHAPP("kanshi")
+	LAUNCHAPP("mako")
+	LAUNCHAPP("netbird-ui -daemon-addr 'unix:///var/run/netbird/main.sock'")
+	LAUNCHAPP("tidal-hifi")
+	LAUNCHAPP("swayosd-server")
+	LAUNCHAPP("awww-daemon")
+	LAUNCHAPP("udiskie")
+	LAUNCHAPP("wl-paste --type text --watch cliphist store")
+	LAUNCHAPP("wl-paste --type image --watch cliphist store")
+	LAUNCHAPP("wlsunset -t 4000 -S 7:00 -s 22:00")
+
+	RUNCMD("cliphist wipe")
+	RUNCMD("systemctl --user start hyprpolkitagent.service")
+	RUNCMD("systemctl --user start syncthing.service")
+	RUNCMD("systemctl --user start waybar.service")
+	RUNCMD("brightnessctl -sd platform::kbd_backlight set 1")
+	RUNCMD("gsettings set org.gnome.desktop.interface gtk-theme 'Gruvbox-Dark'") -- for GTK3 apps
+	RUNCMD("gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'") -- for GTK4 apps
+end)
+
+hl.on("config.reloaded", function()
+	RUNCMD("awww img ${wallpaper} && wal --theme base16-monokai-pro")
+end)
