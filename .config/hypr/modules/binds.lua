@@ -71,7 +71,7 @@ hl.bind("XF86AudioRaiseVolume", RUNCMD("swayosd-client --output-volume +5"), { r
 hl.bind("XF86AudioLowerVolume", RUNCMD("swayosd-client --output-volume -5"), { repeating = true })
 
 -- Used for Lofree Flow keyboard, comment out if not needed
-hl.bind("XF86Fn&F10", RUNCMD("swayosd-client --output-volume mute-toggle"))
-hl.bind("XF86Fn&Insert", RUNCMD("swayosd-client --input-volume mute-toggle"))
-hl.bind("XF86Fn&F11", RUNCMD("swayosd-client --output-volume -5"), { repeating = true })
-hl.bind("XF86Fn&F12", RUNCMD("swayosd-client --output-volume +5"), { repeating = true })
+-- hl.bind("XF86Fn&F10", RUNCMD("swayosd-client --output-volume mute-toggle"))
+-- hl.bind("XF86Fn&Insert", RUNCMD("swayosd-client --input-volume mute-toggle"))
+-- hl.bind("XF86Fn&F11", RUNCMD("swayosd-client --output-volume -5"), { repeating = true })
+-- hl.bind("XF86Fn&F12", RUNCMD("swayosd-client --output-volume +5"), { repeating = true })

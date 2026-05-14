@@ -3,7 +3,7 @@ hl.window_rule({
 	match = {
 		title = "^Hyprland Polkit Agent$",
 	},
-	stay_focused = "on",
+	stay_focused = true,
 })
 
 hl.window_rule({
@@ -11,8 +11,8 @@ hl.window_rule({
 	match = {
 		class = "^xdg-desktop-portal-gtk$",
 	},
-	float = "on",
-	stay_focused = "on",
+	float = true,
+	stay_focused = true,
 })
 
 hl.window_rule({
@@ -20,9 +20,9 @@ hl.window_rule({
 	match = {
 		class = "^org.pulseaudio.pavucontrol$",
 	},
-	float = "on",
+	float = true,
 	move = { "(monitor_w-710)", 60 },
-	pin = "on",
+	pin = true,
 	size = { 700, 500 },
 })
 
@@ -31,7 +31,7 @@ hl.window_rule({
 	match = {
 		class = "^org.gnome.NautilusPreviewer$",
 	},
-	float = "on",
+	float = true,
 })
 
 hl.window_rule({
@@ -40,7 +40,7 @@ hl.window_rule({
 		class = "^file-roller$",
 		title = "^File Operation Progress$",
 	},
-	float = "on",
+	float = true,
 })
 
 hl.window_rule({
@@ -48,7 +48,7 @@ hl.window_rule({
 	match = {
 		class = "^Viewnior$",
 	},
-	float = "on",
+	float = true,
 })
 
 hl.window_rule({
@@ -57,8 +57,8 @@ hl.window_rule({
 		class = "^jetbrains-idea$",
 		title = "^Welcome to IntelliJ IDEA$",
 	},
-	float = "off",
-	tile = "on",
+	float = false,
+	tile = true,
 })
 
 hl.window_rule({
@@ -90,7 +90,7 @@ hl.window_rule({
 	match = {
 		class = "^steam$",
 	},
-	float = "on",
+	float = true,
 })
 
 hl.window_rule({
@@ -99,8 +99,8 @@ hl.window_rule({
 		class = "^steam$",
 		title = "^Steam$",
 	},
-	float = "off",
-	tile = "on",
+	float = false,
+	tile = true,
 })
 
 hl.window_rule({
@@ -109,7 +109,7 @@ hl.window_rule({
 		class = "^steam$",
 		title = "^$",
 	},
-	no_focus = "on",
+	no_focus = true,
 })
 
 hl.window_rule({
@@ -136,11 +136,11 @@ hl.window_rule({
 		class = "^discord$",
 		title = "^Discord Popout$",
 	},
-	float = "on",
-	keep_aspect_ratio = "on",
+	float = true,
+	keep_aspect_ratio = true,
 	move = { "(monitor_w-650)", "(monitor_h-370)" },
-	no_initial_focus = "on",
-	pin = "on",
+	no_initial_focus = true,
+	pin = true,
 	size = { 640, 360 },
 })
 
@@ -229,10 +229,10 @@ hl.window_rule({
 	match = {
 		title = "^Picture-in-Picture$",
 	},
-	float = "on",
-	keep_aspect_ratio = "on",
-	no_initial_focus = "on",
+	float = true,
+	keep_aspect_ratio = true,
+	no_initial_focus = true,
 	move = { "(monitor_w-650)", "(monitor_h-370)" },
-	pin = "on",
+	pin = true,
 	size = { 640, 360 },
 })
