@@ -17,7 +17,7 @@ THEME_PKGS=(
 )
 
 DEV_PKGS=(
-  android-tools bruno-bin clangd cmake docker docker-buildx fzf gitlab-ci-ls
+  android-tools bruno-bin clang cmake docker docker-buildx fzf gitlab-ci-ls
   intellij-idea-ultimate-edition jdk-openjdk jdk21-openjdk lazydocker lazygit maven mtpfs
   neovim nodejs-lts-jod npm pigz postgresql python ripgrep shellcheck shfmt stylua tmux zed
 )
@@ -32,7 +32,7 @@ USER_PKGS=(
 
 GAMING_PKGS=(
   gamescope gamemode lib32-mesa lib32-vulkan-radeon mangohud mesa minecraft-launcher
-  protontricks protonup-qt steam vulkan-radeon wine-staging wine-gecko wine-mono winetricks
+  protontricks proton-ge-custom-bin steam vulkan-radeon wine-staging wine-gecko wine-mono winetricks
 )
 
 ALL_PKGS=(
@@ -80,7 +80,7 @@ fi
 # -----------------------------------------------
 
 echo ":: Installing all packages..."
-paru -Syu --needed --noconfirm "${ALL_PKGS[@]}" -y
+paru -Syu --needed --noconfirm "${ALL_PKGS[@]}"
 echo ":: Package install completed"
 
 # -----------------------------------------------
@@ -241,8 +241,10 @@ done
 echo && echo ":: Enabling reflector.timer for automatic mirrorlist updates..."
 sudo systemctl enable reflector.timer
 
-echo && echo ":: Setting zsh as default user shell..."
-chsh -s "$(which zsh)"
+if [[ "$(basename "$SHELL")" != "zsh" ]]; then
+  echo && echo ":: Setting zsh as the default user shell..."
+  chsh -s "$(command -v zsh)"
+fi
 
 echo && echo ":: Linking scripts to /usr/local/bin/"
 ./add-scripts-to-path.sh
