@@ -1,27 +1,35 @@
+local launchApp = function(app)
+	return hl.dsp.exec_cmd("uwsm app -- " .. app)
+end
+
+local exec = function(cmd)
+	return hl.dsp.exec_cmd(cmd)
+end
+
 local appMenu = "rofi -show drun -run-command 'uwsm app -- {cmd}'"
 local emojiMenu = "rofi -show emoji -emoji-format '{emoji}' -config ~/.config/rofi/emoji.rasi"
 local clipboardMenu = "rofi -show clipboard -config ~/.config/rofi/clipboard.rasi"
 
 -- Application/cmd binds
-hl.bind("SUPER + D", LAUNCHAPP(appMenu))
-hl.bind("SUPER + V", LAUNCHAPP(clipboardMenu))
-hl.bind("SUPER + period", LAUNCHAPP(emojiMenu))
+hl.bind("SUPER + D", launchApp(appMenu))
+hl.bind("SUPER + V", launchApp(clipboardMenu))
+hl.bind("SUPER + period", launchApp(emojiMenu))
 
-hl.bind("SUPER + RETURN", LAUNCHAPP(TERMINAL))
-hl.bind("SUPER + E", LAUNCHAPP(FILE_BROWSER))
-hl.bind("SUPER + B", LAUNCHAPP(BROWSER))
-hl.bind("SUPER + C", LAUNCHAPP(EDITOR))
-hl.bind("SUPER + T", LAUNCHAPP("ticktick"))
-hl.bind("SUPER + Y", LAUNCHAPP("obsidian"))
-hl.bind("SUPER + N", LAUNCHAPP("hyprlock"))
-hl.bind("SUPER + W", RUNCMD("systemctl --user reload waybar"))
+hl.bind("SUPER + RETURN", launchApp(TERMINAL))
+hl.bind("SUPER + E", launchApp(FILE_BROWSER))
+hl.bind("SUPER + B", launchApp(BROWSER))
+hl.bind("SUPER + C", launchApp(EDITOR))
+hl.bind("SUPER + T", launchApp("ticktick"))
+hl.bind("SUPER + Y", launchApp("obsidian"))
+hl.bind("SUPER + N", launchApp("hyprlock"))
+hl.bind("SUPER + W", exec("systemctl --user reload waybar"))
 
-hl.bind("SUPER + S", RUNCMD("grimblast --notify copysave area"))
-hl.bind("SUPER + SHIFT + S", RUNCMD("grimblast --notify copysave active"))
-hl.bind("SUPER + CTRL + S", RUNCMD("grimblast --notify copysave screen"))
+hl.bind("SUPER + S", exec("grimblast --notify copysave area"))
+hl.bind("SUPER + SHIFT + S", exec("grimblast --notify copysave active"))
+hl.bind("SUPER + CTRL + S", exec("grimblast --notify copysave screen"))
 
-hl.bind("SUPER + X", RUNCMD("hyprpicker -f hex --autocopy"))
-hl.bind("SUPER + SHIFT + X", RUNCMD("hyprpicker -f rgb --autocopy"))
+hl.bind("SUPER + X", exec("hyprpicker -f hex --autocopy"))
+hl.bind("SUPER + SHIFT + X", exec("hyprpicker -f rgb --autocopy"))
 
 -- Workspace binds
 for i = 1, 10 do
@@ -62,13 +70,13 @@ hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Function key binds
-hl.bind("XF86MonBrightnessUp", RUNCMD("swayosd-client --brightness +5"), { repeating = true })
-hl.bind("XF86MonBrightnessDown", RUNCMD("swayosd-client --brightness -5"), { repeating = true })
+hl.bind("XF86MonBrightnessUp", exec("swayosd-client --brightness +5"), { repeating = true })
+hl.bind("XF86MonBrightnessDown", exec("swayosd-client --brightness -5"), { repeating = true })
 
-hl.bind("XF86AudioMute", RUNCMD("swayosd-client --output-volume mute-toggle"))
-hl.bind("XF86AudioMicMute", RUNCMD("swayosd-client --input-volume mute-toggle"))
-hl.bind("XF86AudioRaiseVolume", RUNCMD("swayosd-client --output-volume +5"), { repeating = true })
-hl.bind("XF86AudioLowerVolume", RUNCMD("swayosd-client --output-volume -5"), { repeating = true })
+hl.bind("XF86AudioMute", exec("swayosd-client --output-volume mute-toggle"))
+hl.bind("XF86AudioMicMute", exec("swayosd-client --input-volume mute-toggle"))
+hl.bind("XF86AudioRaiseVolume", exec("swayosd-client --output-volume +5"), { repeating = true })
+hl.bind("XF86AudioLowerVolume", exec("swayosd-client --output-volume -5"), { repeating = true })
 
 -- Used for Lofree Flow keyboard, comment out if not needed
 -- hl.bind("XF86Fn&F10", RUNCMD("swayosd-client --output-volume mute-toggle"))

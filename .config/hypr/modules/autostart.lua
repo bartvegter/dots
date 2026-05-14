@@ -1,26 +1,34 @@
-hl.on("hyprland.start", function()
-	LAUNCHAPP("batsignal")
-	LAUNCHAPP("discord")
-	LAUNCHAPP("kanshi")
-	LAUNCHAPP("mako")
-	LAUNCHAPP("netbird-ui -daemon-addr 'unix:///var/run/netbird/main.sock'")
-	LAUNCHAPP("tidal-hifi")
-	LAUNCHAPP("swayosd-server")
-	LAUNCHAPP("awww-daemon")
-	LAUNCHAPP("udiskie")
-	LAUNCHAPP("wl-paste --type text --watch cliphist store")
-	LAUNCHAPP("wl-paste --type image --watch cliphist store")
-	LAUNCHAPP("wlsunset -t 4000 -S 7:00 -s 22:00")
+local launchApp = function(app)
+	hl.exec_cmd("uwsm app -- " .. app)
+end
 
-	RUNCMD("cliphist wipe")
-	RUNCMD("systemctl --user start hyprpolkitagent.service")
-	RUNCMD("systemctl --user start syncthing.service")
-	RUNCMD("systemctl --user start waybar.service")
-	RUNCMD("brightnessctl -sd platform::kbd_backlight set 1")
-	RUNCMD("gsettings set org.gnome.desktop.interface gtk-theme 'Gruvbox-Dark'") -- for GTK3 apps
-	RUNCMD("gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'") -- for GTK4 apps
+local exec = function(cmd)
+	hl.exec_cmd(cmd)
+end
+
+hl.on("hyprland.start", function()
+	launchApp("batsignal")
+	launchApp("discord")
+	launchApp("kanshi")
+	launchApp("mako")
+	launchApp("netbird-ui -daemon-addr 'unix:///var/run/netbird/main.sock'")
+	launchApp("tidal-hifi")
+	launchApp("swayosd-server")
+	launchApp("awww-daemon")
+	launchApp("udiskie")
+	launchApp("wl-paste --type text --watch cliphist store")
+	launchApp("wl-paste --type image --watch cliphist store")
+	launchApp("wlsunset -t 4000 -S 7:00 -s 22:00")
+
+	exec("cliphist wipe")
+	exec("systemctl --user start hyprpolkitagent.service")
+	exec("systemctl --user start syncthing.service")
+	exec("systemctl --user start waybar.service")
+	exec("brightnessctl -sd platform::kbd_backlight set 1")
+	exec("gsettings set org.gnome.desktop.interface gtk-theme 'Gruvbox-Dark'") -- for GTK3 apps
+	exec("gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'") -- for GTK4 apps
 end)
 
 hl.on("config.reloaded", function()
-	RUNCMD("awww img ${wallpaper} && wal --theme base16-monokai-pro")
+	exec("awww img ${wallpaper} && wal --theme base16-monokai-pro")
 end)
