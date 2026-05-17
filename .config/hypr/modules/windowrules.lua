@@ -233,6 +233,22 @@ hl.window_rule({
 })
 
 hl.window_rule({
+	name = "Game - Satisfactory",
+	match = {
+		title = "^Satisfactory$",
+	},
+	workspace = 9,
+})
+
+hl.window_rule({
+	name = "Game - Overwatch",
+	match = {
+		title = "^Overwatch$",
+	},
+	workspace = 9,
+})
+
+hl.window_rule({
 	name = "Firefox PiP",
 	match = {
 		title = "^Picture-in-Picture$",
