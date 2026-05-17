@@ -153,6 +153,14 @@ hl.window_rule({
 })
 
 hl.window_rule({
+	name = "Sone (Tidal player)",
+	match = {
+		class = "^sone$",
+	},
+	workspace = "5 silent",
+})
+
+hl.window_rule({
 	name = "Game - Steam proton",
 	match = {
 		class = "^steam_app.*$",

@@ -70,13 +70,13 @@ hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Function key binds
-hl.bind("XF86MonBrightnessUp", exec("swayosd-client --brightness +5"), { repeating = true })
-hl.bind("XF86MonBrightnessDown", exec("swayosd-client --brightness -5"), { repeating = true })
+hl.bind("XF86MonBrightnessUp", exec("swayosd-client --brightness +5"), { repeating = true, locked = true })
+hl.bind("XF86MonBrightnessDown", exec("swayosd-client --brightness -5"), { repeating = true, locked = true })
 
-hl.bind("XF86AudioMute", exec("swayosd-client --output-volume mute-toggle"))
-hl.bind("XF86AudioMicMute", exec("swayosd-client --input-volume mute-toggle"))
-hl.bind("XF86AudioRaiseVolume", exec("swayosd-client --output-volume +5"), { repeating = true })
-hl.bind("XF86AudioLowerVolume", exec("swayosd-client --output-volume -5"), { repeating = true })
+hl.bind("XF86AudioMute", exec("swayosd-client --output-volume mute-toggle"), { locked = true })
+hl.bind("XF86AudioMicMute", exec("swayosd-client --input-volume mute-toggle"), { locked = true })
+hl.bind("XF86AudioRaiseVolume", exec("swayosd-client --output-volume +5"), { repeating = true, locked = true })
+hl.bind("XF86AudioLowerVolume", exec("swayosd-client --output-volume -5"), { repeating = true, locked = true })
 
 -- Used for Lofree Flow keyboard, comment out if not needed
 -- hl.bind("XF86Fn&F10", RUNCMD("swayosd-client --output-volume mute-toggle"))
