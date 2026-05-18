@@ -27,13 +27,13 @@
     "tooltip-format": "{:%A, %B %d}",
   },
   "custom/tidal-hifi": {
-    "exec": "~/.config/waybar/modules/tidal-hifi.sh",
-    "exec-if": "pgrep tidal-hifi",
+    "exec": "~/.config/waybar/modules/sone.sh",
+    "exec-if": "pgrep sone",
     "format": "{}",
-    "on-click": "playerctl --player=tidal-hifi play-pause",
+    "on-click": "playerctl --player=io.github.lullabyX.sone play-pause",
     "on-click-right": "hyprctl dispatch workspace 5",
-    "on-scroll-up": "playerctl --player=tidal-hifi next",
-    "on-scroll-down": "playerctl --player=tidal-hifi previous",
+    "on-scroll-up": "playerctl --player=io.github.lullabyX.sone next",
+    "on-scroll-down": "playerctl --player=io.github.lullabyX.sone previous",
     "tooltip": false,
   },
   "hyprland/workspaces": {
