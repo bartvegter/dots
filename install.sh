@@ -31,8 +31,8 @@ USER_PKGS=(
 )
 
 GAMING_PKGS=(
-  gamescope gamemode lib32-mesa lib32-vulkan-radeon mangohud mesa minecraft-launcher
-  protontricks proton-ge-custom-bin steam vulkan-radeon wine-staging wine-gecko wine-mono winetricks
+  gamescope gamemode lib32-mesa lib32-vulkan-radeon mangohud mesa minecraft-launcher protonplus
+  protontricks steam vulkan-radeon wine-staging wine-gecko wine-mono winetricks
 )
 
 ALL_PKGS=(
