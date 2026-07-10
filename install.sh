@@ -44,29 +44,53 @@ ALL_PKGS=(
 )
 
 # -----------------------------------------------
+# Enabling color and pacman easter egg in pacman
+# -----------------------------------------------
+
+printf ":: Updating pacman config..."
+if grep "Color" /etc/pacman.conf; then
+  if grep "^#Color" /etc/pacman.conf; then
+    sudo sed -i "s/^#Color/Color/" /etc/pacman.conf
+  fi
+  if ! grep "ILoveCandy" /etc/pacman.conf; then
+    sudo sed -i "s/Color/Color\nILoveCandy/" /etc/pacman.conf
+  fi
+fi
+
+# -----------------------------------------------
 # Install paru if not installed already
 # -----------------------------------------------
 
-echo ":: Checking if paru is installed..."
+printf ":: Checking if paru is installed..."
 if ! command -v paru &>/dev/null; then
-  echo ":: Paru is not yet installed. Installing now..."
-  sudo pacman -Syu --needed --noconfirm base-devel git rust
+  printf ":: Paru not found. Installing now...\n"
+  sudo pacman -Syu --needed --noconfirm base-devel git rustup
+  rustup default stable
   git clone https://aur.archlinux.org/paru.git "$HOME/paru"
   pushd "$HOME/paru"
   makepkg -si --noconfirm
   popd
   rm -rf "$HOME/paru"
+  printf "\n:: Paru installation complete\n"
 else
-  echo ":: Found existing installation of paru. Continuing..."
+  printf ":: Found existing installation of paru. Continuing...\n"
 fi
 
 # -----------------------------------------------
 # Use GNU stow if dotfiles are available
 # -----------------------------------------------
 
-echo ":: Installing and setting up GNU stow for dotfile management"
-if [[ -d "$HOME/dots" ]]; then
+printf ":: Checking if GNU stow is installed..."
+if ! command -v stow &>/dev/null; then
+  printf ":: GNU stow not found. Installing now...\n"
   paru -Syu --needed --noconfirm stow
+  printf "\n:: GNU stow installation complete\n"
+else
+  printf ":: Found existing installation of GNU stow. Continuing...\n"
+fi
+
+printf ":: Setting up GNU stow for dotfile management\n"
+if [[ -d "$HOME/dots" ]]; then
   cd "$HOME/dots"
   if [[ -e "$HOME/.bashrc" ]]; then
     mv "$HOME/.bashrc" "$HOME/.bashrc.bak"
@@ -79,30 +103,31 @@ fi
 # Install packages
 # -----------------------------------------------
 
-echo ":: Installing all packages..."
+printf "\n:: Installing all packages...\n"
 paru -Syu --needed --noconfirm "${ALL_PKGS[@]}"
-echo ":: Package install completed"
+printf "\n:: Package install completed\n"
 
 # -----------------------------------------------
 # SDDM setup
 # -----------------------------------------------
 
-echo ":: Enabling SDDM as display manager"
+printf ":: Enabling SDDM as display manager\n"
 sudo systemctl enable sddm.service
 if [[ ! -d "/etc/sddm.conf.d" ]]; then
   sudo mkdir /etc/sddm.conf.d
 fi
 sudo cp "$HOME/dots/etc/sddm.conf" "/etc/sddm.conf.d/sddm.conf"
+printf ":: SDDM setup completed\n"
 
 # -----------------------------------------------
 # Lofree Flow keyboard patches
 # -----------------------------------------------
 
 while true; do
-  read -rp ">> Would you like to apply patches for Lofree Flow keyboard? [y/N]: " ynLofree
-  case $ynLofree in
+  read -rp ">> Would you like to apply patches for the Lofree Flow keyboard? [y/N]: " yn_lofree_patches
+  case $yn_lofree_patches in
   "Y" | "y")
-    echo ":: Applying Lofree Flow keyboard patches..."
+    printf ":: Applying Lofree Flow keyboard patches...\n"
     if [[ ! -d "/etc/modprobe.d" ]]; then
       sudo mkdir /etc/modprobe.d
     fi
@@ -111,12 +136,12 @@ while true; do
     break
     ;;
   "" | "N" | "n")
-    echo && echo ":: Continuing..."
+    echo ":: Skipping Lofree Flow keyboard patches"
     break
     ;;
   *)
-    echo ":: Invalid input, please try again..." && echo
-    echo ":: Valid values are [y]es or [N]o (case insensitive), or press [return] for default (No)"
+    printf "\n:: Invalid input, please try again"
+    printf ":: Valid values are [y]es or [N]o (case insensitive), or press [return] for default (No)\n"
     break
     ;;
   esac
@@ -126,79 +151,84 @@ done
 # Finishing touches
 # -----------------------------------------------
 
-echo && echo ":: Setting iwd as default wifi backend for NetworkManager..."
+printf "\n:: Replacing wpa_supplicant with iwd as default wifi backend for NetworkManager...\n"
 sudo cp "$HOME/dots/etc/iwd.conf" "/etc/NetworkManager/conf.d/iwd.conf"
-sudo systemctl stop NetworkManager
-sudo systemctl disable --now wpa_supplicant
-sudo systemctl restart NetworkManager
-sudo systemctl enable --now iwd
+sudo systemctl stop NetworkManager.service
+sudo systemctl disable --now wpa_supplicant.service
+sudo systemctl restart NetworkManager.service
+sudo systemctl enable --now iwd.service
 
 while true; do
-  read -rp ">> Would you like to enable bluetooth on your system? [y/N]: " ynBluetooth
-  case $ynBluetooth in
+  echo
+  read -rp ">> Would you like to enable bluetooth on your system? [y/N]: " yn_bluetooth_setup
+  case $yn_bluetooth_setup in
   "Y" | "y")
-    echo && echo ":: Enabling bluetooth through systemd..."
-    systemctl enable bluetooth
+    echo ":: Enabling bluetooth systemd service..."
+    systemctl enable bluetooth.service
     break
     ;;
   "" | "N" | "n")
-    echo && echo ":: Continuing..."
+    echo ":: Skipping bluetooth setup..."
     break
     ;;
   *)
-    echo ":: Invalid input, please try again..." && echo
-    echo ":: Valid values are [y]es or [N]o (case insensitive), or press [return] for default (No)"
+    printf "\n:: Invalid input, please try again..."
+    printf ":: Valid values are [y]es or [N]o (case insensitive), or press [return] for default (No)\n"
     break
     ;;
   esac
 done
 
 while true; do
-  read -rp ">> Would you like to setup your git credentials? [y/N]: " ynGit
-  case $ynGit in
+  echo
+  read -rp ">> Would you like to setup your git credentials? [y/N]: " yn_git_setup
+  case $yn_git_setup in
   "Y" | "y")
-    echo ":: Setting up git credentials..."
-    read -rp ">> What is your git name (e.g. 'John Smith')? " gitName
-    git config --global user.name "$gitName"
+    echo
+    read -rp ">> Enter your git display name (e.g. 'John Smith'): " git_name
+    git config --global user.name "${git_name}"
 
-    read -rp ">> What is your email address tied to your remotes account? " gitEmail
-    git config --global user.email "$gitEmail"
+    read -rp ">> Enter your email address to use with git (e.g. 'name@example.com'): " git_email
+    git config --global user.email "${git_email}"
     break
     ;;
   "" | "N" | "n")
-    echo && echo ":: Continuing..."
+    printf ":: Skipping git setup..."
     break
     ;;
   *)
-    echo ":: Invalid input, please try again..." && echo
-    echo ":: Valid values are [y]es or [N]o (case insensitive), or press [return] for default (No)"
+    printf "\n:: Invalid input, please try again..."
+    printf ":: Valid values are [y]es or [N]o (case insensitive), or press [return] for default (No)\n"
     break
     ;;
   esac
 done
 
 while true; do
-  read -rp ">> Would you like to enable the ssh agent? [y/N]: " ynSshService
-  case $ynSshService in
+  echo
+  read -rp ">> Would you like to enable the ssh agent? [y/N]: " yn_ssh_agent
+  case $yn_ssh_agent in
   "Y" | "y")
-    echo && echo ":: Enabling ssh agent as systemd user unit..."
+    printf ":: Enabling ssh agent as systemd user unit..."
     systemctl --user enable --now gcr-ssh-agent.socket
 
     while true; do
-      read -rp ">> Would you like to add an ssh key to the agent? [y/N]: " ynSshKey
-      case $ynSshKey in
+      echo
+      read -rp ">> Would you like to add an ssh key to the agent? [y/N]: " yn_ssh_key
+      case $yn_ssh_key in
       "Y" | "y")
-        read -rp ">> Enter the location of your private key (e.g. ~/.ssh/key or /home/user/.ssh/key)? " keyLocation
-        /usr/lib/seahorse/ssh-askpass "${keyLocation}"
+        echo
+        read -rp ">> Enter the path of your private key (e.g. ~/.ssh/key or /home/user/.ssh/key)? " ssh_key_path
+        /usr/lib/seahorse/ssh-askpass "${ssh_key_path}"
         break
         ;;
       "" | "N" | "n")
-        echo && echo ":: Continuing..."
+        printf ":: Skipping ssh key setup..."
         break
         ;;
       *)
-        echo ":: Invalid input, please try again..." && echo
-        echo ":: Valid values are [y]es or [N]o (case insensitive), or press [return] for default (No)"
+        printf "\n:: Invalid input, please try again..."
+        printf ":: Valid values are [y]es or [N]o (case insensitive), or press [return] for default (No)\n"
         break
         ;;
       esac
@@ -206,67 +236,68 @@ while true; do
     break
     ;;
   "" | "N" | "n")
-    echo && echo ":: Continuing..."
+    echo ":: Skipping ssh agent setup..."
     break
     ;;
   *)
-    echo ":: Invalid input, please try again..." && echo
-    echo ":: Valid values are [y]es or [N]o (case insensitive), or press [return] for default (No)"
+    printf "\n:: Invalid input, please try again..."
+    printf ":: Valid values are [y]es or [N]o (case insensitive), or press [return] for default (No)\n"
     break
     ;;
   esac
 done
 
 while true; do
-  read -rp ">> Would you like to enable the docker engine on startup and be able to run docker as user? [y/N]: " ynDocker
-  case $ynDocker in
+  echo
+  read -rp ">> Would you like to enable the docker engine on startup and be able to run docker as non-root? [y/N]: " yn_docker
+  case $yn_docker in
   "Y" | "y")
-    echo && echo ":: Enabling docker socket..."
+    printf ":: Enabling docker socket...\n"
     sudo systemctl enable --now docker.socket
     sudo gpasswd -a "$USER" docker
     break
     ;;
   "" | "N" | "n")
-    echo && echo ":: Continuing..."
+    printf ":: Skipping docker setup...\n"
     break
     ;;
   *)
-    echo ":: Invalid input, please try again..." && echo
-    echo ":: Valid values are [y]es or [N]o (case insensitive), or press [return] for default (No)"
+    printf "\n:: Invalid input, please try again..."
+    printf ":: Valid values are [y]es or [N]o (case insensitive), or press [return] for default (No)\n"
     break
     ;;
   esac
 done
 
-echo && echo ":: Enabling reflector.timer for automatic mirrorlist updates..."
+printf "\n:: Enabling reflector.timer for automatic mirrorlist updates..."
 sudo systemctl enable reflector.timer
 
 if [[ "$(basename "$SHELL")" != "zsh" ]]; then
-  echo && echo ":: Setting zsh as the default user shell..."
+  printf "\n:: Setting zsh as the default user shell..."
   chsh -s "$(command -v zsh)"
 fi
 
-echo && echo ":: Linking scripts to /usr/local/bin/"
+printf "\n:: Adding custom scripts to PATH at /usr/local/bin"
 ./add-scripts-to-path.sh
 
-echo && echo ":: Installation complete"
+printf "\n:: Installation complete\n"
 while true; do
-  read -rp ">> Would you like to reboot into Hyprland? [Y/n]: " ynReboot
-  case $ynReboot in
+  read -rp ">> Would you like to reboot into Hyprland? [Y/n]: " yn_reboot
+  case $yn_reboot in
   "" | "Y" | "y")
-    echo && echo ":: Rebooting system..."
+    printf ":: Rebooting system...\n"
     systemctl reboot
     break
     ;;
 
   "N" | "n")
-    echo && echo ":: When ready, run 'systemctl reboot' to reboot into Hyprland"
+    printf ":: When ready, run 'systemctl reboot' to reboot into Hyprland\n"
     break
     ;;
 
   *)
-    echo ":: Invalid input, please try again..." && echo
-    echo ":: Valid values are [Y]es or [n]o (case insensitive), or press [return] for default (Yes)"
+    printf "\n:: Invalid input, please try again..."
+    printf ":: Valid values are [Y]es or [n]o (case insensitive), or press [return] for default (Yes)\n"
     break
     ;;
   esac
