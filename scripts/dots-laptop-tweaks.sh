@@ -1,60 +1,68 @@
 #!/usr/bin/env bash
 
 function enableLaptopTweaks() {
-  echo && echo ":: Installing necessary packages..."
-  paru -S --needed batsignal tlpui tlp ethtool smartmontools hypridle kanshi
+  printf "\n:: Installing necessary packages..."
+  paru -S --needed --noconfirm batsignal tlpui tlp ethtool smartmontools hypridle kanshi
 
-  echo && echo ":: Enabling and starting tlp for power management..."
-  sudo systemctl enable tlp.service --now
-
-  echo && echo ":: Masking conflicting systemd units..."
+  printf "\n:: Masking conflicting systemd units..."
   sudo systemctl mask systemd-rfkill.socket && sudo systemctl mask systemd-rfkill.service
 
-  echo && echo ":: Enabling hypridle..."
+  printf "\n:: Enabling and starting tlp for power management..."
+  sudo systemctl enable tlp.service --now
+
+  printf "\n:: Enabling hypridle..."
   systemctl --user enable --now hypridle
+
+  printf "\n:: Updating /etc/systemd/logind.conf to let Hyprland handle laptop lid switch..."
+  if grep "^#HandleLidSwitch=" /etc/systemd/logind.conf; then
+    sudo sed -i "s/^#HandleLidSwitch=.*$/HandleLidSwitch=ignore/" /etc/systemd/logind.conf
+  fi
+  if grep "^#HandleLidSwitchExternalPower=" /etc/systemd/logind.conf; then
+    sudo sed -i "s/^#HandleLidSwitchExternalPower=.*$/HandleLidSwitchExternalPower=ignore/" /etc/systemd/logind.conf
+  fi
+  if grep "^#HandleLidSwitchDocked=" /etc/systemd/logind.conf; then
+    sudo sed -i "s/^#HandleLidSwitchDocked=.*$/HandleLidSwitchDocked=ignore/" /etc/systemd/logind.conf
+  fi
 }
 
 function disableLaptopTweaks() {
-  echo && echo ":: Disabling hypridle..."
+  printf "\n:: Disabling hypridle..."
   systemctl --user disable --now hypridle
 
-  echo && echo ":: Disabling and stopping tlp..."
+  printf "\n:: Disabling and stopping tlp..."
   sudo systemctl disable tlp.service --now
 
-  echo && echo ":: Masking conflicting systemd units..."
+  printf "\n:: Masking conflicting systemd units..."
   sudo systemctl unmask systemd-rfkill.socket && sudo systemctl unmask systemd-rfkill.service
 
-  echo && echo ":: Uninstalling power management packages..."
-  paru -Rns batsignal tlpui tlp ethtool smartmontools hypridle kanshi
+  printf "\n:: Uninstalling power management packages..."
+  paru -Rns --noconfirm batsignal tlpui tlp ethtool smartmontools hypridle kanshi
 }
 
-echo && echo ":: What would you like to do?"
+echo ":: What would you like to do?"
 echo "   1. Enable laptop tweaks"
 echo "   2. Disable laptop tweaks"
-echo "   3. Nothing (exit)"
+printf "   3. Exit this script\n"
 while true; do
-  read -p ">> Please make your choice (1-3): " menuChoice
-  case $menuChoice in
-    "1")
-      echo && echo ":: Enabling tweaks..."
-      enableLaptopTweaks
-      echo && echo ":: Done enabling tweaks"
-      break
-      ;;
-    "2")
-      echo && echo ":: Disabling tweaks..."
-      disableLaptopTweaks
-      echo && echo ":: Done disabling tweaks"
-      break
-      ;;
-    "3")
-      echo && echo ":: Exiting..."
-      break
-      ;;
-    *)
-      echo && echo ":: Invalid input, please try again..."
-      echo ":: Valid values are 1 for enabling, 2 for disabling or 3 to exit the script"
-      break
-      ;;
+  read -rp ">> Please make your choice (1-3): " menu_choice
+  case $menu_choice in
+  "1")
+    enableLaptopTweaks
+    printf "\n:: Done enabling tweaks"
+    break
+    ;;
+  "2")
+    disableLaptopTweaks
+    printf "\n:: Done disabling tweaks"
+    break
+    ;;
+  "3")
+    printf "\n:: Exiting..."
+    break
+    ;;
+  *)
+    printf "\n:: Invalid input, please try again...\n:: Valid values are 1 for enabling, 2 for disabling or 3 to exit the script\n"
+    break
+    ;;
   esac
 done

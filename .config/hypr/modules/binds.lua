@@ -83,3 +83,5 @@ hl.bind("XF86AudioLowerVolume", exec("swayosd-client --output-volume -5"), { rep
 -- hl.bind("XF86Fn&Insert", RUNCMD("swayosd-client --input-volume mute-toggle"))
 -- hl.bind("XF86Fn&F11", RUNCMD("swayosd-client --output-volume -5"), { repeating = true })
 -- hl.bind("XF86Fn&F12", RUNCMD("swayosd-client --output-volume +5"), { repeating = true })
+
+hl.bind("switch:on:Lid Switch", exec("hyprlock & systemctl suspend"), { locked = true })
