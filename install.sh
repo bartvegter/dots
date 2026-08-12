@@ -5,8 +5,8 @@ BASE_PKGS=(
   brightnessctl bluetui bluez-utils cliphist cups eza gnome-keyring less libnotify ghostty
   grimblast-git hyprland hyprlock hyprpicker hyprpolkitagent hyprshutdown impala
   libgnome-keyring mako man-db openssh pamixer pavucontrol playerctl pipewire
-  python python-pywal qt5-wayland qt6-wayland reflector rofi rofi-emoji sddm swayosd
-  swww uwsm vim waybar wireplumber wf-recorder wl-clip-persist wl-clipboard wlsunset wtype
+  python python-pywal qt5-wayland qt6-wayland quickshell reflector rofi rofi-emoji sddm swayosd
+  swww uwsm vim wireplumber wf-recorder wl-clip-persist wl-clipboard wlsunset wtype
   xdg-desktop-portal-gtk xdg-desktop-portal-hyprland zoxide
 )
 
