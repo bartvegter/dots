@@ -2,37 +2,171 @@
 set -euo pipefail
 
 BASE_PKGS=(
-  brightnessctl bluetui bluez-utils cliphist cups eza gnome-keyring less libnotify ghostty
-  grimblast-git hyprland hyprlock hyprpicker hyprpolkitagent hyprshutdown impala
-  libgnome-keyring mako man-db openssh pamixer pavucontrol playerctl pipewire
-  python python-pywal qt5-wayland qt6-wayland quickshell reflector rofi rofi-emoji sddm swayosd
-  swww uwsm vim wireplumber wf-recorder wl-clip-persist wl-clipboard wlsunset wtype
-  xdg-desktop-portal-gtk xdg-desktop-portal-hyprland zoxide
+  brightnessctl
+  bluetui
+  bluez-utils
+  btrfs-progs
+  cliphist
+  cups
+  dosfstools
+  eza
+  exfatprogs
+  e2fsprogs
+  gnome-keyring
+  less
+  libnotify
+  ghostty
+  grimblast-git
+  hyprland
+  hyprlock
+  hyprpicker
+  hyprpolkitagent
+  hyprshutdown
+  impala
+  libgnome-keyring
+  mako
+  man-db
+  ntfsprogs
+  openssh
+  pamixer
+  pavucontrol
+  playerctl
+  pipewire
+  python
+  python-pywal
+  qt5-wayland
+  qt6-wayland
+  quickshell
+  reflector
+  rofi
+  rofi-emoji
+  sddm
+  swayosd
+  swww
+  uwsm
+  vim
+  wireplumber
+  wf-recorder
+  wl-clip-persist
+  wl-clipboard
+  wlsunset
+  wtype
+  xdg-desktop-portal-gtk
+  xdg-desktop-portal-hyprland
+  xfsprogs
+  zoxide
 )
 
 THEME_PKGS=(
-  gruvbox-gtk-theme-git gruvbox-icon-theme-git noto-fonts noto-fonts-cjk noto-fonts-emoji
-  noto-fonts-extra qt6-declarative qt5-quickcontrols2 qt5-svg qt6-svg sddm-silent-theme
-  ttf-aptos ttf-jetbrains-mono-nerd ttf-ms-win11-auto
+  gruvbox-gtk-theme-git
+  gruvbox-icon-theme-git
+  noto-fonts
+  noto-fonts-cjk
+  noto-fonts-emoji
+  noto-fonts-extra
+  qt6-declarative
+  qt5-quickcontrols2
+  qt5-svg
+  qt6-svg
+  sddm-silent-theme
+  ttf-aptos
+  ttf-jetbrains-mono-nerd
+  ttf-ms-win11-auto
 )
 
 DEV_PKGS=(
-  android-tools bruno-bin clang cmake docker docker-buildx fzf gitlab-ci-ls
-  intellij-idea-ultimate-edition jdk-openjdk jdk21-openjdk lazydocker lazygit maven mtpfs
-  neovim nodejs-lts-jod npm pigz postgresql python qt6-languageserver ripgrep shellcheck shfmt stylua tmux zed
+  android-tools
+  bruno-bin
+  clang
+  cmake
+  docker
+  docker-buildx
+  fzf
+  gitlab-ci-ls
+  intellij-idea-ultimate-edition
+  jdk-openjdk
+  jdk21-openjdk
+  lazydocker
+  lazygit
+  maven
+  mtpfs
+  neovim
+  nodejs-lts-jod
+  npm
+  pigz
+  postgresql
+  python
+  qt6-languageserver
+  ripgrep
+  shellcheck
+  shfmt
+  stylua
+  tmux
+  zed
 )
 
 USER_PKGS=(
-  bat-extras btop catfish chromium discord easyeffects file-roller gvfs gvfs-mtp gvfs-nfs gvfs-smb
-  libopenraw nautilus nautilus-image-converter nautilus-share nfs-utils obsidian onlyoffice-bin
-  poppler-glib proton-vpn-gtk-app rocm-smi-lib seahorse sone sushi syncthing ticktick
-  timeshift tldr tumbler udiskie unrar unzip viewnior vim webp-pixbuf-loader xorg-xhost
-  zathura zathura-pdf-poppler zen-browser-bin zip zsh zsh-autosuggestions zsh-syntax-highlighting
+  bat-extras
+  brave-origin-bin
+  btop
+  catfish
+  discord
+  easyeffects
+  file-roller
+  gvfs
+  gvfs-mtp
+  gvfs-nfs
+  gvfs-smb
+  libopenraw
+  nautilus
+  nautilus-image-converter
+  nautilus-share
+  nfs-utils
+  obsidian
+  onlyoffice-bin
+  poppler-glib
+  proton-vpn-gtk-app
+  rocm-smi-lib
+  seahorse
+  sone
+  sushi
+  syncthing
+  ticktick
+  timeshift
+  tldr
+  tumbler
+  udiskie
+  unrar
+  unzip
+  viewnior
+  vim
+  webp-pixbuf-loader
+  xorg-xhost
+  zathura
+  zathura-pdf-poppler
+  zen-browser-bin
+  zip
+  zsh
+  zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 
 GAMING_PKGS=(
-  gamescope gamemode lib32-mesa lib32-vulkan-radeon mangohud mesa minecraft-launcher protonplus
-  protontricks steam vulkan-radeon wine-staging wine-gecko wine-mono winetricks
+  gamescope
+  gamemode
+  lib32-mesa
+  lib32-vulkan-radeon
+  mangohud
+  mesa
+  minecraft-launcher
+  protonplus
+  protontricks
+  steam
+  vulkan-radeon
+  wine-staging
+  wine-gecko
+  wine-mono
+  winetricks
 )
 
 ALL_PKGS=(
