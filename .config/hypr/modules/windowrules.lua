@@ -7,6 +7,14 @@ hl.window_rule({
 })
 
 hl.window_rule({
+	name = "Gnome Keyring prompt",
+	match = {
+		class = "^gcr-prompter$",
+	},
+	stay_focused = true,
+})
+
+hl.window_rule({
 	name = "XDG desktop portal",
 	match = {
 		class = "^xdg-desktop-portal-gtk$",
@@ -21,7 +29,7 @@ hl.window_rule({
 		class = "^org.pulseaudio.pavucontrol$",
 	},
 	float = true,
-	move = { "(monitor_w-710)", 60 },
+	move = { "(monitor_w-710)", 50 },
 	pin = true,
 	size = { 700, 500 },
 })
