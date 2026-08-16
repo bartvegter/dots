@@ -2,7 +2,7 @@
 set -euo pipefail
 
 BASE_PKGS=(
-  7-zip
+  7zip
   bat-extras
   brightnessctl
   bluetui
@@ -58,10 +58,11 @@ BASE_PKGS=(
   rofi-emoji
   seahorse
   sddm
+  starship
   sushi
   swayosd
   swww
-  tldr
+  tealdeer
   tumbler
   udiskie
   unrar
@@ -100,7 +101,7 @@ THEME_PKGS=(
   sddm-silent-theme
   ttf-aptos
   ttf-jetbrains-mono-nerd
-  ttf-ms-win11-auto
+  ttf-ms-fonts
 )
 
 DEV_PKGS=(
@@ -112,9 +113,7 @@ DEV_PKGS=(
   docker-buildx
   fzf
   gitlab-ci-ls
-  intellij-idea-ultimate-edition
   jdk-openjdk
-  jdk21-openjdk
   lazydocker
   lazygit
   maven
@@ -142,10 +141,9 @@ USER_PKGS=(
   obsidian
   onlyoffice-bin
   proton-vpn-gtk-app
-  sone
+  sone-bin
   syncthing
   ticktick
-  timeshift
   viewnior
   zen-browser-bin
 )
@@ -409,9 +407,6 @@ if [[ "$(basename "$SHELL")" != "zsh" ]]; then
   printf "\n:: Setting zsh as the default user shell..."
   chsh -s "$(command -v zsh)"
 fi
-
-printf "\n:: Adding custom scripts to PATH at /usr/local/bin"
-./add-scripts-to-path.sh
 
 printf "\n:: Installation complete\n"
 while true; do
