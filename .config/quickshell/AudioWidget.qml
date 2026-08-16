@@ -6,13 +6,7 @@ import QtQuick.Layouts
 RowLayout {
   id: audio
   PwObjectTracker { objects: [audioOut.defaultOutput, audioIn.defaultInput] }
-
-  MouseArea {
-    acceptedButtons: Qt.LeftButton
-    onClicked: {
-      Quickshell.execDetached(["sh", "-c", "pavucontrol"])
-    }
-  }
+  property var settingsCommand: ["sh", "-c", "pavucontrol"]
 
   Text {
     id: audioOut
@@ -44,12 +38,17 @@ RowLayout {
 
     MouseArea {
       anchors.fill: parent
-      acceptedButtons: Qt.RightButton
-      onClicked: {
-        Quickshell.execDetached(["sh", "-c", "pactl set-sink-mute @DEFAULT_SINK@ toggle"])
+      acceptedButtons: Qt.LeftButton | Qt.RightButton
+      onClicked: function(mouse) {
+        if (mouse.button === Qt.LeftButton) {
+          Quickshell.execDetached(["sh", "-c", "pactl set-sink-mute @DEFAULT_SINK@ toggle"])
+        } else if (mouse.button === Qt.RightButton) {
+          Quickshell.execDetached(audio.settingsCommand)
+        }
       }
     }
   }
+
   Text {
     id: audioIn
     readonly property PwNode defaultInput: Pipewire.defaultAudioSource
@@ -71,9 +70,13 @@ RowLayout {
 
     MouseArea {
       anchors.fill: parent
-      acceptedButtons: Qt.RightButton
-      onClicked: {
-        Quickshell.execDetached(["sh", "-c", "pactl set-source-mute @DEFAULT_SOURCE@ toggle"])
+      acceptedButtons: Qt.LeftButton | Qt.RightButton
+      onClicked: function(mouse) {
+        if (mouse.button === Qt.LeftButton) {
+          Quickshell.execDetached(["sh", "-c", "pactl set-source-mute @DEFAULT_SOURCE@ toggle"])
+        } else if (mouse.button === Qt.RightButton) {
+          Quickshell.execDetached(audio.settingsCommand)
+        }
       }
     }
   }

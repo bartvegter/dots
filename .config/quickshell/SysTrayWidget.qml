@@ -3,37 +3,41 @@ pragma ComponentBehavior: Bound
 import Quickshell
 import Quickshell.Services.SystemTray
 import QtQuick
+import QtQuick.Layouts
 
-Repeater {
+RowLayout {
   id: sysTray
-  model: SystemTray.items
+  spacing: 10
 
-  Item {
-    id: sysTrayItem
-    required property SystemTrayItem modelData
-    implicitWidth: 16
-    implicitHeight: 16
+  Repeater {
+    model: SystemTray.items
 
-    QsMenuAnchor {
-      id: menuAnchor
-      menu: sysTrayItem.modelData.menu
-      anchor.window: barRoot
-    }
+    Item {
+      id: sysTrayItem
+      required property SystemTrayItem modelData
+      implicitWidth: 16
+      implicitHeight: 16
 
-    Image {
-      anchors.fill: parent
-      source: sysTrayItem.modelData.icon
+      QsMenuAnchor {
+        id: menuAnchor
+        menu: sysTrayItem.modelData.menu
+        anchor.window: barRoot
+      }
 
-      MouseArea {
+      Image {
         anchors.fill: parent
-        acceptedButtons: Qt.RightButton
-        onClicked: {
-          if (sysTrayItem.modelData.hasMenu) {
-            menuAnchor.open()
+        source: sysTrayItem.modelData.icon
+
+        MouseArea {
+          anchors.fill: parent
+          acceptedButtons: Qt.RightButton
+          onClicked: {
+            if (sysTrayItem.modelData.hasMenu) {
+              menuAnchor.open()
+            }
           }
         }
       }
     }
-
   }
 }
