@@ -1,13 +1,14 @@
 module QuickshellConfig
 singleton Appearance Appearance.qml
-Bar Bar.qml
-WorkspaceWidget WorkspaceWidget.qml
-ClockWidget ClockWidget.qml
 AppLauncher AppLauncher.qml
-SysTrayWidget SysTrayWidget.qml
 AppLauncherWidget AppLauncherWidget.qml
-PowerMenuWidget PowerMenuWidget.qml
-BatteryWidget BatteryWidget.qml
-NetworkWidget NetworkWidget.qml
-BluetoothWidget BluetoothWidget.qml
 AudioWidget AudioWidget.qml
+Bar Bar.qml
+BatteryWidget BatteryWidget.qml
+BluetoothWidget BluetoothWidget.qml
+ClockWidget ClockWidget.qml
+MenuPopup MenuPopup.qml
+NetworkWidget NetworkWidget.qml
+PowerMenuWidget PowerMenuWidget.qml
+SysTrayWidget SysTrayWidget.qml
+WorkspaceWidget WorkspaceWidget.qml
