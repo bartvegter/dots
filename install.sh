@@ -2,51 +2,75 @@
 set -euo pipefail
 
 BASE_PKGS=(
+  7-zip
+  bat-extras
   brightnessctl
   bluetui
   bluez-utils
   btrfs-progs
+  cdrtools
   cliphist
   cups
   dosfstools
   eza
   exfatprogs
   e2fsprogs
-  gnome-keyring
-  less
-  libnotify
+  ffmpegthumbnailer
+  file-roller
   ghostty
+  gnome-keyring
   grimblast-git
+  gvfs
+  gvfs-mtp
+  gvfs-nfs
+  gvfs-smb
   hyprland
   hyprlock
   hyprpicker
   hyprpolkitagent
   hyprshutdown
   impala
+  less
+  libgepub
   libgnome-keyring
+  libnotify
+  libopenraw
   mako
   man-db
+  nautilus
+  nautilus-image-converter
+  nautilus-share
+  nfs-utils
   ntfsprogs
   openssh
   pamixer
   pavucontrol
   playerctl
   pipewire
+  poppler-glib
   python
   python-pywal
   qt5-wayland
   qt6-wayland
   quickshell
-  reflector
+  rocm-smi-lib
   rofi
   rofi-emoji
+  seahorse
   sddm
+  sushi
   swayosd
   swww
+  tldr
+  tumbler
+  udiskie
+  unrar
+  unzip
   uwsm
   vim
-  wireplumber
+  webp-pixbuf-loader
   wf-recorder
+  wireplumber
   wl-clip-persist
   wl-clipboard
   wlsunset
@@ -54,7 +78,12 @@ BASE_PKGS=(
   xdg-desktop-portal-gtk
   xdg-desktop-portal-hyprland
   xfsprogs
+  xorg-xhost
+  zip
   zoxide
+  zsh
+  zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 
 THEME_PKGS=(
@@ -106,49 +135,19 @@ DEV_PKGS=(
 )
 
 USER_PKGS=(
-  bat-extras
   brave-origin-bin
   btop
-  catfish
   discord
   easyeffects
-  file-roller
-  gvfs
-  gvfs-mtp
-  gvfs-nfs
-  gvfs-smb
-  libopenraw
-  nautilus
-  nautilus-image-converter
-  nautilus-share
-  nfs-utils
   obsidian
   onlyoffice-bin
-  poppler-glib
   proton-vpn-gtk-app
-  rocm-smi-lib
-  seahorse
   sone
-  sushi
   syncthing
   ticktick
   timeshift
-  tldr
-  tumbler
-  udiskie
-  unrar
-  unzip
   viewnior
-  vim
-  webp-pixbuf-loader
-  xorg-xhost
-  zathura
-  zathura-pdf-poppler
   zen-browser-bin
-  zip
-  zsh
-  zsh-autosuggestions
-  zsh-syntax-highlighting
 )
 
 GAMING_PKGS=(
@@ -402,9 +401,6 @@ while true; do
     ;;
   esac
 done
-
-printf "\n:: Enabling reflector.timer for automatic mirrorlist updates..."
-sudo systemctl enable reflector.timer
 
 if [[ "$(basename "$SHELL")" != "zsh" ]]; then
   printf "\n:: Setting zsh as the default user shell..."
