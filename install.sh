@@ -151,8 +151,10 @@ USER_PKGS=(
 )
 
 GAMING_PKGS=(
+  cachyos-gaming-meta
   gamescope
   gamemode
+  lib32-mangohud
   lib32-mesa
   lib32-vulkan-radeon
   mangohud
@@ -166,6 +168,7 @@ GAMING_PKGS=(
   wine-gecko
   wine-mono
   winetricks
+  wqy-zenhei
 )
 
 ALL_PKGS=(
