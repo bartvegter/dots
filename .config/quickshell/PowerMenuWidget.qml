@@ -93,6 +93,7 @@ Item {
         font: Appearance.fontNFIcon
 
         MouseArea {
+          anchors.fill: parent
           onClicked: {
             Quickshell.execDetached(["sh", "-c", "systemctl poweroff"])
           }
