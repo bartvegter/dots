@@ -77,7 +77,7 @@ hl.bind("XF86AudioLowerVolume", exec(ipc .. "volume-down"), { locked = true })
 hl.bind("XF86AudioRaiseVolume", exec(ipc .. "volume-up"), { locked = true })
 
 -- Used for Lofree Flow keyboard, comment out if not needed
--- hl.bind("XF86Fn&Insert", exec(ipc .. "volume-mute"), { locked = true })
--- hl.bind("XF86Fn&F10", exec(ipc .. "mic-mute"), { locked = true })
--- hl.bind("XF86Fn&F11", exec(ipc .. "volume-down"), { locked = true })
--- hl.bind("XF86Fn&F12", exec(ipc .. "volume-up"), { locked = true })
+hl.bind("XF86Fn + Insert", exec(ipc .. "volume-mute"), { locked = true })
+hl.bind("XF86Fn + F10", exec(ipc .. "mic-mute"), { locked = true })
+hl.bind("XF86Fn + F11", exec(ipc .. "volume-down"), { locked = true })
+hl.bind("XF86Fn + F12", exec(ipc .. "volume-up"), { locked = true })
