@@ -30,9 +30,6 @@ prompt redhat
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-(cat ~/.cache/wal/sequences &)
-source ~/.cache/wal/colors-tty.sh
-
 export PATH="$PATH:$HOME/.local/bin"
 
 eval "$(batman --export-env)"

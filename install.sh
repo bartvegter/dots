@@ -3,14 +3,15 @@ set -euo pipefail
 
 BASE_PKGS=(
   7zip
+  adw-gtk-theme
   bat-extras
   brightnessctl
   bluetui
   bluez-utils
   btrfs-progs
   cdrtools
-  cliphist
   cups
+  ddcutil
   dosfstools
   eza
   exfatprogs
@@ -19,32 +20,27 @@ BASE_PKGS=(
   file-roller
   ghostty
   gnome-keyring
-  grimblast-git
   gvfs
   gvfs-mtp
   gvfs-nfs
   gvfs-smb
   hyprland
-  hyprlock
   hyprpicker
   hyprpolkitagent
-  hyprshutdown
-  impala
   less
   libgepub
   libgnome-keyring
   libnotify
   libopenraw
-  mako
   man-db
   nautilus
   nautilus-image-converter
   nautilus-share
   nfs-utils
+  noctalia
   ntfsprogs
   openssh
   pamixer
-  pavucontrol
   playerctl
   pipewire
   poppler-glib
@@ -52,16 +48,12 @@ BASE_PKGS=(
   python-pywal
   qt5-wayland
   qt6-wayland
-  quickshell
+  qt6ct-kde
   rocm-smi-lib
-  rofi
-  rofi-emoji
   seahorse
   sddm
   starship
   sushi
-  swayosd
-  swww
   tealdeer
   tumbler
   udiskie
@@ -74,7 +66,6 @@ BASE_PKGS=(
   wireplumber
   wl-clip-persist
   wl-clipboard
-  wlsunset
   wtype
   xdg-desktop-portal-gtk
   xdg-desktop-portal-hyprland

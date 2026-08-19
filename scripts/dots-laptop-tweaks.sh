@@ -2,16 +2,13 @@
 
 function enableLaptopTweaks() {
   printf "\n:: Installing necessary packages..."
-  paru -S --needed --noconfirm batsignal tlpui tlp ethtool smartmontools hypridle kanshi
+  paru -S --needed --noconfirm tlpui tlp ethtool smartmontools kanshi
 
   printf "\n:: Masking conflicting systemd units..."
   sudo systemctl mask systemd-rfkill.socket && sudo systemctl mask systemd-rfkill.service
 
   printf "\n:: Enabling and starting tlp for power management..."
   sudo systemctl enable tlp.service --now
-
-  printf "\n:: Enabling hypridle..."
-  systemctl --user enable --now hypridle
 
   printf "\n:: Updating /etc/systemd/logind.conf to let Hyprland handle laptop lid switch..."
   if grep "^#HandleLidSwitch=" /etc/systemd/logind.conf; then
@@ -26,9 +23,6 @@ function enableLaptopTweaks() {
 }
 
 function disableLaptopTweaks() {
-  printf "\n:: Disabling hypridle..."
-  systemctl --user disable --now hypridle
-
   printf "\n:: Disabling and stopping tlp..."
   sudo systemctl disable tlp.service --now
 
@@ -36,7 +30,7 @@ function disableLaptopTweaks() {
   sudo systemctl unmask systemd-rfkill.socket && sudo systemctl unmask systemd-rfkill.service
 
   printf "\n:: Uninstalling power management packages..."
-  paru -Rns --noconfirm batsignal tlpui tlp ethtool smartmontools hypridle kanshi
+  paru -Rns --noconfirm tlpui tlp ethtool smartmontools kanshi
 }
 
 echo ":: What would you like to do?"

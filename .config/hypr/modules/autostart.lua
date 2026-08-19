@@ -7,28 +7,16 @@ local exec = function(cmd)
 end
 
 hl.on("hyprland.start", function()
-	launchApp("awww-daemon")
-	launchApp("which batsignal && batsignal")
 	launchApp("discord")
 	launchApp("which kanshi && kanshi")
-	launchApp("mako")
 	launchApp("which netbird-ui && netbird-ui -daemon-addr 'unix:///var/run/netbird/main.sock'")
-	launchApp("quickshell")
+	launchApp("noctalia")
 	launchApp("sone")
-	launchApp("swayosd-server")
 	launchApp("udiskie")
-	launchApp("wl-paste --type text --watch cliphist store")
-	launchApp("wl-paste --type image --watch cliphist store")
-	launchApp("wlsunset -t 4000 -S 7:00 -s 22:00")
 
-	exec("cliphist wipe")
 	exec("systemctl --user start hyprpolkitagent.service")
 	exec("systemctl --user start syncthing.service")
-	exec("brightnessctl -sd platform::kbd_backlight set 1")
-	exec("gsettings set org.gnome.desktop.interface gtk-theme 'Gruvbox-Dark'") -- for GTK3 apps
+	exec("gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3'") -- for GTK3 apps
 	exec("gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'") -- for GTK4 apps
 end)
 
-hl.on("config.reloaded", function()
-	exec("awww img ${wallpaper} && wal --theme base16-monokai-pro")
-end)

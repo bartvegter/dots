@@ -1,33 +1,32 @@
 hl.window_rule({
 	name = "Hyprland polkit agent",
-	match = {
-		title = "^Hyprland Polkit Agent$",
-	},
+	match = { title = "^Hyprland Polkit Agent$" },
 	stay_focused = true,
 })
 
 hl.window_rule({
 	name = "Gnome Keyring prompt",
-	match = {
-		class = "^gcr-prompter$",
-	},
+	match = { class = "^gcr-prompter$" },
 	stay_focused = true,
 })
 
 hl.window_rule({
 	name = "XDG desktop portal",
-	match = {
-		class = "^xdg-desktop-portal-gtk$",
-	},
+	match = { class = "^xdg-desktop-portal-gtk$" },
 	float = true,
 	stay_focused = true,
 })
 
 hl.window_rule({
+	name = "Noctalia Settings",
+	match = { class = "dev.noctalia.Noctalia" },
+	float = true,
+	size = { 1080, 920 },
+})
+
+hl.window_rule({
 	name = "Pavucontrol",
-	match = {
-		class = "^org.pulseaudio.pavucontrol$",
-	},
+	match = { class = "^org.pulseaudio.pavucontrol$" },
 	float = true,
 	move = { "(monitor_w-710)", 50 },
 	pin = true,
@@ -36,9 +35,7 @@ hl.window_rule({
 
 hl.window_rule({
 	name = "Gnome sushi",
-	match = {
-		class = "^org.gnome.NautilusPreviewer$",
-	},
+	match = { class = "^org.gnome.NautilusPreviewer$" },
 	float = true,
 })
 
@@ -53,9 +50,7 @@ hl.window_rule({
 
 hl.window_rule({
 	name = "Viewnior",
-	match = {
-		class = "^Viewnior$",
-	},
+	match = { class = "^Viewnior$" },
 	float = true,
 })
 
@@ -71,33 +66,25 @@ hl.window_rule({
 
 hl.window_rule({
 	name = "Zen",
-	match = {
-		class = "^zen$",
-	},
+	match = { class = "^zen$" },
 	workspace = 1,
 })
 
 hl.window_rule({
 	name = "Zed editor",
-	match = {
-		class = "^dev.zed.Zed$",
-	},
-	workspace = 3,
+	match = { class = "^dev.zed.Zed$" },
+	workspace = 2,
 })
 
 hl.window_rule({
 	name = "Steam",
-	match = {
-		class = "^steam$",
-	},
+	match = { class = "^steam$" },
 	workspace = "4 silent",
 })
 
 hl.window_rule({
 	name = "Steam - Floating pop-up windows (needs window rule below)",
-	match = {
-		class = "^steam$",
-	},
+	match = { class = "^steam$" },
 	float = true,
 })
 
@@ -132,9 +119,7 @@ hl.window_rule({
 
 hl.window_rule({
 	name = "Discord",
-	match = {
-		class = "^discord$",
-	},
+	match = { class = "^discord$" },
 	workspace = 4,
 })
 
@@ -154,113 +139,85 @@ hl.window_rule({
 
 hl.window_rule({
 	name = "Tidal",
-	match = {
-		initial_class = "^tidal-hifi$",
-	},
+	match = { initial_class = "^tidal-hifi$" },
 	workspace = "5 silent",
 })
 
 hl.window_rule({
 	name = "Sone (Tidal player)",
-	match = {
-		class = "^sone$",
-	},
+	match = { class = "^sone$" },
 	workspace = "5 silent",
 })
 
 hl.window_rule({
 	name = "Game - Steam proton",
-	match = {
-		class = "^steam_app.*$",
-	},
+	match = { class = "^steam_app.*$" },
 	workspace = 9,
 })
 
 hl.window_rule({
 	name = "Game - Total War Warhammer 3",
-	match = {
-		class = "^TotalWarhammer3$",
-	},
+	match = { class = "^TotalWarhammer3$" },
 	workspace = 9,
 })
 
 hl.window_rule({
 	name = "Game - Gamescope",
-	match = {
-		class = "^gamescope$",
-	},
+	match = { class = "^gamescope$" },
 	workspace = 9,
 })
 
 hl.window_rule({
 	name = "Game - CS2",
-	match = {
-		class = "^cs2$",
-	},
+	match = { class = "^cs2$" },
 	workspace = 9,
 })
 
 hl.window_rule({
 	name = "Game - World of Tanks",
-	match = {
-		class = "^wgc.exe$",
-	},
+	match = { class = "^wgc.exe$" },
 	workspace = 9,
 })
 
 hl.window_rule({
 	name = "Game - Oxygen Not Included",
-	match = {
-		class = "^OxygenNotIncluded$",
-	},
+	match = { class = "^OxygenNotIncluded$" },
 	workspace = 9,
 })
 
 hl.window_rule({
 	name = "Game - Slay the Spire",
-	match = {
-		class = "^Slay the Spire$",
-	},
+	match = { class = "^Slay the Spire$" },
 	workspace = 9,
 })
 
 hl.window_rule({
 	name = "Game - Slay the Spire 2",
-	match = {
-		class = "^Slay the Spire 2$",
-	},
+	match = { class = "^Slay the Spire 2$" },
 	workspace = 9,
 })
 
 hl.window_rule({
 	name = "Game - Stardew Valley",
-	match = {
-		class = "^Stardew Valley$",
-	},
+	match = { class = "^Stardew Valley$" },
 	workspace = 9,
 })
 
 hl.window_rule({
 	name = "Game - Satisfactory",
-	match = {
-		title = "^Satisfactory$",
-	},
+	match = { title = "^Satisfactory$" },
 	workspace = 9,
 })
 
 hl.window_rule({
 	name = "Game - Overwatch",
-	match = {
-		title = "^Overwatch$",
-	},
+	match = { title = "^Overwatch$" },
 	workspace = 9,
 })
 
 hl.window_rule({
 	name = "Firefox PiP",
-	match = {
-		title = "^Picture-in-Picture$",
-	},
+	match = { title = "^Picture-in-Picture$" },
 	float = true,
 	keep_aspect_ratio = true,
 	no_initial_focus = true,

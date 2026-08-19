@@ -1,0 +1,138 @@
+[bar]
+order = [ "main" ]
+
+    [bar.main]
+    capsule_thickness = 0.67
+    center = [ "workspaces" ]
+    end = [ "tray", "volume", "bluetooth", "network", "battery", "brightness", "notifications", "control-center" ]
+    margin_ends = 300
+    panel_overlap = 0
+    radius = 14
+    start = [ "launcher", "clock", "media" ]
+    thickness = 40
+    widget_spacing = 14
+
+[brightness]
+enable_ddcutil = true
+sync_all_monitors = true
+
+[control_center]
+hidden_tabs = [ "screen-time" ]
+sidebar_section = "none"
+
+    [control_center.calendar]
+    show_events_card = false
+    show_week_numbers = true
+
+[desktop_widgets]
+enabled = false
+schema_version = 2
+widget_order = []
+
+    [desktop_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [desktop_widgets.widget]
+
+[idle]
+behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
+
+    [idle.behavior.lock]
+    action = "lock"
+    enabled = true
+    timeout = 600.0
+
+    [idle.behavior.lock-and-suspend]
+    action = "lock_and_suspend"
+    enabled = true
+    timeout = 900.0
+
+    [idle.behavior.screen-off]
+    action = "screen_off"
+    enabled = true
+    timeout = 660.0
+
+[location]
+auto_locate = true
+
+[nightlight]
+enabled = true
+temperature_night = 3500
+
+[notification]
+offset_x = 12
+offset_y = 12
+
+[osd]
+offset_x = 12
+offset_y = 12
+position_vertical = "center_right"
+
+[plugins]
+enabled = []
+
+[shell]
+font_family = "JetBrainsMono NF"
+
+    [shell.launcher]
+    categories = false
+
+    [shell.mpris]
+    blacklist = [ "Mozilla zen", "Brave Origin" ]
+
+    [shell.panel]
+    open_near_click_control_center = true
+
+    [shell.screen_corners]
+    enabled = true
+    size = 14
+
+[theme]
+builtin = "Gruvbox"
+community_palette = "Oxocarbon"
+custom_palette = "Monokai-Pro"
+mode = "dark"
+source = "custom"
+wallpaper_scheme = "m3-content"
+
+    [theme.templates]
+    builtin_ids = [ "btop", "cava", "gtk3", "gtk4", "ghostty", "hyprland", "kcolorscheme", "qt" ]
+    community_ids = [ "zen-browser", "hyprtoolkit", "lazygit" ]
+
+[wallpaper]
+transition = [ "disc" ]
+
+    [wallpaper.default]
+    path = "/home/bart/Pictures/Wallpapers/cats_fishing.png"
+
+    [wallpaper.last]
+    path = "/home/bart/Pictures/Wallpapers/cats_fishing.png"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/home/bart/Pictures/Wallpapers/cats_fishing.png"
+
+[weather]
+effects = false
+
+[widget.battery]
+show_label = false
+
+[widget.brightness]
+show_label = false
+
+[widget.media]
+hide_when_no_media = true
+title_scroll = "on_hover"
+
+[widget.network]
+show_label = false
+
+[widget.volume]
+show_label = false
+
+[widget.workspaces]
+active_pill_size = 2.5
+capsule = true
+style = "minimal"
