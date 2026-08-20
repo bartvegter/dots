@@ -5,7 +5,7 @@ order = [ "main" ]
     capsule_thickness = 0.67
     center = [ "workspaces" ]
     end = [ "tray", "volume", "bluetooth", "network", "battery", "brightness", "notifications", "control-center" ]
-    margin_ends = 300
+    margin_ends = 640
     panel_overlap = 0
     radius = 14
     start = [ "launcher", "clock", "media" ]
@@ -83,6 +83,7 @@ font_family = "JetBrainsMono NF"
     blacklist = [ "Mozilla zen", "Brave Origin" ]
 
     [shell.panel]
+    launcher_placement = "attached"
     open_near_click_control_center = true
 
     [shell.screen_corners]
@@ -105,13 +106,13 @@ wallpaper_scheme = "m3-content"
 transition = [ "disc" ]
 
     [wallpaper.default]
-    path = "/home/bart/Pictures/Wallpapers/cats_fishing.png"
+    path = "~/Pictures/Wallpapers/cats_fishing.png"
 
     [wallpaper.last]
-    path = "/home/bart/Pictures/Wallpapers/cats_fishing.png"
+    path = "~/Pictures/Wallpapers/cats_fishing.png"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/bart/Pictures/Wallpapers/cats_fishing.png"
+    path = "~/Pictures/Wallpapers/cats_fishing.png"
 
 [weather]
 effects = false
