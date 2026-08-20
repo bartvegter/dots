@@ -127,7 +127,6 @@ DEV_PKGS=(
 USER_PKGS=(
   brave-origin-bin
   btop
-  discord
   easyeffects
   obsidian
   onlyoffice-bin
@@ -135,6 +134,7 @@ USER_PKGS=(
   sone-bin
   syncthing
   ticktick
+  vesktop
   viewnior
   zen-browser-bin
 )

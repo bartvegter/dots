@@ -119,14 +119,13 @@ hl.window_rule({
 
 hl.window_rule({
 	name = "Discord",
-	match = { class = "^discord$" },
+	match = { class = "^vesktop$" },
 	workspace = 4,
 })
 
 hl.window_rule({
 	name = "Discord - Popout view",
 	match = {
-		class = "^discord$",
 		title = "^Discord Popout$",
 	},
 	float = true,

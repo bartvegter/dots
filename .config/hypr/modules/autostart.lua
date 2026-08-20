@@ -7,7 +7,7 @@ local exec = function(cmd)
 end
 
 hl.on("hyprland.start", function()
-	launchApp("discord")
+	launchApp("vesktop")
 	launchApp("which kanshi && kanshi")
 	launchApp("which netbird-ui && netbird-ui -daemon-addr 'unix:///var/run/netbird/main.sock'")
 	launchApp("noctalia")
@@ -19,4 +19,3 @@ hl.on("hyprland.start", function()
 	exec("gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3'") -- for GTK3 apps
 	exec("gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'") -- for GTK4 apps
 end)
-
