@@ -24,6 +24,7 @@ BASE_PKGS=(
   gvfs-mtp
   gvfs-nfs
   gvfs-smb
+  hunspell-en_US
   hyprland
   hyprpicker
   hyprpolkitagent
@@ -53,6 +54,7 @@ BASE_PKGS=(
   rocm-smi-lib
   seahorse
   sddm
+  speech-dispatcher
   starship
   sushi
   tealdeer
