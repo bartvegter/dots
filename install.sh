@@ -32,6 +32,7 @@ BASE_PKGS=(
   libgnome-keyring
   libnotify
   libopenraw
+  libva-utils
   man-db
   nautilus
   nautilus-image-converter
