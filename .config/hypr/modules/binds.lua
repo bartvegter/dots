@@ -12,8 +12,8 @@ end
 -- Application/cmd binds
 hl.bind(mainMod .. "D", exec(ipc .. "panel-toggle launcher"))
 hl.bind(mainMod .. "V", exec(ipc .. "panel-toggle clipboard"))
-hl.bind(mainMod .. "C", exec(ipc .. "panel-toggle control-center"))
-hl.bind(mainMod .. "M", exec(ipc .. "panel-toggle session"))
+hl.bind(mainMod .. "M", exec(ipc .. "panel-toggle control-center"))
+hl.bind(mainMod .. "SHIFT + M", exec(ipc .. "panel-toggle session"))
 hl.bind(mainMod .. "N", exec(ipc .. "session lock"))
 hl.bind(mainMod .. "comma", exec(ipc .. "settings-toggle"))
 
