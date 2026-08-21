@@ -4,7 +4,7 @@ order = [ "main" ]
     [bar.main]
     capsule_thickness = 0.67
     center = [ "workspaces" ]
-    end = [ "tray", "volume", "bluetooth", "network", "battery", "brightness", "notifications", "control-center" ]
+    end = [ "tray", "volume", "bluetooth", "network", "battery", "notifications", "control-center" ]
     margin_ends = 480
     panel_overlap = 0
     radius = 14
@@ -33,8 +33,6 @@ widget_order = []
     cell_size = 16
     major_interval = 4
     visible = true
-
-    [desktop_widgets.widget]
 
 [idle]
 behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
