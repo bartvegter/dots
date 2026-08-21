@@ -29,11 +29,6 @@ enabled = false
 schema_version = 2
 widget_order = []
 
-    [desktop_widgets.grid]
-    cell_size = 16
-    major_interval = 4
-    visible = true
-
 [idle]
 behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
 
@@ -80,17 +75,13 @@ font_family = "JetBrainsMono NF"
     [shell.mpris]
     blacklist = [ "Mozilla zen", "Brave Origin" ]
 
-    [shell.panel]
-    launcher_placement = "attached"
-    open_near_click_control_center = true
-
     [shell.screen_corners]
     enabled = true
     size = 14
 
 [theme]
 builtin = "Gruvbox"
-community_palette = "Oxocarbon"
+community_palette = "Gruvbox Material"
 custom_palette = "Monokai-Pro"
 mode = "dark"
 source = "custom"
@@ -104,13 +95,13 @@ wallpaper_scheme = "m3-content"
 transition = [ "disc" ]
 
     [wallpaper.default]
-    path = "~/Pictures/Wallpapers/cats_fishing.png"
+    path = "/home/bart/Pictures/Wallpapers/cats_fishing.png"
 
     [wallpaper.last]
-    path = "~/Pictures/Wallpapers/cats_fishing.png"
+    path = "/home/bart/Pictures/Wallpapers/cats_fishing.png"
 
     [wallpaper.monitors.eDP-1]
-    path = "~/Pictures/Wallpapers/cats_fishing.png"
+    path = "/home/bart/Pictures/Wallpapers/cats_fishing.png"
 
 [weather]
 effects = false
@@ -127,6 +118,10 @@ title_scroll = "on_hover"
 
 [widget.network]
 show_label = false
+
+[widget.tray]
+drawer = true
+hide_passive = false
 
 [widget.volume]
 show_label = false
