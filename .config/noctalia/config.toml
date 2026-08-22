@@ -68,6 +68,10 @@ enabled = []
 
 [shell]
 font_family = "JetBrainsMono NF"
+polkit_agent = true
+
+    [shell.greeter_sync]
+    auto_sync = true
 
     [shell.launcher]
     categories = false
@@ -95,12 +99,6 @@ wallpaper_scheme = "m3-content"
 transition = [ "disc" ]
 
     [wallpaper.default]
-    path = "/home/bart/Pictures/Wallpapers/cats_fishing.png"
-
-    [wallpaper.last]
-    path = "/home/bart/Pictures/Wallpapers/cats_fishing.png"
-
-    [wallpaper.monitors.eDP-1]
     path = "/home/bart/Pictures/Wallpapers/cats_fishing.png"
 
 [weather]

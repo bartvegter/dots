@@ -27,7 +27,6 @@ BASE_PKGS=(
   hunspell-en_US
   hyprland
   hyprpicker
-  hyprpolkitagent
   less
   libgepub
   libgnome-keyring
@@ -40,8 +39,10 @@ BASE_PKGS=(
   nautilus-share
   nfs-utils
   noctalia
+  noctalia-greeter
   ntfsprogs
   openssh
+  pam-fde-boot-pw-git
   pamixer
   playerctl
   pipewire
@@ -53,7 +54,6 @@ BASE_PKGS=(
   qt6ct-kde
   rocm-smi-lib
   seahorse
-  sddm
   speech-dispatcher
   starship
   sushi
@@ -82,7 +82,6 @@ BASE_PKGS=(
 )
 
 THEME_PKGS=(
-  gruvbox-gtk-theme-git
   gruvbox-icon-theme-git
   noto-fonts
   noto-fonts-cjk
@@ -92,7 +91,6 @@ THEME_PKGS=(
   qt5-quickcontrols2
   qt5-svg
   qt6-svg
-  sddm-silent-theme
   ttf-aptos
   ttf-jetbrains-mono-nerd
   ttf-ms-fonts
@@ -236,16 +234,14 @@ paru -Syu --needed --noconfirm "${ALL_PKGS[@]}"
 printf "\n:: Package install completed\n"
 
 # -----------------------------------------------
-# SDDM setup
+# Greeter setup
 # -----------------------------------------------
 
-printf ":: Enabling SDDM as display manager\n"
-sudo systemctl enable sddm.service
-if [[ ! -d "/etc/sddm.conf.d" ]]; then
-  sudo mkdir /etc/sddm.conf.d
-fi
-sudo cp "$HOME/dots/etc/sddm.conf" "/etc/sddm.conf.d/sddm.conf"
-printf ":: SDDM setup completed\n"
+printf ":: Setting up noctalia greeter with greetd for login...\n"
+sudo systemctl enable greetd.service
+sudo cp "$HOME/dots/etc/pam.d/greetd /etc/pam.d/greetd"
+sudo cp "$HOME/dots/etc/greetd/config.toml /etc/greetd/config.toml"
+printf ":: Noctalia greeter setup completed\n"
 
 # -----------------------------------------------
 # Lofree Flow keyboard patches
@@ -259,7 +255,7 @@ while true; do
     if [[ ! -d "/etc/modprobe.d" ]]; then
       sudo mkdir /etc/modprobe.d
     fi
-    sudo cp "$HOME/dots/etc/hid_apple.conf" "/etc/modprobe.d/hid_apple.conf"
+    sudo cp "$HOME/dots/etc/modprobe.d/hid_apple.conf" "/etc/modprobe.d/hid_apple.conf"
     sudo mkinitcpio -P
     break
     ;;
@@ -280,7 +276,7 @@ done
 # -----------------------------------------------
 
 printf "\n:: Replacing wpa_supplicant with iwd as default wifi backend for NetworkManager...\n"
-sudo cp "$HOME/dots/etc/iwd.conf" "/etc/NetworkManager/conf.d/iwd.conf"
+sudo cp "$HOME/dots/etc/NetworkManager/conf.d/iwd.conf" "/etc/NetworkManager/conf.d/iwd.conf"
 sudo systemctl stop NetworkManager.service
 sudo systemctl disable --now wpa_supplicant.service
 sudo systemctl restart NetworkManager.service

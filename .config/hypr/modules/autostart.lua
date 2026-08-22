@@ -20,7 +20,6 @@ hl.on("hyprland.start", function()
 	launchAppDelayed("vesktop")
 	launchAppDelayed("which netbird-ui && netbird-ui -daemon-addr 'unix:///var/run/netbird/main.sock'")
 
-	exec("systemctl --user start hyprpolkitagent.service")
 	exec("gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3'")
 	exec("gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'")
 end)
