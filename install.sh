@@ -43,7 +43,6 @@ BASE_PKGS=(
   noctalia-greeter
   ntfsprogs
   openssh
-  pam-fde-boot-pw-git
   pamixer
   playerctl
   pipewire
