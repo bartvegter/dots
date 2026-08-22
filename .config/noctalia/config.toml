@@ -101,6 +101,15 @@ transition = [ "disc" ]
     [wallpaper.default]
     path = "/home/bart/Pictures/Wallpapers/cats_fishing.png"
 
+    [wallpaper.last]
+    path = "/home/bart/Pictures/Wallpapers/cats_fishing.png"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/home/bart/Pictures/Wallpapers/cats_fishing.png"
+
+    [wallpaper.monitors.DP-3]
+    path = "/home/bart/Pictures/Wallpapers/cats_fishing.png"
+
 [weather]
 effects = false
 
