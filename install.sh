@@ -24,6 +24,7 @@ BASE_PKGS=(
   gvfs-mtp
   gvfs-nfs
   gvfs-smb
+  hunspell
   hunspell-en_US
   hyprland
   hyprpicker
