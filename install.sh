@@ -28,6 +28,7 @@ BASE_PKGS=(
   hunspell-en_US
   hyprland
   hyprpicker
+  kde-cli-tools
   less
   libgepub
   libgnome-keyring
@@ -58,6 +59,7 @@ BASE_PKGS=(
   starship
   sushi
   tealdeer
+  trash-cli
   tumbler
   udiskie
   unrar
@@ -135,8 +137,8 @@ USER_PKGS=(
   sone-bin
   syncthing
   ticktick
-  vesktop
   viewnior
+  webcord
   zen-browser-bin
 )
 
