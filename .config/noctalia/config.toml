@@ -14,7 +14,6 @@ order = [ "main" ]
 
 [brightness]
 enable_ddcutil = true
-sync_all_monitors = true
 
 [control_center]
 hidden_tabs = [ "screen-time" ]

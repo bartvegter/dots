@@ -2,7 +2,7 @@
 
 function enableLaptopTweaks() {
   printf "\n:: Installing necessary packages..."
-  paru -S --needed --noconfirm tlpui tlp ethtool smartmontools kanshi
+  paru -S --needed --noconfirm tlpui tlp ethtool smartmontools
 
   printf "\n:: Masking conflicting systemd units..."
   sudo systemctl mask systemd-rfkill.socket && sudo systemctl mask systemd-rfkill.service
@@ -30,7 +30,7 @@ function disableLaptopTweaks() {
   sudo systemctl unmask systemd-rfkill.socket && sudo systemctl unmask systemd-rfkill.service
 
   printf "\n:: Uninstalling power management packages..."
-  paru -Rns --noconfirm tlpui tlp ethtool smartmontools kanshi
+  paru -Rns --noconfirm tlpui tlp ethtool smartmontools
 }
 
 echo ":: What would you like to do?"

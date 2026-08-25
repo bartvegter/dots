@@ -11,7 +11,6 @@ local exec = function(cmd)
 end
 
 hl.on("hyprland.start", function()
-	launchApp("which kanshi && kanshi")
 	launchApp("noctalia")
 	launchApp("syncthingtray-qt6 --wait")
 	launchApp("udiskie")
