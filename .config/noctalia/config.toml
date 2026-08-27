@@ -98,16 +98,16 @@ wallpaper_scheme = "m3-content"
 transition = [ "disc" ]
 
     [wallpaper.default]
-    path = "/home/bart/Pictures/Wallpapers/cats_fishing.png"
+    path = "/home/bart/Pictures/Wallpapers/mountain_lake.png"
 
     [wallpaper.last]
-    path = "/home/bart/Pictures/Wallpapers/cats_fishing.png"
+    path = "/home/bart/Pictures/Wallpapers/mountain_lake.png"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/bart/Pictures/Wallpapers/cats_fishing.png"
+    path = "/home/bart/Pictures/Wallpapers/mountain_lake.png"
 
     [wallpaper.monitors.DP-3]
-    path = "/home/bart/Pictures/Wallpapers/cats_fishing.png"
+    path = "/home/bart/Pictures/Wallpapers/mountain_lake.png"
 
 [weather]
 effects = false
