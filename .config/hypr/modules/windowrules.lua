@@ -149,6 +149,18 @@ hl.window_rule({
 })
 
 hl.window_rule({
+	name = "TickTick",
+	match = { initial_class = "^ticktick$" },
+	workspace = "6",
+})
+
+hl.window_rule({
+	name = "Obsidian",
+	match = { initial_class = "^md.obsidian.Obsidian$" },
+	workspace = "7",
+})
+
+hl.window_rule({
 	name = "Game - Steam proton",
 	match = { class = "^steam_app.*$" },
 	workspace = 9,
