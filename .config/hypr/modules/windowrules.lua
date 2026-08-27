@@ -119,7 +119,7 @@ hl.window_rule({
 
 hl.window_rule({
 	name = "Discord",
-	match = { class = "^vesktop$" },
+	match = { class = "^webcord$" },
 	workspace = 4,
 })
 
