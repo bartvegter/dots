@@ -26,3 +26,9 @@ gui:
       - "#ff6188"
     defaultFgColor:
       - "#fcfcfa"
+os:
+  edit: "zeditor -- {{filename}}"
+  editAtLine: "zeditor -- {{filename}}:{{line}}"
+  editAtLineAndWait: "zeditor --wait -- {{filename}}:{{line}}"
+  openDirInEditor: "zeditor -- {{dir}}"
+  editInTerminal: false

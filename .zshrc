@@ -3,13 +3,14 @@ HISTSIZE=10000
 SAVEHIST=10000
 
 setopt append_history inc_append_history share_history # better history
-setopt auto_menu menu_complete # autocmp first menu match
-setopt autocd # type a dir to cd
-setopt auto_param_slash # adds a slash instead of a trailing space on dir completion
-setopt extendedglob # match ~ # ^
+setopt auto_menu menu_complete                         # autocmp first menu match
+setopt autocd                                          # type a dir to cd
+setopt auto_param_slash                                # adds a slash instead of a trailing space on dir completion
+setopt extendedglob                                    # match ~ # ^
 unsetopt beep
 
 # Aliases
+alias -- c='zeditor'
 alias -- grep='grep --color=auto'
 alias -- ll='eza -alh --smart-group'
 alias -- ls='eza -a'
