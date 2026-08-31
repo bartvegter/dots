@@ -1,0 +1,40 @@
+{
+    "workbench.colorTheme": "Monokai Pro",
+    "workbench.iconTheme": "Monokai Pro Icons",
+    "extensions.supportAgentsWindow": {
+        "monokai.theme-monokai-pro-vscode": true,
+    },
+
+    "editor.fontFamily": "'JetBrainsMono Nerd Font', monospace",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+
+    "files.autoSave": "afterDelay",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[javascript]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    },
+    "[lua]": {
+        "editor.defaultFormatter": "sumneko.lua",
+    },
+
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.leader": "<space>",
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-f>": false,
+    },
+    // To improve performance
+    "extensions.experimental.affinity": {
+        "vscodevim.vim": 1,
+    },
+    "prettier.tabWidth": 4,
+    "security.workspace.trust.untrustedFiles": "open",
+}

@@ -124,6 +124,7 @@ DEV_PKGS=(
   shfmt
   stylua
   tmux
+  vscodium
   zed
 )
 

@@ -1,4 +1,4 @@
-EDITOR = "zeditor"
+EDITOR = "vscodium"
 TERMINAL = "ghostty"
 BROWSER = "zen-browser"
 FILE_BROWSER = "nautilus"

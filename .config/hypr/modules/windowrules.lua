@@ -77,6 +77,12 @@ hl.window_rule({
 })
 
 hl.window_rule({
+	name = "VSCodium",
+	match = { class = "^codium$" },
+	workspace = 2,
+})
+
+hl.window_rule({
 	name = "Steam",
 	match = { class = "^steam$" },
 	workspace = "4 silent",
