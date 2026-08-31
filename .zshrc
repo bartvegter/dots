@@ -10,7 +10,7 @@ setopt extendedglob                                    # match ~ # ^
 unsetopt beep
 
 # Aliases
-alias -- c='zeditor'
+alias -- c='vscodium'
 alias -- grep='grep --color=auto'
 alias -- ll='eza -alh --smart-group'
 alias -- ls='eza -a'

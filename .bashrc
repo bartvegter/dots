@@ -4,7 +4,7 @@
 HISTFILESIZE=100000
 HISTSIZE=10000
 
-alias c='zeditor'
+alias c='vscodium'
 alias grep='grep --color=auto'
 alias ll='eza -alh --smart-group'
 alias ls='eza -a'
