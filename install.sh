@@ -84,6 +84,7 @@ BASE_PKGS=(
 )
 
 THEME_PKGS=(
+  bibata-cursor-theme
   gruvbox-icon-theme-git
   noto-fonts
   noto-fonts-cjk
