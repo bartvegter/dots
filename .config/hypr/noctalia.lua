@@ -7,7 +7,6 @@ local secondary = "rgb(a9dc76)"
 local on_secondary = "rgb(2d2a2e)"
 local error = "rgb(ff6188)"
 local on_error = "rgb(2d2a2e)"
-local shadow = "rgb(2d2a2e)"
 
 local function apply_theme()
     hl.config({
@@ -15,14 +14,6 @@ local function apply_theme()
             col = {
                 active_border = primary,
                 inactive_border = surface,
-            },
-        },
-        decoration = {
-            shadow = {
-                color = shadow,
-            },
-            glow = {
-                color = shadow,
             },
         },
         group = {
@@ -59,7 +50,6 @@ return {
         on_secondary = on_secondary,
         error = error,
         on_error = on_error,
-        shadow = shadow,
     },
     apply_theme = apply_theme
 }
