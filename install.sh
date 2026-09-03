@@ -104,6 +104,7 @@ DEV_PKGS=(
   clang
   cmake
   docker
+  docker-compose
   docker-buildx
   fzf
   gitlab-ci-ls
