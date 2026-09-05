@@ -25,6 +25,7 @@ local function apply_theme()
             },
 
             groupbar = {
+                gradients = true,
                 col = {
                     active = secondary,
                     inactive = surface,
