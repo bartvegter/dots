@@ -107,6 +107,7 @@ DEV_PKGS=(
   docker
   docker-compose
   docker-buildx
+  fnm
   fzf
   gitlab-ci-ls
   hasura-cli-bin
@@ -116,7 +117,6 @@ DEV_PKGS=(
   maven
   mtpfs
   neovim
-  nvm
   pigz
   postgresql
   python
@@ -240,9 +240,11 @@ fi
 printf "\n:: Installing all packages...\n"
 paru -Syu --needed --noconfirm "${ALL_PKGS[@]}" --assume-installed nodejs=26 --assume-installed npm
 
-printf "\n:: Installing nodejs lts and npm using node version manager...\n"
+printf "\n:: Installing nodejs lts and npm using fast node manager (fnm)...\n"
 source "$HOME/.bashrc"
-nvm install --lts
+fnm install --lts
+fnm install --latest
+fnm default lts-latest
 printf "\n:: Package install completed\n"
 
 # -----------------------------------------------
