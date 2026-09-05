@@ -12,3 +12,5 @@ alias tree='eza --tree'
 alias sv='sudo nvim'
 alias v='nvim'
 alias paru='paru --color always'
+
+source /usr/share/nvm/init-nvm.sh

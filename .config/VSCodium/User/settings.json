@@ -2,14 +2,15 @@
   "workbench.colorTheme": "Monokai Pro",
   "workbench.iconTheme": "Monokai Pro Icons",
   "extensions.supportAgentsWindow": {
-    "monokai.theme-monokai-pro-vscode": true
+    "monokai.theme-monokai-pro-vscode": true,
   },
   "editor.fontFamily": "'JetBrainsMono Nerd Font', monospace",
 
-  "files.autoSave": "afterDelay",
+  "files.autoSave": "onFocusChange",
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "editor.minimap.autohide": "mouseover",
+  "editor.lineNumbers": "relative",
 
   "git.autofetch": true,
   "git.confirmSync": false,
@@ -19,24 +20,26 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
 
   "[javascript]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   },
   "[typescript]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   },
   "[svelte]": {
-    "editor.defaultFormatter": "svelte.svelte-vscode"
+    "editor.defaultFormatter": "svelte.svelte-vscode",
   },
   "[lua]": {
-    "editor.defaultFormatter": "JohnnyMorganz.stylua"
+    "editor.defaultFormatter": "JohnnyMorganz.stylua",
   },
   "[luau]": {
-    "editor.defaultFormatter": "JohnnyMorganz.stylua"
+    "editor.defaultFormatter": "JohnnyMorganz.stylua",
   },
   "[typst]": {
-    "editor.defaultFormatter": "myriad-dreamin.tinymist"
+    "editor.defaultFormatter": "myriad-dreamin.tinymist",
+    "editor.wordWrap": "bounded",
   },
 
+  "vim.highlightedyank.enable": true,
   "vim.easymotion": true,
   "vim.incsearch": true,
   "vim.useSystemClipboard": true,
@@ -45,14 +48,41 @@
   "vim.leader": "<space>",
   "vim.handleKeys": {
     "<C-a>": false,
-    "<C-f>": false
+    "<C-f>": false,
   },
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "c", "a"],
+      "commands": ["editor.action.quickFix"],
+    },
+    {
+      "before": ["<C-n>"],
+      "commands": [":nohl"],
+    },
+    {
+      "before": ["K"],
+      "commands": ["editor.action.showHover"],
+    },
+    {
+      "before": ["]", "d"],
+      "commands": ["editor.action.marker.nextInFiles"],
+      "silent": true,
+    },
+    {
+      "before": ["[", "d"],
+      "commands": ["editor.action.marker.prevInFiles"],
+      "silent": true,
+    },
+  ],
   // To improve performance
   "extensions.experimental.affinity": {
-    "vscodevim.vim": 1
+    "vscodevim.vim": 1,
   },
 
   "security.workspace.trust.untrustedFiles": "open",
   "containers.containerClient": "com.microsoft.visualstudio.containers.docker",
-  "containers.orchestratorClient": "com.microsoft.visualstudio.orchestrators.dockercompose"
+  "containers.orchestratorClient": "com.microsoft.visualstudio.orchestrators.dockercompose",
+  "telemetry.feedback.enabled": false,
+  "sonarlint.disableTelemetry": true,
+  "sonarlint.pathToNodeExecutable": "/home/bart/.config/nvm/versions/node/v24.20.0/bin/node",
 }

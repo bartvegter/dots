@@ -109,14 +109,14 @@ DEV_PKGS=(
   docker-buildx
   fzf
   gitlab-ci-ls
+  hasura-cli-bin
   jdk-openjdk
   lazydocker
   lazygit
   maven
   mtpfs
   neovim
-  nodejs-lts-jod
-  npm
+  nvm
   pigz
   postgresql
   python
@@ -226,6 +226,9 @@ if [[ -d "$HOME/dots" ]]; then
   if [[ -e "$HOME/.bashrc" ]]; then
     mv "$HOME/.bashrc" "$HOME/.bashrc.bak"
   fi
+  if [[ -e "$HOME/.zshrc" ]]; then
+    mv "$HOME/.zshrc" "$HOME/.zshrc.bak"
+  fi
   stow .
   cd "$HOME"
 fi
@@ -235,7 +238,11 @@ fi
 # -----------------------------------------------
 
 printf "\n:: Installing all packages...\n"
-paru -Syu --needed --noconfirm "${ALL_PKGS[@]}"
+paru -Syu --needed --noconfirm "${ALL_PKGS[@]}" --assume-installed nodejs=26 --assume-installed npm
+
+printf "\n:: Installing nodejs lts and npm using node version manager...\n"
+source "$HOME/.bashrc"
+nvm install --lts
 printf "\n:: Package install completed\n"
 
 # -----------------------------------------------
