@@ -246,6 +246,7 @@ printf ":: Setting up noctalia greeter with greetd for login...\n"
 sudo systemctl enable greetd.service
 sudo cp "$HOME/dots/etc/pam.d/greetd /etc/pam.d/greetd"
 sudo cp "$HOME/dots/etc/greetd/config.toml /etc/greetd/config.toml"
+sudo cp "$HOME/dots/var/lib/noctalia-greeter/greeter.toml /var/lib/noctalia-greeter/greeter.toml"
 printf ":: Noctalia greeter setup completed\n"
 
 # -----------------------------------------------
