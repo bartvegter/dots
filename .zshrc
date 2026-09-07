@@ -1,4 +1,9 @@
 # ══════════════════════════════════════════════
+# Environment
+# ══════════════════════════════════════════════
+export PATH="$PATH:$HOME/.local/bin"
+
+# ══════════════════════════════════════════════
 # History
 # ══════════════════════════════════════════════
 HISTFILE=~/.histfile         # file where history is persisted
@@ -54,9 +59,11 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' menu select
 
 # ══════════════════════════════════════════════
-# Environment
+# Tools initialized via eval
 # ══════════════════════════════════════════════
-export PATH="$PATH:$HOME/.local/bin"
+eval "$(starship init zsh)"     # prompt
+eval "$(zoxide init zsh)"       # z smart directory jumping
+eval "$(batman --export-env)"   # use bat as MANPAGER
 
 # ══════════════════════════════════════════════
 # fnm — Node.js version management (replaces nvm)
@@ -64,13 +71,6 @@ export PATH="$PATH:$HOME/.local/bin"
 # `--use-on-cd` reads .nvmrc / .node-version automatically when
 # you cd into a directory and switches Node versions accordingly
 eval "$(fnm env --use-on-cd --shell zsh)"
-
-# ══════════════════════════════════════════════
-# Tools initialized via eval
-# ══════════════════════════════════════════════
-eval "$(batman --export-env)"   # use bat as MANPAGER
-eval "$(starship init zsh)"     # prompt
-eval "$(zoxide init zsh)"       # z smart directory jumping
 
 # ══════════════════════════════════════════════
 # Plugins — syntax highlighting must be sourced LAST

@@ -25,7 +25,9 @@ BASE_PKGS=(
   gvfs-nfs
   gvfs-smb
   hunspell
+  hunspell-en_GB
   hunspell-en_US
+  hunspell-nl
   hyprland
   hyprpicker
   kde-cli-tools
@@ -290,12 +292,11 @@ done
 # Finishing touches
 # -----------------------------------------------
 
-printf "\n:: Replacing wpa_supplicant with iwd as default wifi backend for NetworkManager...\n"
-sudo cp "$HOME/dots/etc/NetworkManager/conf.d/iwd.conf" "/etc/NetworkManager/conf.d/iwd.conf"
-sudo systemctl stop NetworkManager.service
-sudo systemctl disable --now wpa_supplicant.service
-sudo systemctl restart NetworkManager.service
-sudo systemctl enable --now iwd.service
+printf "\n:: Editing limine boot config to reduce timout and enable quiet output...\n"
+sudo sed -i.bak '/^timeout:/c\
+timeout: 1\
+quiet: yes' /boot/limine.conf
+limine-mkinitcpio
 
 while true; do
   echo
@@ -412,6 +413,13 @@ if [[ "$(basename "$SHELL")" != "zsh" ]]; then
   printf "\n:: Setting zsh as the default user shell..."
   chsh -s "$(command -v zsh)"
 fi
+
+printf "\n:: Replacing wpa_supplicant with iwd as default wifi backend for NetworkManager...\n"
+sudo cp "$HOME/dots/etc/NetworkManager/conf.d/iwd.conf" "/etc/NetworkManager/conf.d/iwd.conf"
+sudo systemctl stop NetworkManager.service
+sudo systemctl disable --now wpa_supplicant.service
+sudo systemctl restart NetworkManager.service
+sudo systemctl enable --now iwd.service
 
 printf "\n:: Installation complete\n"
 while true; do
