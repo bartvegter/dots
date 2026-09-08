@@ -17,8 +17,8 @@ local function apply_workspace_rules()
 			default = true,
 		})
 		hl.workspace_rule({ workspace = "5", persistent = true, default_name = "music", monitor = "DP-3" })
-		hl.workspace_rule({ workspace = "6", default_name = "productivity", monitor = "DP-3" })
-		hl.workspace_rule({ workspace = "7", monitor = "DP-3" })
+		hl.workspace_rule({ workspace = "6", default_name = "tasks", monitor = "DP-3" })
+		hl.workspace_rule({ workspace = "7", default_name = "notes", monitor = "DP-3" })
 		hl.workspace_rule({ workspace = "8", monitor = "DP-3" })
 		hl.workspace_rule({ workspace = "9", default_name = "gaming", monitor = "DP-3" })
 		hl.workspace_rule({ workspace = "10", monitor = "DP-3" })
@@ -26,21 +26,22 @@ local function apply_workspace_rules()
 		local internal = "eDP-1"
 
 		if monitors["HDMI-A-1"] and monitors["DP-1"] then
-			local hdmiOpt = monitors["HDMI-A-1"] and "HDMI-A-1" or internal
-			local dpOpt = monitors["DP-1"] and "DP-1" or internal
+			-- Laptop: office setup with two external monitors
+			local hdmiRightOpt = monitors["HDMI-A-1"] and "HDMI-A-1" or internal
+			local dpLeftOpt = monitors["DP-1"] and "DP-1" or internal
 
 			hl.workspace_rule({
 				workspace = "1",
 				persistent = true,
 				default_name = "web",
-				monitor = dpOpt,
+				monitor = dpLeftOpt,
 				default = true,
 			})
 			hl.workspace_rule({
 				workspace = "2",
 				persistent = true,
 				default_name = "code",
-				monitor = hdmiOpt,
+				monitor = hdmiRightOpt,
 				default = true,
 			})
 			hl.workspace_rule({
@@ -52,8 +53,8 @@ local function apply_workspace_rules()
 			})
 			hl.workspace_rule({ workspace = "4", persistent = true, default_name = "chat", monitor = internal })
 			hl.workspace_rule({ workspace = "5", persistent = true, default_name = "music", monitor = internal })
-			hl.workspace_rule({ workspace = "6", default_name = "productivity", monitor = internal })
-			hl.workspace_rule({ workspace = "7", monitor = internal })
+			hl.workspace_rule({ workspace = "6", default_name = "tasks", monitor = internal })
+			hl.workspace_rule({ workspace = "7", default_name = "notes", monitor = hdmiRightOpt })
 			hl.workspace_rule({ workspace = "8", monitor = internal })
 			hl.workspace_rule({ workspace = "9", default_name = "gaming", monitor = internal })
 			hl.workspace_rule({ workspace = "10", monitor = internal })
@@ -72,8 +73,8 @@ local function apply_workspace_rules()
 				monitor = internal,
 			})
 			hl.workspace_rule({ workspace = "5", persistent = true, default_name = "music", monitor = internal })
-			hl.workspace_rule({ workspace = "6", default_name = "productivity", monitor = internal })
-			hl.workspace_rule({ workspace = "7", monitor = internal })
+			hl.workspace_rule({ workspace = "6", default_name = "tasks", monitor = internal })
+			hl.workspace_rule({ workspace = "7", default_name = "notes", monitor = internal })
 			hl.workspace_rule({ workspace = "8", monitor = internal })
 			hl.workspace_rule({ workspace = "9", default_name = "gaming", monitor = internal })
 			hl.workspace_rule({ workspace = "10", monitor = internal })
