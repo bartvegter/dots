@@ -55,7 +55,7 @@ local function apply_workspace_rules()
 			hl.workspace_rule({ workspace = "5", persistent = true, default_name = "music", monitor = internal })
 			hl.workspace_rule({ workspace = "6", default_name = "tasks", monitor = internal })
 			hl.workspace_rule({ workspace = "7", default_name = "notes", monitor = hdmiRightOpt })
-			hl.workspace_rule({ workspace = "8", monitor = internal })
+			hl.workspace_rule({ workspace = "8", monitor = dpLeftOpt })
 			hl.workspace_rule({ workspace = "9", default_name = "gaming", monitor = internal })
 			hl.workspace_rule({ workspace = "10", monitor = internal })
 		else
