@@ -84,5 +84,5 @@
   "containers.orchestratorClient": "com.microsoft.visualstudio.orchestrators.dockercompose",
   "telemetry.feedback.enabled": false,
   "sonarlint.disableTelemetry": true,
-  "sonarlint.pathToNodeExecutable": "/run/user/1000/fnm_multishells/7509_1788767356845/bin/node",
+  "sonarlint.pathToNodeExecutable": "/home/bart/.local/share/fnm/node-versions/v24.20.0/installation/bin/node",
 }
