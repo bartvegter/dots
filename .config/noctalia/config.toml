@@ -118,6 +118,9 @@ show_label = false
 [widget.brightness]
 show_label = false
 
+[widget.clock]
+tooltip_format = "{:%a %d %b}"
+
 [widget.media]
 hide_when_no_media = true
 title_scroll = "on_hover"
