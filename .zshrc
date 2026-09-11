@@ -34,6 +34,8 @@ alias -- c='vscodium'
 alias -- grep='grep --color=auto'
 alias -- ls='eza -a'
 alias -- ll='eza -alh --smart-group'
+alias -- g='lazygit'
+alias -- d='lazydocker'
 alias -- tree='eza --tree'
 alias -- v='nvim'
 alias -- sv='sudo nvim'
@@ -70,7 +72,8 @@ eval "$(batman --export-env)"   # use bat as MANPAGER
 # ══════════════════════════════════════════════
 # `--use-on-cd` reads .nvmrc / .node-version automatically when
 # you cd into a directory and switches Node versions accordingly
-eval "$(fnm env --use-on-cd --shell zsh)"
+# eval "$(fnm env --use-on-cd --shell zsh)"
+eval "$(fnm env --shell zsh)"
 
 # ══════════════════════════════════════════════
 # Plugins — syntax highlighting must be sourced LAST

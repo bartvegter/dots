@@ -5,8 +5,6 @@
     "monokai.theme-monokai-pro-vscode": true,
   },
   "editor.fontFamily": "'JetBrainsMono Nerd Font', monospace",
-
-  "files.autoSave": "onFocusChange",
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "editor.minimap.autohide": "mouseover",
@@ -24,6 +22,14 @@
   },
   "[typescript]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  },
+  "html.format.templating": ["angular"],
+  "html.format.indentHandlebars": true,
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features",
+  },
+  "[scss]": {
+    "editor.defaultFormatter": null,
   },
   "[svelte]": {
     "editor.defaultFormatter": "svelte.svelte-vscode",
@@ -86,4 +92,9 @@
   "sonarlint.disableTelemetry": true,
   "sonarlint.pathToNodeExecutable": "/home/bart/.local/share/fnm/node-versions/v24.20.0/installation/bin/node",
   "explorer.confirmDelete": false,
+  "editor.tabSize": 4,
+  "prettier.tabWidth": 2,
+  "files.autoSave": "onWindowChange",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.renderWhitespace": "none",
 }
