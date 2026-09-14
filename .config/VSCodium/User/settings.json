@@ -97,4 +97,5 @@
   "files.autoSave": "onWindowChange",
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.renderWhitespace": "none",
+  "dbdiagram.disablePremiumFeaturesNotification": true,
 }
