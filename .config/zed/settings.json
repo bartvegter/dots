@@ -54,7 +54,7 @@
   },
 
   // Appearance
-  "theme": "Monokai Pro (CE)",
+  "theme": "Monokai Pro Ristretto",
   "icon_theme": "Colored Zed Icons Theme Dark",
   "buffer_font_family": "JetBrainsMono Nerd Font Mono",
   "buffer_font_size": 14.0,
@@ -265,9 +265,9 @@
     "tool_permissions": {
       "default": "allow",
     },
-    "default_profile": "ask",
+    "default_profile": "write",
     "default_model": {
-      "effort": "medium",
+      "effort": "high",
       "enable_thinking": true,
       "provider": "zed.dev",
       "model": "gpt-5.6-terra",
