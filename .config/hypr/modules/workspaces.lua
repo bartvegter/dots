@@ -62,9 +62,9 @@ local function apply_workspace_rules()
 			-- Laptop: workspaces 2 & 3 on external display, rest on eDP-1
 			local extOpt = monitors["DP-2"] and "DP-2" or monitors["HDMI-A-1"] and "HDMI-A-1" or internal
 
-			hl.workspace_rule({ workspace = "1", persistent = true, default_name = "web", monitor = internal })
+			hl.workspace_rule({ workspace = "1", persistent = true, default_name = "web", monitor = extOpt })
 			hl.workspace_rule({ workspace = "2", persistent = true, default_name = "code", monitor = extOpt })
-			hl.workspace_rule({ workspace = "3", persistent = true, default_name = "terminal", monitor = extOpt })
+			hl.workspace_rule({ workspace = "3", persistent = true, default_name = "terminal", monitor = internal })
 			hl.workspace_rule({
 				workspace = "4",
 				persistent = true,
@@ -75,7 +75,7 @@ local function apply_workspace_rules()
 			hl.workspace_rule({ workspace = "5", persistent = true, default_name = "music", monitor = internal })
 			hl.workspace_rule({ workspace = "6", default_name = "tasks", monitor = internal })
 			hl.workspace_rule({ workspace = "7", default_name = "notes", monitor = internal })
-			hl.workspace_rule({ workspace = "8", monitor = internal })
+			hl.workspace_rule({ workspace = "8", monitor = extOpt })
 			hl.workspace_rule({ workspace = "9", default_name = "gaming", monitor = internal })
 			hl.workspace_rule({ workspace = "10", monitor = internal })
 		end
@@ -85,3 +85,4 @@ end
 apply_workspace_rules()
 hl.on("monitor.added", apply_workspace_rules)
 hl.on("monitor.removed", apply_workspace_rules)
+hl.on("config.reloaded", apply_workspace_rules)

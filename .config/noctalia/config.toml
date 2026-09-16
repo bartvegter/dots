@@ -85,7 +85,7 @@ polkit_agent = true
 [theme]
 builtin = "Gruvbox"
 community_palette = "Gruvbox Material"
-custom_palette = "Monokai-Pro"
+custom_palette = "Monokai-Ristretto"
 mode = "dark"
 source = "custom"
 wallpaper_scheme = "m3-content"

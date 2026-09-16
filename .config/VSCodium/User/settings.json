@@ -1,6 +1,6 @@
 {
-  "workbench.colorTheme": "Monokai Pro",
-  "workbench.iconTheme": "Monokai Pro Icons",
+  "workbench.colorTheme": "Monokai Pro (Filter Ristretto)",
+  "workbench.iconTheme": "Monokai Pro (Filter Ristretto) Icons",
   "extensions.supportAgentsWindow": {
     "monokai.theme-monokai-pro-vscode": true,
   },
