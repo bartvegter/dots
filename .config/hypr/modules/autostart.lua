@@ -21,6 +21,7 @@ hl.on("hyprland.start", function()
 
 	exec("gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3'")
 	exec("gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'")
+	exec("gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'")
 	exec(
 		"busctl call org.freedesktop.Accounts /org/freedesktop/Accounts/User1000 org.freedesktop.Accounts.User SetIconFile s ~/.face"
 	)

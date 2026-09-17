@@ -90,9 +90,10 @@ mode = "dark"
 source = "custom"
 wallpaper_scheme = "m3-content"
 
+
     [theme.templates]
     builtin_ids = [ "btop", "cava", "gtk3", "gtk4", "ghostty", "hyprland", "kcolorscheme", "qt" ]
-    community_ids = [ "zen-browser", "hyprtoolkit", "lazygit" ]
+    community_ids = [ "zen-browser", "hyprtoolkit", "papirus-icons", "lazygit" ]
 
 [wallpaper]
 transition = [ "disc" ]

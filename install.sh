@@ -3,7 +3,6 @@ set -euo pipefail
 
 BASE_PKGS=(
   7zip
-  adw-gtk-theme
   bat-extras
   brightnessctl
   bluetui
@@ -86,12 +85,14 @@ BASE_PKGS=(
 )
 
 THEME_PKGS=(
+  adw-gtk-theme
   bibata-cursor-theme
-  gruvbox-icon-theme-git
+  gtk-engine-murrine
   noto-fonts
   noto-fonts-cjk
   noto-fonts-emoji
   noto-fonts-extra
+  papirus-icon-theme
   qt6-declarative
   qt5-quickcontrols2
   qt5-svg
