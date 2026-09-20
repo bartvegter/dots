@@ -98,4 +98,5 @@
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.renderWhitespace": "none",
   "dbdiagram.disablePremiumFeaturesNotification": true,
+  "cSpell.language": "en,nl",
 }
