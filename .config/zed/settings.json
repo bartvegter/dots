@@ -222,7 +222,7 @@
 
   // Panels
   "project_panel": {
-    "dock": "right",
+    "dock": "left",
     "starts_open": true,
     "auto_fold_dirs": true,
     "bold_folder_labels": true,
@@ -231,15 +231,15 @@
     "hide_root": false,
   },
   "outline_panel": {
-    "dock": "right",
+    "dock": "left",
   },
   "git_panel": {
-    "dock": "right",
+    "dock": "left",
     "fallback_branch_name": "main",
     "show_count_badge": false,
   },
   "collaboration_panel": {
-    "dock": "right",
+    "dock": "left",
   },
   "diff_view_style": "split",
 
