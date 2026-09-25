@@ -92,6 +92,7 @@ THEME_PKGS=(
   noto-fonts-cjk
   noto-fonts-emoji
   noto-fonts-extra
+  otf-libertinus
   papirus-icon-theme
   qt6-declarative
   qt5-quickcontrols2
@@ -128,7 +129,9 @@ DEV_PKGS=(
   shellcheck
   shfmt
   stylua
+  tinymist
   tmux
+  typst
   vscodium
   zed
 )

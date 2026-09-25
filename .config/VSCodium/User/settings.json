@@ -44,6 +44,10 @@
     "editor.defaultFormatter": "myriad-dreamin.tinymist",
     "editor.wordWrap": "bounded",
   },
+  "[opentofu]": {
+    "editor.defaultFormatter": "opentofu.vscode-opentofu",
+    "editor.tabSize": 2,
+  },
 
   "vim.highlightedyank.enable": true,
   "vim.easymotion": true,
@@ -99,4 +103,17 @@
   "editor.renderWhitespace": "none",
   "dbdiagram.disablePremiumFeaturesNotification": true,
   "cSpell.language": "en,nl",
+  "chat.disableAIFeatures": false,
+  "json.schemaDownload.trustedDomains": {
+    "https://developer.microsoft.com/json-schemas/": true,
+    "https://json-schema.org/": true,
+    "https://json.schemastore.org/": true,
+    "https://models.dev/model-schema.json": true,
+    "https://opencode.ai/config.json": true,
+    "https://raw.githubusercontent.com/devcontainers/spec/": true,
+    "https://raw.githubusercontent.com/microsoft/vscode/": true,
+    "https://schemastore.azurewebsites.net/": true,
+    "https://www.schemastore.org/": true,
+  },
+  "chat.viewSessions.orientation": "stacked",
 }

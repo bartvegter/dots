@@ -141,12 +141,27 @@
         "...",
       ],
     },
+    "Angular": {
+      "language_servers": ["angular"],
+      "prettier": {
+        "allowed": false,
+      },
+      "tab_size": 4,
+      "ensure_final_newline_on_save": false,
+    },
     "JavaScript": {
       "code_actions_on_format": {
         "source.fixAll.eslint": true,
       },
     },
-    "TypeScript": {},
+    "TypeScript": {
+      "language_servers": ["angular"],
+      "prettier": {
+        "allowed": false,
+      },
+      "tab_size": 4,
+      "ensure_final_newline_on_save": false,
+    },
     "Svelte": {},
     "Lua": {
       "format_on_save": "on",
@@ -204,6 +219,11 @@
         "experimentalFeatures": {
           "prefillRequiredFields": true,
         },
+      },
+    },
+    "angular": {
+      "initialization_options": {
+        "angular_language_server_path": "~/.local/share/fnm/node-versions/v24.20.0/installation/lib/node_modules/@angular/language-server",
       },
     },
   },
