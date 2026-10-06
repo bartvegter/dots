@@ -2,6 +2,8 @@
 # Environment
 # ══════════════════════════════════════════════
 export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/go/bin"
+export PATH="$PATH:/usr/local/go/bin"
 
 # ══════════════════════════════════════════════
 # History
@@ -56,10 +58,6 @@ else
   compinit                                     # rebuild dump (incl. security check)
 fi
 
-# Case-insensitive substring matching + interactive menu selection
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
-zstyle ':completion:*' menu select
-
 # ══════════════════════════════════════════════
 # Tools initialized via eval
 # ══════════════════════════════════════════════
@@ -80,3 +78,7 @@ eval "$(fnm env --shell zsh)"
 # ══════════════════════════════════════════════
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)

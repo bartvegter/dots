@@ -60,9 +60,12 @@ local function apply_workspace_rules()
 			hl.workspace_rule({ workspace = "10", monitor = internal })
 		else
 			-- Laptop: workspaces 2 & 3 on external display, rest on eDP-1
-			local extOpt = monitors["DP-2"] and "DP-2" or monitors["HDMI-A-1"] and "HDMI-A-1" or internal
+			local extOpt = monitors["DP-2"] and "DP-2"
+				or monitors["HDMI-A-1"] and "HDMI-A-1"
+				or monitors["HDMI-A-2"] and "HDMI-A-2"
+				or internal
 
-			hl.workspace_rule({ workspace = "1", persistent = true, default_name = "web", monitor = extOpt })
+			hl.workspace_rule({ workspace = "1", persistent = true, default_name = "web", monitor = internal })
 			hl.workspace_rule({ workspace = "2", persistent = true, default_name = "code", monitor = extOpt })
 			hl.workspace_rule({ workspace = "3", persistent = true, default_name = "terminal", monitor = internal })
 			hl.workspace_rule({

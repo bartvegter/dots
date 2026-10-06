@@ -49,15 +49,22 @@ behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
 [location]
 auto_locate = true
 
+[lockscreen]
+transition = [ "zoom" ]
+transition_duration = 500
+
 [nightlight]
 enabled = true
 temperature_night = 3500
 
 [notification]
+follow_focused_output = true
+layer = "overlay"
 offset_x = 12
 offset_y = 12
 
 [osd]
+follow_focused_output = true
 offset_x = 12
 offset_y = 12
 position_vertical = "center_right"

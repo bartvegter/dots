@@ -55,4 +55,3 @@ end
 setup_monitors()
 hl.on("monitor.added", setup_monitors)
 hl.on("monitor.removed", setup_monitors)
-hl.on("config.reloaded", setup_monitors)

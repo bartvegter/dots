@@ -20,6 +20,8 @@ alias paru='paru --color always'
 # Environment
 # ══════════════════════════════════════════════
 export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/go/bin"
+export PATH="$PATH:/usr/local/go/bin"
 
 # ══════════════════════════════════════════════
 # fnm — Node.js version management (replaces nvm)
@@ -31,6 +33,6 @@ eval "$(fnm env --use-on-cd --shell bash)"
 # ══════════════════════════════════════════════
 # Tools initialized via eval
 # ══════════════════════════════════════════════
-eval "$(batman --export-env)"   # use bat as MANPAGER
-eval "$(starship init bash)"    # prompt
-eval "$(zoxide init bash)"      # z smart directory jumping
+eval "$(batman --export-env)" # use bat as MANPAGER
+eval "$(starship init bash)"  # prompt
+eval "$(zoxide init bash)"    # z smart directory jumping

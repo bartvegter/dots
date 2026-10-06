@@ -21,6 +21,7 @@ hl.bind(mainMod .. "RETURN", launchApp(TERMINAL))
 hl.bind(mainMod .. "E", launchApp(FILE_BROWSER))
 hl.bind(mainMod .. "B", launchApp(BROWSER))
 hl.bind(mainMod .. "C", launchApp(EDITOR))
+hl.bind(mainMod .. "SHIFT + C", launchApp(EDITOR_ALT))
 hl.bind(mainMod .. "T", launchApp("ticktick"))
 hl.bind(mainMod .. "Y", launchApp("obsidian"))
 

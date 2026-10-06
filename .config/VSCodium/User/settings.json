@@ -115,5 +115,9 @@
     "https://schemastore.azurewebsites.net/": true,
     "https://www.schemastore.org/": true,
   },
+  "gopls": {
+    "ui.semanticTokens": true,
+  },
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
   "chat.viewSessions.orientation": "stacked",
 }
