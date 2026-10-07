@@ -121,6 +121,7 @@ DEV_PKGS=(
   maven
   mtpfs
   neovim
+  opencode
   pigz
   postgresql
   python

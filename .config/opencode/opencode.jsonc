@@ -1,0 +1,34 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+
+  "model": "inversable-ai/inversable/code",
+  "small_model": "inversable-ai/inversable/chat",
+
+  "enabled_providers": ["inversable-ai"],
+
+  "provider": {
+    "inversable-ai": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Inversable AI",
+      "options": {
+        "baseURL": "https://api.ai.inversable.cloud/v1",
+      },
+      "models": {
+        "inversable/code": {
+          "limit": { "context": 250000, "output": 128000 },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"],
+          },
+        },
+        "inversable/chat": {
+          "limit": { "context": 131072, "output": 64000 },
+        },
+        "modalities": {
+          "input": ["text", "image"],
+          "output": ["text"],
+        },
+      },
+    },
+  },
+}
