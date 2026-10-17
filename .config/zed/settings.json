@@ -1,11 +1,3 @@
-// Zed settings
-//
-// For information on how to configure Zed, see the Zed
-// documentation: https://zed.dev/docs/configuring-zed
-//
-// To see all of Zed's default settings without changing your
-// custom settings, run `zed: open default settings` from the
-// command palette (cmd-shift-p / ctrl-shift-p)
 {
   // Extensions
   "agent_servers": {
@@ -32,12 +24,12 @@
     "markdownlint": true,
     "monokai-pro-ce": true,
     "nginx": true,
+    "opentofu": true,
     "plantuml": true,
     "qml": true,
     "rainbow-csv": true,
     "sql": true,
     "svelte": true,
-    "terraform": true,
     "tombi": true,
     "toml": true,
     "xml": true,
@@ -129,18 +121,12 @@
   },
 
   // Language & Tools
+  "formatter": "auto",
   "prettier": {
     "allowed": true,
   },
-  "formatter": "auto",
+
   "languages": {
-    "CSS": {
-      "language_servers": [
-        "tailwindcss-intellisense-css",
-        "!vscode-css-language-server",
-        "...",
-      ],
-    },
     "Angular": {
       "language_servers": ["angular"],
       "prettier": {
@@ -149,20 +135,18 @@
       "tab_size": 4,
       "ensure_final_newline_on_save": false,
     },
+    "CSS": {
+      "language_servers": [
+        "tailwindcss-intellisense-css",
+        "!vscode-css-language-server",
+        "...",
+      ],
+    },
     "JavaScript": {
       "code_actions_on_format": {
         "source.fixAll.eslint": true,
       },
     },
-    "TypeScript": {
-      "language_servers": ["angular"],
-      "prettier": {
-        "allowed": false,
-      },
-      "tab_size": 4,
-      "ensure_final_newline_on_save": false,
-    },
-    "Svelte": {},
     "Lua": {
       "format_on_save": "on",
       "formatter": {
@@ -186,9 +170,22 @@
         },
       },
     },
+    "TypeScript": {
+      "language_servers": ["angular"],
+      "prettier": {
+        "allowed": false,
+      },
+      "tab_size": 4,
+      "ensure_final_newline_on_save": false,
+    },
   },
 
   "lsp": {
+    "angular": {
+      "initialization_options": {
+        "angular_language_server_path": "~/.local/share/fnm/node-versions/v24.20.0/installation/lib/node_modules/@angular/language-server",
+      },
+    },
     "tailwindcss-language-server": {
       "settings": {
         "includeLanguages": {
@@ -212,18 +209,6 @@
             "\\.classList\\.replace\\([^,)]+,\\s*['\"]([^'\"]*)['\"]",
           ],
         },
-      },
-    },
-    "terraform-ls": {
-      "initialization_options": {
-        "experimentalFeatures": {
-          "prefillRequiredFields": true,
-        },
-      },
-    },
-    "angular": {
-      "initialization_options": {
-        "angular_language_server_path": "~/.local/share/fnm/node-versions/v24.20.0/installation/lib/node_modules/@angular/language-server",
       },
     },
   },
@@ -279,7 +264,7 @@
   // AI features
   "agent": {
     "threads_sidebar": {
-      "position": "right"
+      "position": "right",
     },
     "dock": "right",
     "enable_feedback": false,
