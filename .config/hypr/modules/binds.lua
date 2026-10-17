@@ -37,6 +37,7 @@ for i = 1, 10 do
 	hl.bind(mainMod .. key, hl.dsp.focus({ workspace = i }))
 	hl.bind(mainMod .. "SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
+hl.bind(mainMod .. "P", hl.dsp.workspace.toggle_special("password-manager"))
 
 hl.bind(mainMod .. "bracketleft", hl.dsp.focus({ workspace = "e-1" }))
 hl.bind(mainMod .. "bracketright", hl.dsp.focus({ workspace = "e+1" }))

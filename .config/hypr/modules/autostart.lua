@@ -25,4 +25,5 @@ hl.on("hyprland.start", function()
 	exec(
 		"busctl call org.freedesktop.Accounts /org/freedesktop/Accounts/User1000 org.freedesktop.Accounts.User SetIconFile s ~/.face"
 	)
+	exec("pass-cli ssh-agent daemon start --vault-name Dev --create-new-identities Dev")
 end)

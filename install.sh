@@ -124,6 +124,8 @@ DEV_PKGS=(
   opencode
   pigz
   postgresql
+  proton-pass
+  proton-pass-cli-bin
   python
   qt6-languageserver
   ripgrep
@@ -339,49 +341,6 @@ while true; do
     ;;
   "" | "N" | "n")
     printf ":: Skipping git setup..."
-    break
-    ;;
-  *)
-    printf "\n:: Invalid input, please try again..."
-    printf ":: Valid values are [y]es or [N]o (case insensitive), or press [return] for default (No)\n"
-    break
-    ;;
-  esac
-done
-
-while true; do
-  echo
-  read -rp ">> Would you like to enable the ssh agent? [y/N]: " yn_ssh_agent
-  case $yn_ssh_agent in
-  "Y" | "y")
-    printf ":: Enabling ssh agent as systemd user unit..."
-    systemctl --user enable --now gcr-ssh-agent.socket
-
-    while true; do
-      echo
-      read -rp ">> Would you like to add an ssh key to the agent? [y/N]: " yn_ssh_key
-      case $yn_ssh_key in
-      "Y" | "y")
-        echo
-        read -rp ">> Enter the path of your private key (e.g. ~/.ssh/key or /home/user/.ssh/key)? " ssh_key_path
-        /usr/lib/seahorse/ssh-askpass "${ssh_key_path}"
-        break
-        ;;
-      "" | "N" | "n")
-        printf ":: Skipping ssh key setup..."
-        break
-        ;;
-      *)
-        printf "\n:: Invalid input, please try again..."
-        printf ":: Valid values are [y]es or [N]o (case insensitive), or press [return] for default (No)\n"
-        break
-        ;;
-      esac
-    done
-    break
-    ;;
-  "" | "N" | "n")
-    echo ":: Skipping ssh agent setup..."
     break
     ;;
   *)

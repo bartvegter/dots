@@ -4,6 +4,8 @@ local function apply_workspace_rules()
 		monitors[m.name] = true
 	end
 
+	hl.workspace_rule({ workspace = "special:password-manager", on_created_empty = "uwsm app -- proton-pass" })
+
 	if monitors["DP-3"] then
 		-- Desktop: all workspaces on DP-3
 		hl.workspace_rule({ workspace = "1", persistent = true, default_name = "web", monitor = "DP-3" })

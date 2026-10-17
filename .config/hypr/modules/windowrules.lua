@@ -11,6 +11,15 @@ hl.window_rule({
 })
 
 hl.window_rule({
+	name = "Proton Pass",
+	match = { class = "^proton-pass$" },
+	workspace = "special:password-manager",
+	size = { "monitor_w * 0.8", "monitor_h * 0.8" },
+	move = { "(monitor_w / 2) - (monitor_w * 0.8 / 2)", "(monitor_h / 2) - (monitor_h * 0.8 / 2)" },
+	float = true,
+})
+
+hl.window_rule({
 	name = "XDG desktop portal",
 	match = { class = "^xdg-desktop-portal-gtk$" },
 	float = true,
@@ -28,7 +37,7 @@ hl.window_rule({
 	name = "Pavucontrol",
 	match = { class = "^org.pulseaudio.pavucontrol$" },
 	float = true,
-	move = { "(monitor_w-710)", 50 },
+	move = { "monitor_w - 710", 50 },
 	pin = true,
 	size = { 700, 500 },
 })
