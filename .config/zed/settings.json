@@ -278,7 +278,9 @@
 
   // AI features
   "agent": {
-    "sidebar_side": "right",
+    "threads_sidebar": {
+      "position": "right"
+    },
     "dock": "right",
     "enable_feedback": false,
     "show_turn_stats": true,
