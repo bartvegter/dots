@@ -192,6 +192,10 @@ if grep "Color" /etc/pacman.conf; then
   if grep "^#Color" /etc/pacman.conf; then
     sudo sed -i "s/^#Color/Color/" /etc/pacman.conf
   fi
+  # nodejs and npm get installed through fnm
+  if grep "^#IgnorePkg" /etc/pacman.conf; then
+    sudo sed -i "s/^#IgnorePkg.*/IgnorePkg = nodejs npm/" /etc/pacman.conf
+  fi
   if ! grep "ILoveCandy" /etc/pacman.conf; then
     sudo sed -i "s/Color/Color\nILoveCandy/" /etc/pacman.conf
   fi
