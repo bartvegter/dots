@@ -146,4 +146,6 @@ show_label = false
 [widget.workspaces]
 active_pill_size = 2.5
 capsule = true
+change_color_on_hover = false
+empty_color = "on_surface_variant"
 style = "minimal"
