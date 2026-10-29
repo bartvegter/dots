@@ -105,6 +105,8 @@ THEME_PKGS=(
 
 DEV_PKGS=(
   android-tools
+  ansible
+  ansible-lint
   bruno-bin
   clang
   cmake
@@ -114,6 +116,8 @@ DEV_PKGS=(
   fnm
   fzf
   gitlab-ci-ls
+  go
+  golangci-lint
   hasura-cli-bin
   jdk-openjdk
   lazydocker
