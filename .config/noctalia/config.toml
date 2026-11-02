@@ -97,10 +97,14 @@ mode = "dark"
 source = "custom"
 wallpaper_scheme = "m3-content"
 
-
     [theme.templates]
     builtin_ids = [ "btop", "cava", "gtk3", "gtk4", "ghostty", "hyprland", "kcolorscheme", "qt" ]
     community_ids = [ "zen-browser", "hyprtoolkit", "papirus-icons", "lazygit" ]
+
+        [theme.templates.user.lazydocker]
+        input_path = "~/Projects/community-templates/lazydocker/lazydocker.yml"
+        output_path = "$XDG_CONFIG_HOME/lazydocker/themes/noctalia.yml"
+        post_hook = "bash /home/bart/Projects/community-templates/lazydocker/apply.sh"
 
 [wallpaper]
 transition = [ "disc" ]
@@ -148,4 +152,5 @@ active_pill_size = 2.5
 capsule = true
 change_color_on_hover = false
 empty_color = "on_surface_variant"
+show_tooltip = false
 style = "minimal"
