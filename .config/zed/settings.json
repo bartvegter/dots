@@ -2,6 +2,9 @@
   // Extensions
   "context_servers": {},
   "agent_servers": {
+    "opencode-v2": {
+      "type": "registry"
+    },
     "github-copilot-cli": {
       "type": "registry",
     },
