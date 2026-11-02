@@ -25,6 +25,8 @@
 
       "space d": "diagnostics::Deploy",
 
+      "space h": "editor::ToggleInlayHints",
+
       "space c c": "agent::ToggleFocus",
       "space c a": "editor::ToggleCodeActions",
       "space c i": "assistant::InlineAssist",
