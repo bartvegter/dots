@@ -16,7 +16,7 @@ hl.on("hyprland.start", function()
 	launchApp("udiskie")
 
 	launchAppDelayed("sone")
-	launchAppDelayed("webcord")
+	launchAppDelayed("vesktop")
 	launchAppDelayed("which netbird-ui && netbird-ui -daemon-addr 'unix:///var/run/netbird/main.sock'")
 
 	exec("gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3'")

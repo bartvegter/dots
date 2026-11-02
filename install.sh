@@ -153,8 +153,8 @@ USER_PKGS=(
   sone-bin
   syncthing
   ticktick
+  vesktop
   viewnior
-  webcord
   zen-browser-bin
 )
 
