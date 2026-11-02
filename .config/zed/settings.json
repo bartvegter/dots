@@ -3,7 +3,10 @@
   "context_servers": {},
   "agent_servers": {
     "opencode-v2": {
-      "type": "registry"
+      "default_config_options": {
+        "mode": "plan",
+      },
+      "type": "registry",
     },
     "github-copilot-cli": {
       "type": "registry",
@@ -98,9 +101,7 @@
   "format_on_save": "on",
   "show_whitespaces": "trailing",
   "completion_menu_item_kind": "symbol",
-  "inlay_hints": {
-    "enabled": true,
-  },
+  "inlay_hints": {},
   "code_lens": "menu",
   "middle_click_paste": false,
   "colorize_brackets": true,

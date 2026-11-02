@@ -27,12 +27,12 @@ gui:
     defaultFgColor:
       - "#fff1f3"
 os:
-  # edit: "zeditor -- {{filename}}"
-  # editAtLine: "zeditor -- {{filename}}:{{line}}"
-  # editAtLineAndWait: "zeditor --wait -- {{filename}}:{{line}}"
-  # openDirInEditor: "zeditor -- {{dir}}"
-  edit: "vscodium --reuse-window -- {{filename}}"
-  editAtLine: "vscodium --reuse-window --goto -- {{filename}}:{{line}}"
-  editAtLineAndWait: "vscodium --reuse-window --goto --wait -- {{filename}}:{{line}}"
-  openDirInEditor: "vscodium -- {{dir}}"
+  edit: "zeditor -- {{filename}}"
+  editAtLine: "zeditor -- {{filename}}:{{line}}"
+  editAtLineAndWait: "zeditor --wait -- {{filename}}:{{line}}"
+  openDirInEditor: "zeditor -- {{dir}}"
+  # edit: "vscodium --reuse-window -- {{filename}}"
+  # editAtLine: "vscodium --reuse-window --goto -- {{filename}}:{{line}}"
+  # editAtLineAndWait: "vscodium --reuse-window --goto --wait -- {{filename}}:{{line}}"
+  # openDirInEditor: "vscodium -- {{dir}}"
   editInTerminal: false

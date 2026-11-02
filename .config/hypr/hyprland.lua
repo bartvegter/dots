@@ -1,5 +1,5 @@
-EDITOR = "vscodium"
-EDITOR_ALT = "zeditor"
+EDITOR = "zeditor"
+EDITOR_ALT = "vscodium"
 TERMINAL = "ghostty"
 BROWSER = "zen-browser"
 FILE_BROWSER = "nautilus"
