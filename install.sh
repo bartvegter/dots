@@ -110,6 +110,7 @@ DEV_PKGS=(
   bruno-bin
   clang
   cmake
+  crossplane-gixy
   docker
   docker-compose
   docker-buildx
@@ -125,6 +126,7 @@ DEV_PKGS=(
   maven
   mtpfs
   neovim
+  nginx-language-server
   opencode
   pigz
   postgresql

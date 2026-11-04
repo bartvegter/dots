@@ -4,7 +4,7 @@
   "agent_servers": {
     "opencode-v2": {
       "default_config_options": {
-        "mode": "plan",
+        "mode": "build",
       },
       "type": "registry",
     },
@@ -21,6 +21,7 @@
     "dbml": true,
     "docker-compose": true,
     "dockerfile": true,
+    "emmet": true,
     "env": true,
     "ghostty": true,
     "git-firefly": true,
@@ -200,7 +201,7 @@
 
   "languages": {
     "Angular": {
-      "language_servers": ["angular"],
+      "language_servers": ["tailwindcss-language-server", "angular", "..."],
       "prettier": {
         "allowed": false,
       },
