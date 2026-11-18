@@ -4,7 +4,8 @@
   "agent_servers": {
     "opencode-v2": {
       "default_config_options": {
-        "mode": "build",
+        "effort": "default",
+        "mode": "plan",
       },
       "type": "registry",
     },
@@ -131,12 +132,13 @@
       "**playbook*.yaml",
       "**playbook*.yml",
     ],
+    "HTML": ["*.component.html"],
   },
 
   "lsp": {
     "angular": {
       "initialization_options": {
-        "angular_language_server_path": "~/.local/share/fnm/node-versions/v24.22.1/installation/lib/node_modules/@angular/language-server",
+        "angular_language_server_path": "~/.local/share/fnm/node-versions/v26.13.1/installation/lib/node_modules/@angular/language-server",
       },
     },
     "golangci-lint": {
@@ -155,14 +157,20 @@
       "settings": {
         "includeLanguages": {
           "svelte": "html",
+          "typescript": "html",
         },
+        "classAttributes": ["class", "className", "ngClass", "[class]"], // Angular specific
         "experimental": {
           "classRegex": [
+            // Svelte
             "class=\"([^\"]*)\"",
             "class='([^']*)'",
             "class:\\s*([^\\s{]+)",
             "\\{\\s*class:\\s*\"([^\"]*)\"",
             "\\{\\s*class:\\s*'([^']*)'",
+            // Angular
+            "\\.classList\\.(add|remove|toggle|contains|replace)\\(\\s*['\"]([^'\"]*)['\"]",
+            // TypeScript
             "\\.className\\s*[+]?=\\s*['\"]([^'\"]*)['\"]",
             "\\.setAttributeNS\\(.*,\\s*['\"]class['\"],\\s*['\"]([^'\"]*)['\"]",
             "\\.setAttribute\\(['\"]class['\"],\\s*['\"]([^'\"]*)['\"]",
@@ -197,6 +205,15 @@
         "formatterMode": "typstyle",
       },
     },
+    "vscode-css-language-server": {
+      "settings": {
+        "css": {
+          "lint": {
+            "unknownAtRules": "ignore",
+          },
+        },
+      },
+    },
   },
 
   "languages": {
@@ -217,20 +234,61 @@
         "!vscode-css-language-server",
         "...",
       ],
+      "prettier": {
+        "allowed": false,
+      },
+      "formatter": {
+        "language_server": { "name": "tailwindcss-intellisense-css" }
+      },
+      "tab_size": 4,
+      "ensure_final_newline_on_save": false
+    },
+    "SCSS": {
+      "language_servers": [
+        "vscode-css-language-server",
+        "tailwindcss-language-server",
+        "..."
+      ],
+      "prettier": {
+        "allowed": false,
+      },
+      "formatter": {
+        "language_server": { "name": "vscode-css-language-server" }
+      },
+      "tab_size": 4,
+      "ensure_final_newline_on_save": false
     },
     "Go": {
       "language_servers": ["gopls", "golangci-lint"],
     },
     "HTML": {
-      "language_servers": ["angular", "vscode-html-language-server"],
+      "language_servers": [
+        "tailwindcss-language-server",
+        "angular",
+        "vscode-html-language-server",
+        "...",
+      ],
+      "prettier": {
+        "allowed": false,
+      },
+      "formatter": {
+        "language_server": { "name": "angular" },
+      },
+      "tab_size": 4,
+      "ensure_final_newline_on_save": false,
     },
     "JavaScript": {
       "code_actions_on_format": {
         "source.fixAll.eslint": true,
       },
     },
+    "JSON": {
+      "prettier": {
+        "tabWidth": 4,
+      },
+      "tab_size": 4,
+    },
     "Lua": {
-      "format_on_save": "on",
       "formatter": {
         "external": {
           "command": "stylua",
