@@ -1,8 +1,9 @@
 local mainMod = "SUPER + "
 local ipc = "noctalia msg "
+local uwsm = "uwsm app -- "
 
 local launchApp = function(app)
-	return hl.dsp.exec_cmd("uwsm app -- " .. app)
+	return hl.dsp.exec_cmd(uwsm .. app)
 end
 
 local exec = function(cmd)
@@ -15,6 +16,10 @@ hl.bind(mainMod .. "V", exec(ipc .. "panel-toggle clipboard"))
 hl.bind(mainMod .. "M", exec(ipc .. "panel-toggle control-center"))
 hl.bind(mainMod .. "SHIFT + M", exec(ipc .. "panel-toggle session"))
 hl.bind(mainMod .. "N", exec(ipc .. "session lock"))
+hl.bind(
+	mainMod .. "SHIFT + N",
+	exec("pkill noctalia | true && hyprctl dispatch 'hl.exec_cmd(\"" .. uwsm .. "noctalia\")'")
+)
 hl.bind(mainMod .. "comma", exec(ipc .. "settings-toggle"))
 
 hl.bind(mainMod .. "RETURN", launchApp(TERMINAL))
