@@ -8,6 +8,7 @@ BASE_PKGS=(
   bluetui
   bluez-utils
   btrfs-progs
+  cachyos-recovery
   cdrtools
   cups
   ddcutil
