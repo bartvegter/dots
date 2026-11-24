@@ -73,7 +73,7 @@ position_vertical = "center_right"
 enabled = []
 
 [shell]
-font_family = "JetBrainsMono NF"
+font_family = "Geist"
 polkit_agent = true
 
     [shell.greeter_sync]
@@ -97,15 +97,9 @@ mode = "dark"
 source = "custom"
 wallpaper_scheme = "m3-content"
 
-
     [theme.templates]
     builtin_ids = [ "btop", "cava", "gtk3", "gtk4", "ghostty", "hyprland", "kcolorscheme", "qt" ]
-    community_ids = [ "zen-browser", "discord", "hyprtoolkit", "papirus-icons", "lazygit" ]
-
-        [theme.templates.user.lazydocker]
-        input_path = "~/Projects/community-templates/lazydocker/lazydocker.yml"
-        output_path = "$XDG_CONFIG_HOME/lazydocker/themes/noctalia.yml"
-        post_hook = "bash /home/bart/Projects/community-templates/lazydocker/apply.sh"
+    community_ids = [ "sone", "zen-browser", "discord", "hyprtoolkit", "papirus-icons", "lazygit", "lazydocker" ]
 
 [wallpaper]
 transition = [ "disc" ]
