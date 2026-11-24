@@ -121,7 +121,7 @@ DEV_PKGS=(
   go
   golangci-lint
   hasura-cli-bin
-  jdk-openjdk
+  jdk-temurin
   lazydocker
   lazygit
   maven

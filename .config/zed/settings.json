@@ -223,7 +223,6 @@
         "allowed": false,
       },
       "tab_size": 4,
-      "ensure_final_newline_on_save": false,
     },
     "Ansible": {
       "semantic_tokens": "combined",
@@ -241,7 +240,6 @@
         "language_server": { "name": "tailwindcss-intellisense-css" }
       },
       "tab_size": 4,
-      "ensure_final_newline_on_save": false
     },
     "SCSS": {
       "language_servers": [
@@ -256,7 +254,6 @@
         "language_server": { "name": "vscode-css-language-server" }
       },
       "tab_size": 4,
-      "ensure_final_newline_on_save": false
     },
     "Go": {
       "language_servers": ["gopls", "golangci-lint"],
@@ -275,7 +272,6 @@
         "language_server": { "name": "angular" },
       },
       "tab_size": 4,
-      "ensure_final_newline_on_save": false,
     },
     "JavaScript": {
       "code_actions_on_format": {
@@ -321,8 +317,10 @@
       "prettier": {
         "allowed": false,
       },
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true,
+      },
       "tab_size": 4,
-      "ensure_final_newline_on_save": false,
     },
   },
 

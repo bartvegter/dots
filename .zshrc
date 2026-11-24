@@ -78,7 +78,3 @@ eval "$(fnm env --shell zsh)"
 # ══════════════════════════════════════════════
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-
-# Load Angular CLI autocompletion.
-source <(ng completion script)
