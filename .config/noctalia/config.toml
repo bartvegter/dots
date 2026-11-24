@@ -73,7 +73,7 @@ position_vertical = "center_right"
 enabled = []
 
 [shell]
-font_family = "Geist"
+font_family = "SF Pro"
 polkit_agent = true
 
     [shell.greeter_sync]

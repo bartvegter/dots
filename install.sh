@@ -93,6 +93,7 @@ THEME_PKGS=(
   noto-fonts-cjk
   noto-fonts-emoji
   noto-fonts-extra
+  otf-apple-sf-pro
   otf-geist
   otf-geist-mono-nerd
   otf-libertinus
