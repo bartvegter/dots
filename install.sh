@@ -385,6 +385,9 @@ if [[ "$(basename "$SHELL")" != "zsh" ]]; then
   chsh -s "$(command -v zsh)"
 fi
 
+printf "\n:: Enabling the Proton Pass (CLI) SSH agent..."
+systemctl --user enable --now proton-pass-ssh-agent.service
+
 printf "\n:: Replacing wpa_supplicant with iwd as default wifi backend for NetworkManager...\n"
 sudo cp "$HOME/dots/etc/NetworkManager/conf.d/iwd.conf" "/etc/NetworkManager/conf.d/iwd.conf"
 sudo systemctl stop NetworkManager.service
