@@ -93,6 +93,8 @@ THEME_PKGS=(
   noto-fonts-cjk
   noto-fonts-emoji
   noto-fonts-extra
+  otf-geist
+  otf-geist-mono-nerd
   otf-libertinus
   papirus-icon-theme
   qt6-declarative

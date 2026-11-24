@@ -2,12 +2,8 @@
   // Extensions
   "context_servers": {},
   "agent_servers": {
-    "opencode-v2": {
-      "default_config_options": {
-        "effort": "default",
-        "mode": "plan",
-      },
-      "type": "registry",
+    "opencode": {
+      "type": "registry"
     },
     "github-copilot-cli": {
       "type": "registry",
@@ -73,6 +69,7 @@
   "icon_theme": "Colored Zed Icons Theme Dark",
   "buffer_font_family": "JetBrainsMonoNL Nerd Font Mono",
   "buffer_font_size": 14.0,
+  // "ui_font_family": "Geist",
   "ui_font_size": 16.0,
   "cursor_animation": {
     "enabled": true,
@@ -237,7 +234,7 @@
         "allowed": false,
       },
       "formatter": {
-        "language_server": { "name": "tailwindcss-intellisense-css" }
+        "language_server": { "name": "tailwindcss-intellisense-css" },
       },
       "tab_size": 4,
     },
@@ -245,13 +242,13 @@
       "language_servers": [
         "vscode-css-language-server",
         "tailwindcss-language-server",
-        "..."
+        "...",
       ],
       "prettier": {
         "allowed": false,
       },
       "formatter": {
-        "language_server": { "name": "vscode-css-language-server" }
+        "language_server": { "name": "vscode-css-language-server" },
       },
       "tab_size": 4,
     },
