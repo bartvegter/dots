@@ -2,7 +2,7 @@ EDITOR = "zeditor"
 EDITOR_ALT = "vscodium"
 TERMINAL = "ghostty"
 BROWSER = "zen-browser"
-FILE_BROWSER = "nautilus"
+FILE_BROWSER = "luciole"
 
 WALLPAPER = "~/wallpapers/fog_forest.png"
 

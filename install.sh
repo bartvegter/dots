@@ -21,6 +21,7 @@ BASE_PKGS=(
   ghostty
   gnome-keyring
   gvfs
+  gvfs-dnssd
   gvfs-mtp
   gvfs-nfs
   gvfs-smb
@@ -30,6 +31,7 @@ BASE_PKGS=(
   hunspell-nl
   hyprland
   hyprpicker
+  imagemagick
   kde-cli-tools
   less
   libgepub
@@ -37,10 +39,8 @@ BASE_PKGS=(
   libnotify
   libopenraw
   libva-utils
+  luciole-git
   man-db
-  nautilus
-  nautilus-image-converter
-  nautilus-share
   nfs-utils
   noctalia
   noctalia-greeter
@@ -76,6 +76,7 @@ BASE_PKGS=(
   wtype
   xdg-desktop-portal-gtk
   xdg-desktop-portal-hyprland
+  xdg-terminal-exec
   xfsprogs
   xorg-xhost
   zip

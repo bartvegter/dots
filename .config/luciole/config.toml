@@ -1,0 +1,6 @@
+[browser]
+always_show_tab_bar = false
+chooser_show_hidden = true
+compact_menus = false
+remember_folder_views = true
+show_hidden = true
