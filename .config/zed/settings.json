@@ -3,6 +3,10 @@
   "context_servers": {},
   "agent_servers": {
     "opencode": {
+      "default_config_options": {
+        "effort": "default",
+        "mode": "plan"
+      },
       "type": "registry"
     },
     "github-copilot-cli": {
