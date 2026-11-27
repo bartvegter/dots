@@ -1,0 +1,127 @@
+[keybinds]
+
+# Session
+"Mod+Q" = { action = "window-close", repeat = false }
+"Mod+Escape" = "session-quit"
+"Mod+Shift+Escape" = { action = "shortcuts-inhibit-toggle", allow_when_inhibited = true, repeat = false }
+
+# Application
+"Mod+Return" = { action = "spawn ghostty", repeat = false }
+"Mod+E" = { action = "spawn luciole", repeat = false }
+"Mod+B" = { action = "spawn zen-browser", repeat = false }
+"Mod+C" = { action = "spawn zeditor", repeat = false }
+"Mod+Shift+C" = { action = "spawn vscodium", repeat = false }
+
+# Noctalia specifics
+"Mod" = "spawn noctalia msg panel-toggle launcher"
+"Mod+V" = "spawn noctalia msg panel-toggle clipboard"
+"Mod+M" = "spawn noctalia msg panel-toggle control-center"
+"Mod+Shift+M" = "spawn noctalia msg panel-toggle session"
+"Mod+N" = "spawn noctalia msg session-lock"
+"Mod+S" = "spawn noctalia msg screenshot-region"
+"Mod+Shift+S" = "spawn noctalia msg screenshot-window"
+"Mod+Ctrl+S" = "spawn noctalia msg screenshot-fullscreen"
+
+# Noctalia media, volume and brightness management
+"XF86AudioRaiseVolume" = { action = "spawn noctalia msg volume-up", allow_when_locked = true }
+"XF86AudioLowerVolume" = { action = "spawn noctalia msg volume-down", allow_when_locked = true }
+"XF86AudioMicMute" = { action = "spawn noctalia msg mic-mute", allow_when_locked = true, repeat = false }
+"XF86AudioMute" = { action = "spawn noctalia msg volume-mute", allow_when_locked = true, repeat = false }
+"XF86AudioPlay" = { action = "spawn noctalia msg media toggle", allow_when_locked = true, repeat = false }
+"XF86AudioNext" = { action = "spawn noctalia msg media next", allow_when_locked = true }
+"XF86AudioPrev" = { action = "spawn noctalia msg media previous", allow_when_locked = true }
+"XF86MonBrightnessUp" = { action = "spawn noctalia msg brightness-up", allow_when_locked = true }
+"XF86MonBrightnessDown" = { action = "spawn noctalia msg brightness-down", allow_when_locked = true }
+
+# Lofree Flow keyboard binds (needs fix for XF86Fn key - bad chord error)
+# "XF86Fn+Insert" = { action = "spawn noctalia msg volume-mute", allow_when_locked = true, repeat = false }
+# "XF86Fn+F10" = { action = "spawn noctalia msg mic-mute", allow_when_locked = true, repeat = false }
+# "XF86Fn+F11" = { action = "spawn noctalia msg volume-down", allow_when_locked = true }
+# "XF86Fn+F12" = { action = "spawn noctalia msg volume-up", allow_when_locked = true }
+
+# Focus and movement
+"Mod+Left" = "window-focus-left"
+"Mod+Down" = "window-focus-down"
+"Mod+Up" = "window-focus-up"
+"Mod+Right" = "window-focus-right"
+"Mod+H" = "window-focus-left"
+"Mod+J" = "window-focus-down"
+"Mod+K" = "window-focus-up"
+"Mod+L" = "window-focus-right"
+"Mod+F1" = "window-focus-next"
+
+"Mod+Shift+Left" = "column-move-left"
+"Mod+Shift+Down" = "window-move-down"
+"Mod+Shift+Up" = "window-move-up"
+"Mod+Shift+Right" = "column-move-right"
+
+# Window state and layout
+"Mod+O" = { action = "overview-toggle", repeat = false }
+
+"Mod+T" = { action = "window-toggle-floating", repeat = false }
+"Mod+Shift+T" = { action = "window-focus-switch-floating", repeat = false }
+"Mod+P" = { action = "window-toggle-pinned", repeat = false }
+"Mod+F" = { action = "window-toggle-fullscreen", repeat = false }
+"Mod+Shift+F" = { action = "window-toggle-maximize", repeat = false }
+"Mod+Ctrl+F" = { action = "window-toggle-maximize-to-edges", repeat = false }
+
+"Mod+R" = "window-cycle-primary-extent"
+"Mod+Shift+R" = "window-cycle-primary-extent-back"
+"Mod+Minus" = "window-modify-primary-extent -0.02"
+"Mod+Equal" = "window-modify-primary-extent +0.02"
+"Mod+Shift+Minus" = "window-modify-secondary-extent -0.02"
+"Mod+Shift+Equal" = "window-modify-secondary-extent +0.02"
+
+"Mod+Comma" = "window-consume-left"
+"Mod+Period" = "window-consume-right"
+"Mod+Shift+Comma" = "window-consume-from-left"
+"Mod+Shift+Period" = "window-consume-from-right"
+# Needs layout.mode = "dwindle".
+# "Mod+Alt+T" = "layout-toggle-split"
+"Mod+W" = { action = "column-toggle-tabbed", repeat = false }
+"Mod+Alt+Left" = "column-focus-tab-previous"
+"Mod+Alt+Right" = "column-focus-tab-next"
+"Mod+Alt+H" = "column-focus-tab-previous"
+"Mod+Alt+L" = "column-focus-tab-next"
+
+"Mod+WheelUp" = "window-focus-left"
+"Mod+WheelDown" = "window-focus-right"
+"Mod+bracketleft" = "window-focus-left"
+"Mod+bracketright" = "window-focus-right"
+
+# Workspaces
+"Mod+1" = "workspace-switch 1"
+"Mod+2" = "workspace-switch 2"
+"Mod+3" = "workspace-switch 3"
+"Mod+4" = "workspace-switch 4"
+"Mod+5" = "workspace-switch 5"
+"Mod+6" = "workspace-switch 6"
+"Mod+7" = "workspace-switch 7"
+"Mod+8" = "workspace-switch 8"
+"Mod+9" = "workspace-switch 9"
+
+"Mod+Shift+1" = "window-move-to-workspace 1"
+"Mod+Shift+2" = "window-move-to-workspace 2"
+"Mod+Shift+3" = "window-move-to-workspace 3"
+"Mod+Shift+4" = "window-move-to-workspace 4"
+"Mod+Shift+5" = "window-move-to-workspace 5"
+"Mod+Shift+6" = "window-move-to-workspace 6"
+"Mod+Shift+7" = "window-move-to-workspace 7"
+"Mod+Shift+8" = "window-move-to-workspace 8"
+"Mod+Shift+9" = "window-move-to-workspace 9"
+
+"Mod+Ctrl+1" = "workspace-move-to-output 1"
+"Mod+Ctrl+2" = "workspace-move-to-output 2"
+"Mod+Ctrl+3" = "workspace-move-to-output 3"
+"Mod+Ctrl+4" = "workspace-move-to-output 4"
+"Mod+Ctrl+5" = "workspace-move-to-output 5"
+"Mod+Ctrl+6" = "workspace-move-to-output 6"
+"Mod+Ctrl+7" = "workspace-move-to-output 7"
+"Mod+Ctrl+8" = "workspace-move-to-output 8"
+"Mod+Ctrl+9" = "workspace-move-to-output 9"
+
+# Scratchpad
+"Mod+Space" = "scratchpad-toggle"
+"Mod+Shift+Space" = { action = "window-move-to-scratchpad", repeat = false }
+"Mod+Ctrl+Space" = { action = "window-restore-from-scratchpad", repeat = false }
+"Mod+Tab" = "scratchpad-focus-next"

@@ -17,7 +17,6 @@ BASE_PKGS=(
   exfatprogs
   e2fsprogs
   ffmpegthumbnailer
-  file-roller
   ghostty
   gnome-keyring
   gvfs
@@ -29,10 +28,7 @@ BASE_PKGS=(
   hunspell-en_GB
   hunspell-en_US
   hunspell-nl
-  hyprland
-  hyprpicker
   imagemagick
-  kde-cli-tools
   less
   libgepub
   libgnome-keyring
@@ -47,7 +43,6 @@ BASE_PKGS=(
   noctalia-greeter
   ntfsprogs
   openssh
-  pamixer
   playerctl
   pipewire
   poppler-glib
@@ -58,6 +53,7 @@ BASE_PKGS=(
   qt6ct-kde
   rocm-smi-lib
   seahorse
+  slurp
   speech-dispatcher
   starship
   sushi
@@ -65,18 +61,17 @@ BASE_PKGS=(
   trash-cli
   tumbler
   udiskie
+  umbriel
   unrar
   unzip
-  uwsm
   vim
   webp-pixbuf-loader
   wf-recorder
   wireplumber
   wl-clip-persist
   wl-clipboard
-  wtype
   xdg-desktop-portal-gtk
-  xdg-desktop-portal-hyprland
+  xdg-desktop-portal-umbriel
   xdg-terminal-exec
   xfsprogs
   xorg-xhost
@@ -100,9 +95,9 @@ THEME_PKGS=(
   otf-geist-mono-nerd
   otf-libertinus
   papirus-icon-theme
-  qt6-declarative
   qt5-quickcontrols2
   qt5-svg
+  qt6-declarative
   qt6-svg
   ttf-aptos
   ttf-jetbrains-mono-nerd
@@ -116,7 +111,6 @@ DEV_PKGS=(
   bruno-bin
   clang
   cmake
-  crossplane-gixy
   docker
   docker-compose
   docker-buildx
@@ -402,7 +396,7 @@ sudo systemctl enable --now iwd.service
 
 printf "\n:: Installation complete\n"
 while true; do
-  read -rp ">> Would you like to reboot into Hyprland? [Y/n]: " yn_reboot
+  read -rp ">> Would you like to reboot into Umbriel? [Y/n]: " yn_reboot
   case $yn_reboot in
   "" | "Y" | "y")
     printf ":: Rebooting system...\n"
@@ -411,7 +405,7 @@ while true; do
     ;;
 
   "N" | "n")
-    printf ":: When ready, run 'systemctl reboot' to reboot into Hyprland\n"
+    printf ":: When ready, run 'systemctl reboot' to reboot into Umbriel\n"
     break
     ;;
 

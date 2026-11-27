@@ -1,0 +1,214 @@
+# Complete reference: https://docs.noctalia.dev/umbriel/
+#
+# Check edits with `umbriel config validate`.
+#
+# Commented settings below are examples, not built-in defaults.
+
+# ==============================================================================
+# Includes
+#
+[include]
+files = [
+  "modules/appearance.toml",
+  "modules/environment.toml",
+  "modules/keybinds.toml",
+  "modules/windowrules.toml"
+]
+
+[include.optional]
+files = [
+  "noctalia.toml"
+]
+
+# ==============================================================================
+# General
+# Optional session examples. XWayland support is enabled by default.
+# https://docs.noctalia.dev/umbriel/configuration/#general
+#
+[general]
+autostart = [
+  "noctalia",
+  "syncthingtray-qt6 --wait",
+  "udiskie",
+  "vesktop",
+  "which netbird-ui && netbird-ui -daemon-addr 'unix:///var/run/netbird/main.sock'",
+  "gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3'",
+  "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'",
+  "gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'",
+  "busctl call org.freedesktop.Accounts /org/freedesktop/Accounts/User1000 org.freedesktop.Accounts.User SetIconFile s ~/.face"
+]
+mod_key = "Super"
+xwayland_native_resolution = true
+focus_on_activate = true
+
+
+# ==============================================================================
+# Lid events
+# Remove the laptop panel from the desktop while the lid is closed, then
+# restore it when the lid opens. Replace eDP-1 with the name from
+# `umbriel outputs`.
+# https://docs.noctalia.dev/umbriel/configuration/#events
+#
+[events]
+lid_close = "umbriel msg output-disable eDP-1"
+lid_open = "umbriel msg output-enable eDP-1"
+
+# ==============================================================================
+# Outputs
+# Outputs are machine-specific. Run `umbriel outputs` to find names and modes.
+# https://docs.noctalia.dev/umbriel/outputs/
+
+# Laptop screen
+[output.eDP-1]
+focus_at_startup = true
+mode = "2560x1600@90"
+position = [0, 0]
+scale = 1.333333
+
+# Desktop screen (needs conditional checking for when using as external laptop monitor)
+[output."Microstep MSI MAG274QRF CA8A201200443"]
+focus_at_startup = true
+mode = "2560x1440@165"
+position = [0, 0]
+vrr = "fullscreen"
+
+# Office monitors
+[output."LG Electronics BK550Y 012NTBK8G957"]
+mode = "1920x1080@60"
+position = [-960, -1080]
+
+[output."Samsung Electric Company LF24T450F HK7X400732"]
+mode = "1920x1080@75"
+position = [960, -1080]
+
+# ==============================================================================
+# Input
+# Enable NumLock for the first physical keyboard; later devices inherit current locks.
+# https://docs.noctalia.dev/umbriel/input/
+#
+[input]
+middle_click_paste = false
+
+[input.keyboard]
+numlock_toggle = true
+layout = "us"
+variant = "altgr-intl"
+
+[input.touchpad]
+accel_profile = "flat"
+sensitivity = 1.0
+
+[input.mouse]
+sensitivity = 0.0
+
+[input.focus]
+follows_mouse = "sloppy"
+
+[input.cursor]
+# Commented to follow XCURSOR_THEME env var - uncomment to override here
+# theme = "Bibata-Modern-Classic"
+size = 22
+hardware_cursor = true
+follows_focus = true
+
+# ==============================================================================
+# Layout
+# New scrolling-layout windows start at half the output width. Without this
+# setting, each application chooses its starting width. Stacked columns retain
+# their most recently focused row when focus leaves and later returns.
+# https://docs.noctalia.dev/umbriel/layout/
+[layout]
+mode = "scrolling" # "scrolling", "dwindle", "master", or "stacking".
+extent_presets = [0.333, 0.5, 0.667]
+
+# What a tiled window's own maximize button does: "column" fills the column,
+# "edges" fills the usable area without struts, gaps, or borders. The
+# window-toggle-maximize action is unaffected.
+# client_maximize = "column"
+
+[layout.stacking]
+# drop_zones = false # Disable edge and corner drop zones when dragging in the stacking layout.
+
+[layout.scrolling]
+default_extent_fraction = 0.5
+# Center the window picked in the overview, as column-center would.
+# center_on_overview_select = true
+
+# A tab group shows one window at a time below a bar of titles, and stacks and
+# resizes like any row of its column. Mod+W tabs the focused window with the
+# windows stacked beside it; Mod+Shift+J/K move a tab out of its group or a
+# window into one. Click, scroll, or drag a title to switch, reorder, or pull it
+# out.
+# [layout.tabs]
+# default_display = "normal"
+# new_tab_position = "after_active"
+# middle_click_closes = true
+#
+# [appearance.tab_bar]
+# style = "titles"         # "indicator" draws thin slots without titles
+# height = 24
+# gap = -1                 # space between bar and window; -1 follows layout.gap
+# font = "sans 10"
+# visible = true           # false hides every bar; tabs keep working
+# hide_when_single = false
+# max_tabs = 6            # show at most 6 slots; more tabs scroll
+# overflow = "scroll"      # or "shrink" to fit every tab
+
+# ==============================================================================
+# Layer rules
+# https://docs.noctalia.dev/umbriel/layer-rules/
+[[layer_rule]]
+match.namespace = "^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd|desktop-widget-[^\"]*)$"
+blur = true
+blur_ignore_alpha = 0.5
+blur_popups = true
+
+# Panels, the dock, notifications and OSDs open over windows, so they blur the
+# live content behind them. The bar and desktop widgets sit on the wallpaper and
+# keep the cached wallpaper blur.
+[[layer_rule]]
+match.namespace = "^noctalia-(notification|dock|panel|attached-panel|osd)$"
+blur_optimized = false
+
+# ==============================================================================
+# Overview
+# Built-in overview and animation values are used. The top-left hot corner opens
+# the overview after a short delay.
+# Overview: https://docs.noctalia.dev/umbriel/workspaces-overview/
+# Animation: https://docs.noctalia.dev/umbriel/animation/
+[hot_corners.top_left]
+enabled = true
+delay_ms = 500
+action = "overview-open"
+
+# Window-rule opacity and blur fade on focus changes by default. Disable this
+# independently of border fades, or choose its own duration and curve.
+# [animation.windows_opacity]
+# enabled = true
+# curve = "spring:1,900"
+# duration_ms = 250 # For non-spring curves; a spring sets its own length.
+
+# Without a size animation, a resized window shows its stretched old frame until
+# it redraws. Wait for the redraws instead (at most 150 ms), then switch to the
+# new layout in one frame.
+# [animation.windows_resize]
+# enabled = false
+# wait_for_redraw = true
+
+# Optional live workspace reveal (see docs/user/animation.md).
+# Add the bundled effects/animation/workspace_wipe/effect.toml to your includes.
+# [animation.workspaces]
+# style = "reveal"          # Default: "slide"
+# effect = "workspace_wipe"
+# duration_ms = 300
+# curve = "easeout"
+
+# Shade over a window while a modal dialog is attached to it.
+# [animation.dialogs]
+# dim = 0.3
+
+# Darken the output below a launcher while it is visible:
+# [[layer_rule]]
+# match.namespace = "^vicinae$"
+# dim_behind = 0.5
+# Window rules accept dim_behind too; see docs/user/window-rules.md.

@@ -70,7 +70,7 @@ offset_y = 12
 position_vertical = "center_right"
 
 [plugins]
-enabled = []
+enabled = [ "cleboost/zed-provider" ]
 
 [shell]
 font_family = "SF Pro"
@@ -98,7 +98,7 @@ source = "custom"
 wallpaper_scheme = "m3-content"
 
     [theme.templates]
-    builtin_ids = [ "btop", "cava", "gtk3", "gtk4", "ghostty", "hyprland", "kcolorscheme", "luciole", "qt" ]
+    builtin_ids = [ "btop", "cava", "gtk3", "gtk4", "ghostty", "hyprland", "kcolorscheme", "luciole", "qt", "umbriel" ]
     community_ids = [ "sone", "zen-browser", "discord", "hyprtoolkit", "papirus-icons", "lazygit", "lazydocker" ]
 
 [wallpaper]
@@ -110,10 +110,16 @@ transition = [ "disc" ]
     [wallpaper.last]
     path = "/home/bart/Pictures/Wallpapers/mountain_lake.png"
 
-    [wallpaper.monitors.eDP-1]
+    [wallpaper.monitors.DP-1]
     path = "/home/bart/Pictures/Wallpapers/mountain_lake.png"
 
     [wallpaper.monitors.DP-3]
+    path = "/home/bart/Pictures/Wallpapers/mountain_lake.png"
+
+    [wallpaper.monitors.HDMI-A-1]
+    path = "/home/bart/Pictures/Wallpapers/mountain_lake.png"
+
+    [wallpaper.monitors.eDP-1]
     path = "/home/bart/Pictures/Wallpapers/mountain_lake.png"
 
 [weather]
