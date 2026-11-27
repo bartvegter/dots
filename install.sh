@@ -38,6 +38,7 @@ BASE_PKGS=(
   libgnome-keyring
   libnotify
   libopenraw
+  libultrahdr
   libva-utils
   luciole-git
   man-db
